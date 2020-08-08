@@ -2,6 +2,12 @@
 #ifndef PLATFORM_H
 #define PLATFORM_H
 
+// Debug build flag
+#if defined(DEBUG) || defined(_DEBUG)
+#define ENGINE_DEBUG
+#endif
+
+// API Export
 #if defined(NO_EXPORT)
 #define ENGINE_API 
 #else
