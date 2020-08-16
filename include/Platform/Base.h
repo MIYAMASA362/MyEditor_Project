@@ -1,6 +1,6 @@
 #pragma once
-#ifndef PLATFORM_H
-#define PLATFORM_H
+#ifndef PLATFORM_BASE_H
+#define PLATFORM_BASE_H
 
 // Debug build flag
 #if defined(DEBUG) || defined(_DEBUG)
@@ -72,4 +72,4 @@ using uptr = uintptr_t;
 
 #define EXPLICIT explicit
 
-#endif	// ifndef PLATFORM_H
+#endif	// ifndef PLATFORM_BASE_H

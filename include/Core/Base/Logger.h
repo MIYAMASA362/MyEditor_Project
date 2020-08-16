@@ -47,7 +47,7 @@ namespace Core
 		/**
 		*	@brief ƒƒO‚Ì’Ê’mƒŒƒxƒ‹
 		*/
-		class LogLevel
+		class LogLevel final
 		{
 		public:
 			enum Severity
