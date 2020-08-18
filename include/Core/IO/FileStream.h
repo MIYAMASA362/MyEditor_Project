@@ -10,28 +10,24 @@ namespace Core
 	*/
 	enum class FileMode
 	{
-		None = 0x00,				//İ’è‚È‚µ
-		Read = 0x01,				//“Ç‚İ‚İ
-		Write = 0x02,				//‘‚«‚İ
+		None = 0,			//İ’è‚È‚µ
+		Read = 1 << 0,		//“Ç‚İ‚İ
+		Write = 1 << 1,		//‘‚«‚İ
+		Create = 1 << 2,		//V‹Kì¬
 		ReadWrite = Read | Write,	//“Ç‚İ‘‚«
-		Create = 0x04,
 	};
 
-	static FileMode operator|(FileMode a, FileMode b)
+	constexpr FileMode operator&(FileMode a,FileMode b)
 	{
-		return static_cast<FileMode>(static_cast<u64>(a) | static_cast<u64>(b));
-	}
-
-	static FileMode operator&(FileMode a, FileMode b)
-	{
-		return static_cast<FileMode>(static_cast<u64>(a) & static_cast<u64>(b));
-	}
+		return static_cast<FileMode>(static_cast<u8>(a) & static_cast<u8>(b));
+	};
+	
 
 	/**
 	*	@brief FileSeek
 	*
 	*/
-	enum class FileSeek
+	enum FileSeek
 	{
 		Begin,			//æ“ª
 		Cursor,			//Œ»İ

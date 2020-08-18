@@ -1,4 +1,11 @@
-#include"Core/IO/Common.h"
+#include<iostream>
+#include<fstream>
+
+#include"Core/Common.h"
+
+#include"Core/Base/Logger.h"
+#include"Core/Base/Result.h"
+
 #include"Core/IO/FileStream.h"
 
 namespace Core

@@ -2,12 +2,14 @@
 #ifndef PLATFORM_H
 #define PLATFORM_H
 
-// ENGINE_APIの無効フラグ 
-#define NO_EXPORT
+#include"Platform/Common.h"
 
-// Loggerの機能を無効フラグ Log名前空間の使用禁止
-//#define DISABLE_LOGGING
+#include"Platform/Base/ISystem.h"
+#include"Platform/Base/IWindow.h"
 
-#include"Platform/Base.h"
+#if defined(ENGINE_WIN32)
+#include"Platform/Windows/Window.h"
+
+#endif //if defined(ENGINE_WIN32)
 
 #endif //ifndef PLATFORM_H
