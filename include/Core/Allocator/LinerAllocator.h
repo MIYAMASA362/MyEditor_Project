@@ -17,9 +17,9 @@ namespace Core
 		EXPLICIT LinerAllocator(size_t size, const void * memory);
 		virtual ~LinerAllocator();
 
-		virtual void* allocate(size_t size, u8 alignment) override;
-		virtual void free(void* p) override;
-		virtual void clear() override;
+		virtual void* Allocate(size_t size, u8 alignment) override;
+		virtual void Free(void* p) override;
+		virtual void Clear() override;
 	}; //class LinerAllocator
 
 }// namespace Core

@@ -20,9 +20,9 @@ namespace Core
 		EXPLICIT StackAllocator(size_t size, const void* address);
 		virtual ~StackAllocator();
 
-		virtual void* allocate(size_t size, u8 alignment) override;
-		virtual void free(void* memory) override;
-		virtual void clear() override;
+		virtual void* Allocate(size_t size, u8 alignment) override;
+		virtual void Free(void* memory) override;
+		virtual void Clear() override;
 
 	};// class StackAllocator
 
@@ -43,9 +43,9 @@ namespace Core
 		EXPLICIT InvStackAllocator(size_t size, const void* address);
 		virtual ~InvStackAllocator();
 
-		virtual void* allocate(size_t size, u8 alignment) override;
-		virtual void free(void* memory) override;
-		virtual void clear() override;
+		virtual void* Allocate(size_t size, u8 alignment) override;
+		virtual void Free(void* memory) override;
+		virtual void Clear() override;
 
 	};// class InvStackAllocator
 

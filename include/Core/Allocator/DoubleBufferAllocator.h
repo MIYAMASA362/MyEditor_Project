@@ -20,9 +20,9 @@ namespace Core
 		EXPLICIT DoubleBufferAllocator(size_t size, const void* address);
 		virtual ~DoubleBufferAllocator();
 
-		void* allocate(size_t size);
-		void free(void* p);
-		void clear();
+		void* Allocate(size_t size);
+		void Free(void* p);
+		void Clear();
 
 		void swapBuffers();
 		void clearCurrentBuffer();

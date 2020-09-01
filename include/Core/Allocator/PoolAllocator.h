@@ -21,9 +21,9 @@ namespace Core
 		EXPLICIT PoolAllocator(size_t size, const void* memory, size_t object_size, u8 alignment);
 		virtual ~PoolAllocator();
 
-		virtual void* allocate(size_t size, u8 alignment) override;
-		virtual void free(void* p) override;
-		virtual void clear() override;
+		virtual void* Allocate(size_t size, u8 alignment) override;
+		virtual void Free(void* p) override;
+		virtual void Clear() override;
 
 	};// class PoolAllocator
 

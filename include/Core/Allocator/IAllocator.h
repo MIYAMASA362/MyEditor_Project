@@ -81,9 +81,9 @@ namespace Core
 			virtual ~IAllocator() 
 			{}
 
-			virtual void* allocate(size_t size, uint8_t alignment) PURE;
-			virtual void free(void* p) PURE;
-			virtual void clear() PURE;
+			virtual void* Allocate(size_t size, uint8_t alignment) PURE;
+			virtual void Free(void* p) PURE;
+			virtual void Clear() PURE;
 
 			/*
 			*	Acceser
