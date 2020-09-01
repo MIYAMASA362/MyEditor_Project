@@ -2,9 +2,6 @@
 #ifndef CORE_H
 #define CORE_H
 
-// Core Common
-#include"Core/Common.h"
-
 // Core Base
 #include"Core/Base/BitFlags.h"
 #include"Core/Base/Logger.h"
@@ -19,7 +16,6 @@
 #include"Core/Allocator/DoubleBufferAllocator.h"
 
 // IO
-#include"Core/IO/Common.h"
 #include"Core/IO/FileStream.h"
 
 // Module

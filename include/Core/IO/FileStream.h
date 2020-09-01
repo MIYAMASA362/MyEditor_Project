@@ -2,6 +2,8 @@
 #ifndef FILESTREAM_H
 #define FILESTREAM_H
 
+#include<fstream>
+
 namespace Core
 {
 	/**

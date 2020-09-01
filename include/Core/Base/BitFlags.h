@@ -20,7 +20,6 @@ namespace Core
 		};//class BitFlags
 
 	}//namespace Core::detail
-
 }//namespace Core
 
 #endif //ifndef BITFLAGS_H

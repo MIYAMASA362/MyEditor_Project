@@ -17,10 +17,10 @@ namespace Core
 
 	StackAllocator::~StackAllocator()
 	{
-		this->clear();
+		this->Clear();
 	}
 
-	void * StackAllocator::allocate(size_t size, u8 alignment)
+	void * StackAllocator::Allocate(size_t size, u8 alignment)
 	{
 		ASSERT(size > 0, "allocate called with size = 0");
 
@@ -60,7 +60,7 @@ namespace Core
 		return asVoidPtr;
 	}
 
-	void StackAllocator::free(void* memory)
+	void StackAllocator::Free(void* memory)
 	{
 		ASSERT((void*)((uptr)this->m_MemoryFirstAddress + this->m_MemoryUsed) != memory, "スタックの解放順序が違います。");
 
@@ -87,7 +87,7 @@ namespace Core
 		this->m_MemoryAllocations--;
 	}
 
-	void StackAllocator::clear()
+	void StackAllocator::Clear()
 	{
 		// reset memory
 		this->m_MemoryUsed = 0;
@@ -108,10 +108,10 @@ namespace Core
 
 	InvStackAllocator::~InvStackAllocator()
 	{
-		this->clear();
+		this->Clear();
 	}
 
-	void * InvStackAllocator::allocate(size_t size, u8 alignment)
+	void * InvStackAllocator::Allocate(size_t size, u8 alignment)
 	{
 		ASSERT(size > 0, "allocate called with size = 0");
 
@@ -143,7 +143,7 @@ namespace Core
 		return asVoidPtr;
 	}
 
-	void InvStackAllocator::free(void * memory)
+	void InvStackAllocator::Free(void * memory)
 	{
 		union
 		{
@@ -160,7 +160,7 @@ namespace Core
 		this->m_MemoryAllocations--;
 	}
 
-	void InvStackAllocator::clear()
+	void InvStackAllocator::Clear()
 	{
 		this->m_MemoryUsed = 0;
 		this->m_MemoryFirstAddress = 0;

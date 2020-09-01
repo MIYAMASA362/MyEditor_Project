@@ -13,7 +13,7 @@ namespace Core
 		m_cObject_size(object_size),
 		m_cAlignment(object_alignment)
 	{
-		this->clear();
+		this->Clear();
 	}
 
 	PoolAllocator::~PoolAllocator()
@@ -21,7 +21,7 @@ namespace Core
 		this->m_FreeList = nullptr;
 	}
 
-	void * PoolAllocator::allocate(size_t size, u8 alignment)
+	void * PoolAllocator::Allocate(size_t size, u8 alignment)
 	{
 		ASSERT(size > 0, "allocate called with size = 0");
 		ASSERT(size == this->m_cObject_size && alignment == this->m_cAlignment, "parameter is different from registered parameter");
@@ -38,7 +38,7 @@ namespace Core
 		return result;
 	}
 
-	void PoolAllocator::free(void * p)
+	void PoolAllocator::Free(void * p)
 	{
 		*((void**)p) = this->m_FreeList;
 
@@ -48,7 +48,7 @@ namespace Core
 		this->m_MemoryAllocations--;
 	}
 
-	void PoolAllocator::clear()
+	void PoolAllocator::Clear()
 	{
 		u8 adjustment = detail::GetAdjustment(this->m_MemoryFirstAddress, this->m_cAlignment);
 

@@ -17,10 +17,10 @@ namespace Core
 
 	LinerAllocator::~LinerAllocator()
 	{
-		this->clear();
+		this->Clear();
 	}
 
-	void * LinerAllocator::allocate(size_t size, u8 alignment)
+	void * LinerAllocator::Allocate(size_t size, u8 alignment)
 	{
 		ASSERT(size > 0, "allocate called with memsize = 0");
 
@@ -48,12 +48,12 @@ namespace Core
 		return asVoidPtr;
 	}
 
-	void LinerAllocator::free(void * p)
+	void LinerAllocator::Free(void * p)
 	{
 		ASSERT(false, "Liner allocator do not support free operations, Use clear instead");
 	}
 
-	void LinerAllocator::clear()
+	void LinerAllocator::Clear()
 	{
 		this->m_MemoryUsed = 0;
 		this->m_MemoryAllocations = 0;

@@ -19,25 +19,25 @@ namespace Core
 
 	DoubleBufferAllocator::~DoubleBufferAllocator()
 	{
-		this->clear();
+		this->Clear();
 		delete this->m_StackAllocator[0];
 		delete this->m_StackAllocator[1];
 	}
 
-	void * DoubleBufferAllocator::allocate(size_t size)
+	void * DoubleBufferAllocator::Allocate(size_t size)
 	{
-		return this->m_StackAllocator[this->m_CurrentStack]->allocate(size, alignof(u8));
+		return this->m_StackAllocator[this->m_CurrentStack]->Allocate(size, alignof(u8));
 	}
 
-	void DoubleBufferAllocator::free(void * p)
+	void DoubleBufferAllocator::Free(void * p)
 	{
-		this->m_StackAllocator[this->m_CurrentStack]->free(p);
+		this->m_StackAllocator[this->m_CurrentStack]->Free(p);
 	}
 
-	void DoubleBufferAllocator::clear()
+	void DoubleBufferAllocator::Clear()
 	{
-		this->m_StackAllocator[0]->clear();
-		this->m_StackAllocator[1]->clear();
+		this->m_StackAllocator[0]->Clear();
+		this->m_StackAllocator[1]->Clear();
 	}
 
 	void DoubleBufferAllocator::swapBuffers()
@@ -47,7 +47,7 @@ namespace Core
 
 	void DoubleBufferAllocator::clearCurrentBuffer()
 	{
-		this->m_StackAllocator[this->m_CurrentStack]->clear();
+		this->m_StackAllocator[this->m_CurrentStack]->Clear();
 	}
 
 
