@@ -2,16 +2,28 @@
 #ifndef PLATFORM_CONFIG_H
 #define PLATFORM_CONFIG_H
 
+/****************************************************************
+*	Macro that Change Config
+*****************************************************************/
+
 // ENGINE_APIの無効フラグ 
 #define NO_EXPORT
 
 // Loggerの機能を無効フラグ Log名前空間の使用禁止
 //#define DISABLE_LOGGING
 
+/****************************************************************
+*	Debug Macro
+*****************************************************************/
+
 // Debug build flag
 #if defined(DEBUG) || defined(_DEBUG)
 #define ENGINE_DEBUG
 #endif
+
+/****************************************************************
+*	Export Macro
+*****************************************************************/
 
 // API Export
 #if defined(NO_EXPORT)
@@ -25,10 +37,25 @@
 #endif
 #endif
 
-// Platform target macro
+/****************************************************************
+*	Platform Target Macro
+*****************************************************************/
+
+//Platform : Windows
+#if defined(_WIN32) || defined(_WIN64)
+#define ENGINE_WIN
+
+//Platform Windows 32bit
 #if defined(_WIN32)
 #define ENGINE_WIN32
 #endif
+
+//Platform Windows 64bit
+#if defined(_WIN64)
+#define ENGINE_WIN64
+#endif
+
+#endif //if defined(_WIN32) || defined(_WIN64)
 
 // Check using bit  architecture
 #if defined(_WIN64) || defined(__x86_64__) || defined(__ppc64__) || defined(_M_AMD64) || defined(_M_ARM64) || defined(_M_X64)
@@ -38,11 +65,79 @@
 #define ENGINE_32BIT 1
 #endif
 
+/****************************************************************
+*	Platform Include
+*****************************************************************/
+
+//===============================================================
+//	Windows
+//===============================================================
+#if defined(ENGINE_WIN)
+
 #include<string>
 #include<stdint.h>
 
 #include<Windows.h>
 #include<iostream>
+
+
+#else //if defined(ENGINE_WIN)
+//===============================================================
+//	other
+//===============================================================
+
+typedef signed char int8_t:
+typedef short int16_t;
+typedef int int32_t;
+#if defined(ENGINE_64BIT)
+typedef long long int64_t;
+#endif
+
+typedef unsigned char      uint8_t;
+typedef unsigned short     uint16_t;
+typedef unsigned int       uint32_t;
+#if defined(ENGINE_64BIT)
+typedef unsigned long long uint64_t;
+#endif
+
+typedef float  float_t;
+typedef double double_t;
+
+typedef long long intptr_t;
+typedef unsigned long long uintptr_t;
+
+#endif //if !defined(ENGINE_WIN)
+
+/****************************************************************
+*	Graphics Include
+*****************************************************************/
+
+//===============================================================
+//	DirectX11
+//===============================================================
+#if defined(ENGINE_DIRECTX11)
+
+#include"Thirdparty/Graphics/DirectX11.h"
+
+#endif //if defined(ENGINE_DIRECTX11)
+
+//===============================================================
+//	DirectX12
+//===============================================================
+#if defined(ENGINE_DIRECTX12)
+
+#include"Thirdparty/Graphics/DirectX12.h"
+
+#endif //if defined(ENGINE_DIRECTX12)
+
+//===============================================================
+//	OpenGL
+//===============================================================
+#if defined(ENGINE_OPENGL)
+
+#include"Thirdparty/Graphics/OpenGL.h"
+
+#endif //if defined(ENGINE_OPENGL)
 
 /****************************************************************
 *	Type
@@ -76,6 +171,9 @@ using f64 = double_t;
 using iptr = intptr_t;
 using uptr = uintptr_t;
 
+/****************************************************************
+*	EXPLICIT
+*****************************************************************/
 #define EXPLICIT explicit
 
 #endif	// ifndef PLATFORM_CONFIG_H

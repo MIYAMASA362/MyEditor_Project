@@ -16,10 +16,14 @@ namespace Platform
 			HWND m_hWnd;
 
 		public:
-			Window(detail::ISystem* main);
+			Window();
 			virtual ~Window();
 
-			virtual int messageLoop() override;
+			virtual LRESULT localWndProc(HWND hWnd,UINT uMsg,WPARAM wParam,LPARAM lParam);
+			virtual HRESULT Create(HINSTANCE hInstance, LPSTR lpClassName, LPSTR lpCaption, int x, int y, long width, long height, DWORD style);
+
+			void SetProcParam(HWND hWnd);
+			HWND GetHWnd() { return m_hWnd; };
 
 		};//class Window
 

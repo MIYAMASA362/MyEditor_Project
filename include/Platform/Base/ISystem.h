@@ -1,6 +1,6 @@
 #pragma once
-#ifndef ISYSTEM_H
-#define ISYSTEM_H
+#ifndef PLATFORM_ISYSTEM_H
+#define PLATFORM_ISYSTEM_H
 
 namespace Platform
 {
@@ -8,23 +8,22 @@ namespace Platform
 	{
 		/**
 		* @class    ISystem
-		* @brief    Platform層が提供するシステムの基盤
+		* @brief    エンジンの基幹システムのIntarface
 		*/
 		class ISystem
 		{
 		private:
+			
 
 		public:
 			ISystem() {};
 			virtual ~ISystem() {};
 
-			virtual void Initialize() = 0;
-			virtual void Update() = 0;
-			virtual void Finalize() = 0;
+			virtual int mainLoop() = 0;
 
 		};//class ISystem
 
 	}//namespace Platform::detail
 }//namespace Platform
 
-#endif //ifndef ISYSTEM_H
+#endif //ifndef PLATFORM_ISYSTEM_H
