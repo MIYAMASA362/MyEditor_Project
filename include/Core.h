@@ -17,9 +17,12 @@
 
 // IO
 #include"Core/IO/FileStream.h"
+#include"Core/IO/Path.h"
 
 // Module
 #include"Core/Module/Module.h"
 #include"Core/Module/ModuleSystem.h"
+
+#pragma comment(lib,"Core.lib")
 
 #endif // ifndef CORE_H

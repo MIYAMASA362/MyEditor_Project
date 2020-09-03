@@ -10,15 +10,15 @@ namespace Core
 		{
 		private:
 #ifdef ENGINE_WIN
-			static const char DirectorySeparatorChar = '\\';
+			static const char cDirectorySeparatorChar = '\\';
 #else //other
-			static const char DirectorySeparatorChar = 0x00;
+			static const char cDirectorySeparatorChar = 0x00;
 #endif
 
 		public:
-			static std::string getFileName(std::string* path);
-			static std::string getFileNameSub(std::string* path);
-			static std::string getFileExtension(std::string* path);
+			static std::string getFileName(const std::string* path);
+			static std::string getFileNameSub(const std::string* path);
+			static std::string getFileExtension(const std::string* path);
 
 			static bool isRoot(std::string* path);
 

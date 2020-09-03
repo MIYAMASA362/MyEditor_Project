@@ -4,4 +4,6 @@
 
 #include"Engine/Base/System.h"
 
+#pragma comment(lib,"Engine.lib")
+
 #endif //ifndef ENGINE_H

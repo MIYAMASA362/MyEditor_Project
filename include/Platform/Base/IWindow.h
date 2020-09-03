@@ -10,14 +10,14 @@ namespace Platform
 		* @class    IWindow
 		* @brief    エンジンが利用するウィンドウのInterface
 		*/
-		class IWindow
+		class ENGINE_API IWindow
 		{
 		protected:
 			
 
 		public:
-			IWindow(){};
-			virtual ~IWindow() {};
+			IWindow() = default;
+			virtual ~IWindow() = default;
 
 		};//class IWindow
 

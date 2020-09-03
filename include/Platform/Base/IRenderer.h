@@ -10,13 +10,13 @@ namespace Platform
 		* @class    IRenderer
 		* @brief    Renderer Platform Interface
 		*/
-		class IRenderer
+		class ENGINE_API IRenderer
 		{
 		protected:
 
 		public:
-			IRenderer(){};
-			virtual ~IRenderer() {};
+			IRenderer() = default;
+			virtual ~IRenderer() = default;
 
 			virtual void clear() = 0;
 			virtual void begin() = 0;

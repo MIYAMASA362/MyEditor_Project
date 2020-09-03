@@ -17,7 +17,7 @@ namespace Platform
 		* @class    DX11Graphics
 		* @brief	DirectX11 共通グラフィックス設定
 		*/
-		class DX11Graphics final : public ::detail::Singleton<DX11Graphics>
+		class ENGINE_API DX11Graphics final : public ::detail::Singleton<DX11Graphics>
 		{
 		private:
 			IDXGIDevice1* m_pDXGI;
@@ -45,7 +45,7 @@ namespace Platform
 		* @class    DX11Renderer
 		* @brief    
 		*/
-		class DX11Renderer : public Platform::detail::IRenderer
+		class ENGINE_API DX11Renderer : public Platform::detail::IRenderer
 		{
 		protected:
 			HWND m_hWnd;

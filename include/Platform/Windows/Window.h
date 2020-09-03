@@ -8,9 +8,9 @@ namespace Platform
 	{
 		/**
 		* @class    Window Windows32
-		* @brief	Windows
+		* @brief	Windows Platform version
 		*/
-		class Window : public detail::IWindow
+		class ENGINE_API Window : public detail::IWindow
 		{
 		protected:
 			HWND m_hWnd;

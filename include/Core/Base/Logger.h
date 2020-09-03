@@ -83,7 +83,7 @@ namespace Core
 	* @class    Logger
 	* @brief    
 	*/
-	class ENGINE_API Logger final
+	class Logger final
 	{
 	private:
 		Logger(const Logger&) = delete;
