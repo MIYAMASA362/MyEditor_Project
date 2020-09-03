@@ -13,150 +13,51 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Core">
-      <UniqueIdentifier>{e8799b88-5fef-40b4-bde3-ead00b7ddd6c}</UniqueIdentifier>
+    <Filter Include="ヘッダー ファイル\Thirdparty">
+      <UniqueIdentifier>{8559743b-1fb6-4d49-9273-389be9b04ceb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Core\Allocator">
-      <UniqueIdentifier>{3aeaafc8-493f-45ae-ae0a-e6e0a431b61a}</UniqueIdentifier>
+    <Filter Include="ヘッダー ファイル\Editor">
+      <UniqueIdentifier>{cec05735-5fe4-42cc-8ac5-882bdcb90bab}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Core\Base">
-      <UniqueIdentifier>{2c5c68e3-1980-4249-9ba6-1a22cef298e3}</UniqueIdentifier>
+    <Filter Include="ソース ファイル\Editor">
+      <UniqueIdentifier>{4a5f2312-11de-4058-b427-863f7dfea5de}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Core\Json">
-      <UniqueIdentifier>{e3d805a8-ca4c-4ef0-8ea4-691132ba19f4}</UniqueIdentifier>
+    <Filter Include="ヘッダー ファイル\Editor\Console">
+      <UniqueIdentifier>{d52da468-83ac-4a00-a388-ae4b0b9f44e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Core\IO">
-      <UniqueIdentifier>{deb73dcf-5124-444c-9aa0-7a8e9a6e6021}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Platform">
-      <UniqueIdentifier>{57380c25-8e1d-48f9-9c53-0839b4325cc5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Core">
-      <UniqueIdentifier>{463dd432-9326-472d-81cc-e95c2e7f8b51}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Core\Base">
-      <UniqueIdentifier>{801dfcc3-b2b8-4a28-a5de-b19c92d4817d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Core\Allocator">
-      <UniqueIdentifier>{6de7f137-6e2f-48f4-a6e0-78684ba96ded}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Core\IO">
-      <UniqueIdentifier>{55bf1112-dac0-4159-9445-8cafe358df2b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Platform\Base">
-      <UniqueIdentifier>{0455f81c-2bd3-4c9c-8860-129d2ba3fc6a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Platform\Windows">
-      <UniqueIdentifier>{c95d97ea-2807-42ba-941c-63b456da8467}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Platform">
-      <UniqueIdentifier>{06d13f7f-9695-48f9-ad55-30527231d87a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Platform\Windows">
-      <UniqueIdentifier>{e17d32ad-09fa-415d-ba8d-8c7cc949445e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Engine">
-      <UniqueIdentifier>{cc010525-51ca-44ec-94d7-fe94aee5563a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Core\Module">
-      <UniqueIdentifier>{1c92b0ec-fe47-4f5f-8c1f-8527dbe185e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Core\Module">
-      <UniqueIdentifier>{084e7542-683e-429e-8c40-aeb745e82933}</UniqueIdentifier>
+    <Filter Include="ソース ファイル\Editor\Console">
+      <UniqueIdentifier>{5c635c85-be9c-4d1c-abd2-ac43825878b9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Core\Base\Logger.cpp">
-      <Filter>ソース ファイル\Core\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Core\Allocator\DoubleBufferAllocator.cpp">
-      <Filter>ソース ファイル\Core\Allocator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Core\Allocator\LinerAllocator.cpp">
-      <Filter>ソース ファイル\Core\Allocator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Core\Allocator\PoolAllocator.cpp">
-      <Filter>ソース ファイル\Core\Allocator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Core\Allocator\StackAllocator.cpp">
-      <Filter>ソース ファイル\Core\Allocator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Core\IO\FileStream.cpp">
-      <Filter>ソース ファイル\Core\IO</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Platform\Windows\Window.cpp">
-      <Filter>ソース ファイル\Platform\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Core\Module\ModuleSystem.cpp">
-      <Filter>ソース ファイル\Core\Module</Filter>
+    <ClCompile Include="..\..\src\Editor\Console\Console.cpp">
+      <Filter>ソース ファイル\Editor\Console</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\Core\Allocator\IAllocator.h">
-      <Filter>ヘッダー ファイル\Core\Allocator</Filter>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\OpenGL.h">
+      <Filter>ヘッダー ファイル\Thirdparty</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Core\Allocator\PoolAllocator.h">
-      <Filter>ヘッダー ファイル\Core\Allocator</Filter>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11.h">
+      <Filter>ヘッダー ファイル\Thirdparty</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Core\Allocator\LinerAllocator.h">
-      <Filter>ヘッダー ファイル\Core\Allocator</Filter>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX12.h">
+      <Filter>ヘッダー ファイル\Thirdparty</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Core\Allocator\StackAllocator.h">
-      <Filter>ヘッダー ファイル\Core\Allocator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Allocator\DoubleBufferAllocator.h">
-      <Filter>ヘッダー ファイル\Core\Allocator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base.h">
-      <Filter>ヘッダー ファイル\Platform</Filter>
+    <ClInclude Include="..\..\include\Editor\Console\Console.h">
+      <Filter>ヘッダー ファイル\Editor\Console</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Core.h">
-      <Filter>ヘッダー ファイル\Core</Filter>
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform.h">
-      <Filter>ヘッダー ファイル\Platform</Filter>
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Core\Base\Assert.h">
-      <Filter>ヘッダー ファイル\Core\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Json\Json.h">
-      <Filter>ヘッダー ファイル\Core\Json</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Base\Logger.h">
-      <Filter>ヘッダー ファイル\Core\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Base\Result.h">
-      <Filter>ヘッダー ファイル\Core\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\IO\FileStream.h">
-      <Filter>ヘッダー ファイル\Core\IO</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\IO\Common.h">
-      <Filter>ヘッダー ファイル\Core\IO</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Common.h">
-      <Filter>ヘッダー ファイル\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\Window.h">
-      <Filter>ヘッダー ファイル\Platform\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Windows\Window.h">
-      <Filter>ヘッダー ファイル\Platform\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Engine\Updater.h">
-      <Filter>ヘッダー ファイル\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Module\Module.h">
-      <Filter>ヘッダー ファイル\Core\Module</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Module\ModuleSystem.h">
-      <Filter>ヘッダー ファイル\Core\Module</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Base\BitFlags.h">
-      <Filter>ヘッダー ファイル\Core\Base</Filter>
+    <ClInclude Include="..\..\include\Engine.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
