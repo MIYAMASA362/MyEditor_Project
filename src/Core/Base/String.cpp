@@ -1,6 +1,11 @@
-#include"Platform/Config.h"
+#include"stdafx.h"
+
 #include"Core/Base/String.h"
 
+/*
+	strcpy_sŠÖ”‚Íˆ—‚ÉŠÔ‚ª‚©‚©‚éB
+
+*/
 namespace Core
 {
 	String::String()

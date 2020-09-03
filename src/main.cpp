@@ -9,10 +9,15 @@
 #include"Core.h"
 #include"Engine.h"
 
-#include"Core/IO/Path.h"
+#include"Editor/Console/Console.h"
+
+
 
 int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCmdShow)
 {
+	Editor::detail::Console console;
+	console.create();
+
 	TCHAR curDir[MAX_PATH + 1];
 	GetCurrentDirectory(MAX_PATH + 1,curDir);
 
@@ -38,5 +43,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine
 
 	Platform::Graphics::DX11Graphics::Destroy();
 	
+	console.close();
+
 	return 0;
 }

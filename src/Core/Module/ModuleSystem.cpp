@@ -1,5 +1,5 @@
+#include"stdafx.h"
 #include<algorithm>
-#include"Core/Common.h"
 
 #include"Core/Base/Logger.h"
 #include"Core/Base/Assert.h"

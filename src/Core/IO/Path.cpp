@@ -1,7 +1,8 @@
+#include "stdafx.h"
+
 #include<string>
 
-#include "Platform/Config.h"
-#include "PathHelper.h"
+#include "Core/IO/PathHelper.h"
 #include "Core/IO/Path.h"
 
 namespace Core
@@ -52,19 +53,17 @@ namespace Core
 
 	std::string Path::getFileName() const
 	{
-		size_t begin = m_path.find_last_of("\\") + 1;
-		size_t end = m_path.find_last_of(".") - begin;
-		return m_path.substr(begin,end);
+		return Core::detail::PathFormat::getFileName(&m_path);
 	}
 
 	std::string Path::getFile() const
 	{
-		return m_path.substr(m_path.find_last_of("\\") + 1);
+		return Core::detail::PathFormat::getFileNameSub(&m_path);
 	}
 
 	std::string Path::getExtension() const
 	{
-		return m_path.substr(m_path.find_last_of("."));
+		return Core::detail::PathFormat::getFileExtension(&m_path);
 	}
 
 }//namespace Core

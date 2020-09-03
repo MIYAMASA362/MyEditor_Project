@@ -1,4 +1,5 @@
-#include"Core/Common.h"
+#include"stdafx.h"
+
 #include"Core/Base/Logger.h"
 #include"Core/Base/Assert.h"
 

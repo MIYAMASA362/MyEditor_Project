@@ -1,7 +1,8 @@
-#include"Engine/Common.h"
+#include "stdafx.h"
 
-#include"Thirdparty/Graphics/DirectX11.h"
-#include"Engine/Base/System.h"
+#include "Platform/Base/ISystem.h"
+#include "Platform/Base/IRenderer.h"
+#include "Engine/Base/System.h"
 
 namespace Engine
 {

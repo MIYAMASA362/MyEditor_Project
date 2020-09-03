@@ -1,7 +1,7 @@
+#include"stdafx.h"
+
 #include<iostream>
 #include<fstream>
-
-#include"Core/Common.h"
 
 #include"Core/Base/Logger.h"
 #include"Core/Base/Result.h"
