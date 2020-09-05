@@ -7,6 +7,8 @@
 
 #include"Core/IO/FileStream.h"
 
+#include"Core/Base/StringHelper.h"
+
 #define BUFFER_SIZE (256)
 
 namespace Core
@@ -125,52 +127,32 @@ namespace Core
 
 	int FileStream::find(const char * str, const char * search)
 	{
-		size_t search_len = strlen(search);
-		for(int i = 0; i < strlen(str); i++)
-		{
-			if(strncmp(str,search,search_len) == 0)
-				return i;
-			str++;
-			if (strlen(str) < search_len) break;
-		}
-
-		return -1;
+		return StringHelper::find<char>(str,search);
 	}
 
 	int FileStream::find(const char * str, const char * search, const char * endstr)
 	{
-		size_t search_len = strlen(search);
-		size_t endstr_len = strlen(endstr);
-		for(int i = 0; i < strlen(str); i++)
-		{
-			if (strncmp(str, search, search_len) == 0)
-				return i;
-			if (strncmp(str, endstr, endstr_len) == 0)
-				break;
-			str++;
-			if (strlen(str) < search_len) break;
-		}
-
-		return -1;
+		return StringHelper::find<char>(str,search,endstr);
 	}
 
 	bool FileStream::seekFind(const char * str)
 	{
 		char buffer[BUFFER_SIZE];
 		int size,count;
-		int reset = 0;
-		const int offset = 3;
+		long pos = this->getPos();
 		while((size = (int)fread(&buffer,1,BUFFER_SIZE,m_stream)) > 0)
 		{
 			count = find(buffer, str);
 			if (count >= 0)
 			{
-				seek(count - (size + offset), Core::StreamSeek::Current);
+				seek(count - (this->getPos() - pos), Core::StreamSeek::Current);
+				//‰üs•¶Žš‚ðŠÜ‚ß‚È‚¢
+				if(buffer[count-1] == '\n')
+					seek(1, StreamSeek::Current);
 				return true;
 			}
-			reset += size;
 		}
-		seek(-reset + offset,Core::StreamSeek::Current);
+		seek(-(this->getPos() - pos),Core::StreamSeek::Current);
 		return false;
 	}
 

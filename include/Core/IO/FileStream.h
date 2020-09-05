@@ -118,6 +118,7 @@ namespace Core
 
 		/**	ŒŸõ•¶š—ñ‚ğ’T¸‚µAŒŸõ•¶š—ñ‚ğŠÜ‚ß‚½ˆÊ’u‚Ü‚ÅˆÚ“®
 		*	@in[const char* str] : ŒŸõ•¶š—ñ 
+		*	@return[bool]	: ŒŸõŒ‹‰Ê Œ©‚Â‚©‚Á‚½[true] / Œ©‚Â‚©‚ç‚È‚¢[false]
 		*/
 		bool seekFind(const char* str);
 
