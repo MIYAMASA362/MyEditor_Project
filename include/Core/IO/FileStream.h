@@ -1,8 +1,10 @@
 #pragma once
-#ifndef FILESTREAM_H
-#define FILESTREAM_H
+#ifndef CORE_FILESTREAM_H
+#define CORE_FILESTREAM_H
 
 #include<fstream>
+
+#include"Stream.h"
 
 namespace Core
 {
@@ -10,88 +12,108 @@ namespace Core
 	*	@brief	FileMode
 	*
 	*/
-	enum class FileMode
+	enum class FileMode : u8
 	{
-		None = 0,			//設定なし
-		Read = 1 << 0,		//読み込み
-		Write = 1 << 1,		//書き込み
-		Create = 1 << 2,		//新規作成
-		ReadWrite = Read | Write,	//読み書き
+		None		= 0,				//設定なし
+		Read		= 1 << 0,			//読み込み
+		Write		= 1 << 1,			//書き込み
+		ReadWrite	= Read | Write,		//読み書き
 	};
 
 	constexpr FileMode operator&(FileMode a,FileMode b)
 	{
 		return static_cast<FileMode>(static_cast<u8>(a) & static_cast<u8>(b));
 	};
-	
-
-	/**
-	*	@brief FileSeek
-	*
-	*/
-	enum FileSeek
-	{
-		Begin,			//先頭
-		Cursor,			//現在
-		End,			//末尾
-	};
-
-	namespace detail
-	{
-		/**
-		* @class    FileStream Interface
-		* @brief    ファイルの読み書き
-		*/
-		class IFileStream
-		{
-		protected:
-			char* m_fileName;
-			FileMode m_fileMode;
-
-		public:
-			IFileStream() {};
-			virtual ~IFileStream() {};
-
-			virtual Result open(const char* fileName, FileMode fileMode) = 0;
-			virtual Result close() = 0;
-
-			virtual void write(void* textBuffer, size_t size) = 0;
-			virtual void read(void* textBuffer, size_t size) = 0;
-
-			virtual void seek(size_t offset,FileSeek seek) = 0;
-
-			bool isWrite() { return (m_fileMode & FileMode::Write) == FileMode::Write; };
-			bool isRead() { return (m_fileMode & FileMode::Read) == FileMode::Read; };
-
-		};// class FileStream
-
-	}// namespace Core::detail
 
 	/**
 	* @class    FileStream
-	* @brief    Windows fstreamを利用した入出力
+	* @brief    ファイルの読み書き
 	*/
-	class FileStream : public detail::IFileStream
+	class FileStream : public detail::IStream
 	{
-	private:
-		std::fstream m_fstream;
+	protected:
+		std::string m_filePath;
+		FileMode m_mode;
+		FILE* m_stream = nullptr;
 
 	public:
-		FileStream();
+		/**
+		*	@brief	ファイル生成
+		*
+		*	@in[string]	  :	ファイルパス
+		*	@in[FileMode] : ファイルモード
+		*
+		*	@return[bool] : オープン・生成に成功/失敗(ファイル無し)
+		*/
+		static bool create(std::string filePath,FileMode mode,FileStream** output);
+
+	protected:
+		void open(const char* const fmode);
+
+	public:
+		FileStream(std::string filePath,FileMode mode);
 		virtual ~FileStream();
 
-		virtual Result open(const char* fileName, FileMode fileMode) override;
-		virtual Result close() override;
+		const std::string& getFilePath() const { return m_filePath; };
 
-		virtual void seek(size_t offset,FileSeek seek) override;
+		/**
+		*	@brief	ファイル開く
+		*
+		*	@return[bool] : オープンに成功/失敗(ファイル無し)
+		*/
+		bool open();
+		void close();
 
-		virtual void write(void* textBuffer, size_t size) override;
-		void write(std::string text);
+		/* 読み込み可能か */
+		virtual bool isRead() const override;
 
-		virtual void read(void* textBuffer,size_t size) override;
-		void read(std::string& text);
+		/* 書き込み可能か */
+		virtual bool isWrite() const override;
 
-		void getline(std::string& text);
+
+		/* 文字列読み込み */
+		bool read(std::string& str);
+
+		/* 文字列読み込み */
+		virtual bool read(void* buffer, size_t size) override;
+		
+		/* フォーマット書き込み */
+		template<typename... Args>
+		int writeFormat(const char* format, Args... args)
+		{
+			return fprintf_s(m_stream, format, std::forward<Args>(args)...);
+		}
+
+		/* 行を読み込みます */
+		bool readline(void* offset, int size = 256);
+
+
+		/* 文字列書き込み */
+		bool write(std::string& str);
+
+		/* 文字列書き込み */
+		virtual bool write(const void* buffer, size_t size) override;
+
+		/* フォーマット読み込み */
+		template<typename... Args>
+		bool readFormat(const char* format, Args... args)
+		{
+			return fscanf_s(m_stream, format, std::forward<Args>(args)...) != EOF;
+		}
+
+
+		/* 移動 */
+		virtual void seek(int offset,StreamSeek seek) override;
+		
+		/* 次の行に移動します */
+		void seekline(int offset);
+
+		/* 現在位置 */
+		long getPos() const;
+
+		/* ファイルの全行数 */
+		unsigned int lineNum() const;
+
 
 	};// class FileStream
 

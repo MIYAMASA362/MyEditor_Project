@@ -1,101 +1,174 @@
 #include"stdafx.h"
 
 #include<iostream>
-#include<fstream>
 
 #include"Core/Base/Logger.h"
 #include"Core/Base/Result.h"
 
 #include"Core/IO/FileStream.h"
 
+#define FREAD_BUFFER_SIZE (256)
+
 namespace Core
 {
-	FileStream::FileStream()
+	FileStream::FileStream(std::string filePath, FileMode mode)
+		:
+		m_filePath(filePath),
+		m_mode(mode)
 	{
 
 	}
 
 	FileStream::~FileStream()
 	{
-		m_fstream.close();
+		close();
 	}
 
-	Result FileStream::open(const char * fileName, FileMode fileMode)
+	bool FileStream::create(std::string filePath, FileMode mode,FileStream** output)
 	{
-		//新規作成
-		if((fileMode & FileMode::Create) == FileMode::Create)
+		if (mode == FileMode::None) return false;
+
+		FileStream* result = new FileStream(filePath, mode);
+
+		//書き込み読み込み
+		if((mode & FileMode::ReadWrite) == FileMode::ReadWrite)
 		{
-			//新規ファイルの作成(既存ファイルの内容破棄)
-			std::ofstream ofs(fileName,std::ios_base::out);
-			if(!ofs)
-			{
-				LOG_FATAL("ファイルのオープンに失敗しました。(file : %s)",fileName);
-				return Result(false);
-			}
-			LOG_DEBUG("ファイルを作成、または内容の破棄をしました。(file : %s)", fileName);
+			result->open("w+");
 		}
-
-		this->m_fileMode = fileMode;
-
-		//ファイルのオープンモード
-		unsigned int mode = 0;
-		if (isWrite()) mode |= std::ios_base::in;
-		if (isRead()) mode |= std::ios_base::out;
-
-		//ファイルのオープン
-		m_fstream.open(fileName,mode);
-		if(!m_fstream)
+		//書き込み
+		else if(result->isWrite())
 		{
-			LOG_FATAL("ファイルのオープンに失敗しました。(file : %s)",fileName);
-			this->m_fileMode = FileMode::None;
-			return Result(false);
+			result->open("w");
 		}
-
-		return Result(true);
-	}
-
-	Result FileStream::close()
-	{
-		m_fstream.close();
-		return Result(true);
-	}
-
-	void FileStream::seek(size_t offset, FileSeek fileSeek)
-	{
-		unsigned int seek = 0;
-		if (fileSeek == FileSeek::Cursor)
-			seek = std::ios_base::cur;
-		else if (fileSeek == FileSeek::End)
-			seek = std::ios_base::end;
+		//読み込み
 		else
-			seek = std::ios_base::beg;
+		{
+			result->open("w");
+			result->close();
+			result->open("r");
+		}
 
-		m_fstream.seekg(offset,seek);
+		//ファイルオープン成功
+		if(result->m_stream != nullptr)
+		{
+			(*output) = result;
+			return true;
+		}
+
+		//ファイルオープン失敗
+		delete result;
+		return false;
 	}
 
-	void FileStream::write(void * textBuffer, size_t size)
+	void FileStream::open(const char* const fmode)
 	{
-		if(isWrite()) m_fstream.write((char*)textBuffer,size);
+		fopen_s(&m_stream, m_filePath.c_str(), fmode);
 	}
 
-	void FileStream::write(std::string text)
+	bool FileStream::open()
 	{
-		if(isWrite())m_fstream << text;
+		if (m_mode == FileMode::None) return false;
+
+		if (isWrite() == true)
+			this->open("r+");
+		else
+			this->open("r");
+
+		return m_stream != nullptr;
 	}
 
-	void FileStream::read(void * textBuffer, size_t size)
+	void FileStream::close()
 	{
-		if(isRead()) m_fstream.read((char*)textBuffer,size);
+		if (m_stream == nullptr) return;
+		fclose(m_stream);
 	}
 
-	void FileStream::read(std::string& text)
+	bool FileStream::isRead() const
 	{
-		if(isRead()) m_fstream >> text;
+		return ((m_mode & FileMode::Read) == FileMode::Read);
 	}
 
-	void FileStream::getline(std::string& text)
+	bool FileStream::isWrite() const
 	{
-		if (isRead()) std::getline(this->m_fstream,text);
+		return ((m_mode & FileMode::Write) == FileMode::Write);
 	}
+
+	bool FileStream::read(std::string & str)
+	{
+		this->read(&str[0], str.capacity());
+
+		return true;
+	}
+
+	bool FileStream::read(void * buffer, size_t size)
+	{
+		if (!isRead()) return false;
+
+		fread(buffer,sizeof(char),size,m_stream);
+
+		return true;
+	}
+
+	bool FileStream::write(std::string & str)
+	{
+		return this->write(str.c_str(),str.size());
+	}
+
+	bool FileStream::write(const void * textBuffer, size_t size)
+	{
+		if (!isWrite()) return false;
+
+		fwrite(textBuffer, sizeof(char), size, m_stream);
+
+		return true;
+	}
+
+	void FileStream::seek(int offset, StreamSeek seek)
+	{
+		int origin = SEEK_CUR;
+		if (seek == StreamSeek::Begin)
+		{
+			origin = SEEK_SET;
+		}
+		else if (seek == StreamSeek::End)
+		{
+			origin = SEEK_END;
+		}
+
+		fseek(m_stream, offset, origin);
+	}
+
+	void FileStream::seekline(int offset)
+	{
+		char buffer[256];
+		this->readline(&buffer[0], 256);
+		this->seek(offset,Core::StreamSeek::Current);
+	}
+
+	long FileStream::getPos() const
+	{
+		return ftell(m_stream);
+	}
+
+	unsigned int FileStream::lineNum() const
+	{
+		char buffer[FREAD_BUFFER_SIZE];
+		unsigned int line = 0;
+		size_t size;
+		while((size = fread(buffer,1,FREAD_BUFFER_SIZE,m_stream)) > 0)
+		{
+			for (size_t i = 0; i < size; i++) {
+				if (buffer[i] == '\n') line++;
+			}
+		}
+
+		return line;
+	}
+
+	bool FileStream::readline(void * offset, int size)
+	{
+	 	return fgets((char*)offset,size,m_stream) != NULL;
+	}
+
 
 }// namespace Core
