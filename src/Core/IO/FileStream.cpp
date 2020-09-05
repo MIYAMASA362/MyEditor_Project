@@ -7,7 +7,7 @@
 
 #include"Core/IO/FileStream.h"
 
-#define FREAD_BUFFER_SIZE (256)
+#define BUFFER_SIZE (256)
 
 namespace Core
 {
@@ -123,6 +123,57 @@ namespace Core
 		return true;
 	}
 
+	int FileStream::find(const char * str, const char * search)
+	{
+		size_t search_len = strlen(search);
+		for(int i = 0; i < strlen(str); i++)
+		{
+			if(strncmp(str,search,search_len) == 0)
+				return i;
+			str++;
+			if (strlen(str) < search_len) break;
+		}
+
+		return -1;
+	}
+
+	int FileStream::find(const char * str, const char * search, const char * endstr)
+	{
+		size_t search_len = strlen(search);
+		size_t endstr_len = strlen(endstr);
+		for(int i = 0; i < strlen(str); i++)
+		{
+			if (strncmp(str, search, search_len) == 0)
+				return i;
+			if (strncmp(str, endstr, endstr_len) == 0)
+				break;
+			str++;
+			if (strlen(str) < search_len) break;
+		}
+
+		return -1;
+	}
+
+	bool FileStream::seekFind(const char * str)
+	{
+		char buffer[BUFFER_SIZE];
+		int size,count;
+		int reset = 0;
+		const int offset = 3;
+		while((size = (int)fread(&buffer,1,BUFFER_SIZE,m_stream)) > 0)
+		{
+			count = find(buffer, str);
+			if (count >= 0)
+			{
+				seek(count - (size + offset), Core::StreamSeek::Current);
+				return true;
+			}
+			reset += size;
+		}
+		seek(-reset + offset,Core::StreamSeek::Current);
+		return false;
+	}
+
 	void FileStream::seek(int offset, StreamSeek seek)
 	{
 		int origin = SEEK_CUR;
@@ -152,10 +203,10 @@ namespace Core
 
 	unsigned int FileStream::lineNum() const
 	{
-		char buffer[FREAD_BUFFER_SIZE];
+		char buffer[BUFFER_SIZE];
 		unsigned int line = 0;
 		size_t size;
-		while((size = fread(buffer,1,FREAD_BUFFER_SIZE,m_stream)) > 0)
+		while((size = fread(buffer,1,BUFFER_SIZE,m_stream)) > 0)
 		{
 			for (size_t i = 0; i < size; i++) {
 				if (buffer[i] == '\n') line++;

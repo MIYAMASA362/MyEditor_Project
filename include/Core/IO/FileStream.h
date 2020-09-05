@@ -76,12 +76,12 @@ namespace Core
 
 		/* 文字列読み込み */
 		virtual bool read(void* buffer, size_t size) override;
-		
-		/* フォーマット書き込み */
+
+		/* フォーマット読み込み */
 		template<typename... Args>
-		int writeFormat(const char* format, Args... args)
+		bool readFormat(const char* format, Args... args)
 		{
-			return fprintf_s(m_stream, format, std::forward<Args>(args)...);
+			return fscanf_s(m_stream, format, std::forward<Args>(args)...) != EOF;
 		}
 
 		/* 行を読み込みます */
@@ -94,19 +94,39 @@ namespace Core
 		/* 文字列書き込み */
 		virtual bool write(const void* buffer, size_t size) override;
 
-		/* フォーマット読み込み */
+		/* フォーマット書き込み */
 		template<typename... Args>
-		bool readFormat(const char* format, Args... args)
+		int writeFormat(const char* format, Args... args)
 		{
-			return fscanf_s(m_stream, format, std::forward<Args>(args)...) != EOF;
+			return fprintf_s(m_stream, format, std::forward<Args>(args)...);
 		}
 
+
+		/* 文字列の検索 
+		*	@in[const char*] search : 検索する文字列 
+		*	@return[int] : strから見つけた相対位置[n] / 見つからない[-1]
+		*/
+		int find(const char* str, const char* search);
+
+		/* 文字列の検索
+		*	@in[const char*] search :検索する文字列 
+		*	@in[const char*] endstr	:検索終了する文字列
+		*	@return[int] : strから見つけた相対位置[n] / 見つからない[-1]
+		*/
+		int find(const char* str, const char* search, const char* endstr);
+
+
+		/**	検索文字列を探査し、検索文字列を含めた位置まで移動
+		*	@in[const char* str] : 検索文字列 
+		*/
+		bool seekFind(const char* str);
 
 		/* 移動 */
 		virtual void seek(int offset,StreamSeek seek) override;
 		
 		/* 次の行に移動します */
 		void seekline(int offset);
+
 
 		/* 現在位置 */
 		long getPos() const;
