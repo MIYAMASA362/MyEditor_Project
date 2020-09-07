@@ -32,8 +32,13 @@ namespace Core
 		template<typename TChar>
 		static int find(const TChar* str, const TChar* search, const TChar* endstr);
 
-		template<typename TChar,typename ...Args>
-		static void format(TChar* output,const TChar* format,Args... args);
+
+		template<typename ...Args>
+		static void format(char* buffer,const char* format,Args ...args);
+
+		template<typename ...Args>
+		static void format(wchar_t* buffer,const char* format,Args ...args);
+
 
 	};//class StringHelper
 
@@ -106,10 +111,16 @@ namespace Core
 		return NOT_FIND;
 	}
 
-	template<typename TChar, typename ...Args>
-	inline void StringHelper::format(TChar * output, const TChar * format, Args ...args)
+	template<typename ...Args>
+	inline void StringHelper::format(char * buffer, const char * format, Args ...args)
 	{
-		
+		sprintf(buffer, format, std::forward<Args>(args)...);
+	}
+
+	template<typename ...Args>
+	inline void StringHelper::format(wchar_t * buffer, const char * format, Args ...args)
+	{
+		wsprintf(buffer,format,std::forward<Args>(args)...);
 	}
 
 }//namespace Core
