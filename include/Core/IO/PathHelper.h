@@ -1,6 +1,6 @@
 #pragma once
-#ifndef CORE_PATHHELPER_H
-#define CORE_PATHHELPER_H
+#ifndef CORE_IO_PATHHELPER_H
+#define CORE_IO_PATHHELPER_H
 
 namespace Core
 {
@@ -27,4 +27,4 @@ namespace Core
 	}//namespace detail
 }//namespace Core
 
-#endif
+#endif //ifndef CORE_IO_PATHHELPER_H

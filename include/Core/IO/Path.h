@@ -1,12 +1,12 @@
 #pragma once
-#ifndef CORE_PATH_H
-#define CORE_PATH_H
+#ifndef CORE_IO_PATH_H
+#define CORE_IO_PATH_H
 
 namespace Core
 {
 	/**
 	* @class    Path
-	* @brief    
+	* @brief
 	*/
 	class Path final
 	{
@@ -36,7 +36,7 @@ namespace Core
 			return file that cutted directory path in m_path;
 		*/
 		std::string getFile() const;
-		
+
 		/*
 			return file that file extension
 		*/
@@ -45,8 +45,6 @@ namespace Core
 
 
 	};//class Path
-
-
 }//namespace Core
 
-#endif //ifndef CORE_PATH_H
+#endif //ifndef CORE_IO_PATH_H

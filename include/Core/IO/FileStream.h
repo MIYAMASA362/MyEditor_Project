@@ -1,6 +1,6 @@
 #pragma once
-#ifndef CORE_FILESTREAM_H
-#define CORE_FILESTREAM_H
+#ifndef CORE_IO_FILESTREAM_H
+#define CORE_IO_FILESTREAM_H
 
 #include<fstream>
 
@@ -14,13 +14,13 @@ namespace Core
 	*/
 	enum class FileMode : u8
 	{
-		None		= 0,				//設定なし
-		Read		= 1 << 0,			//読み込み
-		Write		= 1 << 1,			//書き込み
-		ReadWrite	= Read | Write,		//読み書き
+		None = 0,				//設定なし
+		Read = 1 << 0,			//読み込み
+		Write = 1 << 1,			//書き込み
+		ReadWrite = Read | Write,		//読み書き
 	};
 
-	constexpr FileMode operator&(FileMode a,FileMode b)
+	constexpr FileMode operator&(FileMode a, FileMode b)
 	{
 		return static_cast<FileMode>(static_cast<u8>(a) & static_cast<u8>(b));
 	};
@@ -45,13 +45,13 @@ namespace Core
 		*
 		*	@return[bool] : オープン・生成に成功/失敗(ファイル無し)
 		*/
-		static bool create(std::string filePath,FileMode mode,FileStream** output);
+		static bool create(std::string filePath, FileMode mode, FileStream** output);
 
 	protected:
 		void open(const char* const fmode);
 
 	public:
-		FileStream(std::string filePath,FileMode mode);
+		FileStream(std::string filePath, FileMode mode);
 		virtual ~FileStream();
 
 		const std::string& getFilePath() const { return m_filePath; };
@@ -102,14 +102,14 @@ namespace Core
 		}
 
 
-		/* 文字列の検索 
-		*	@in[const char*] search : 検索する文字列 
+		/* 文字列の検索
+		*	@in[const char*] search : 検索する文字列
 		*	@return[int] : strから見つけた相対位置[n] / 見つからない[-1]
 		*/
 		int find(const char* str, const char* search);
 
 		/* 文字列の検索
-		*	@in[const char*] search :検索する文字列 
+		*	@in[const char*] search :検索する文字列
 		*	@in[const char*] endstr	:検索終了する文字列
 		*	@return[int] : strから見つけた相対位置[n] / 見つからない[-1]
 		*/
@@ -117,14 +117,14 @@ namespace Core
 
 
 		/**	検索文字列を探査し、検索文字列を含めた位置まで移動
-		*	@in[const char* str] : 検索文字列 
+		*	@in[const char* str] : 検索文字列
 		*	@return[bool]	: 検索結果 見つかった[true] / 見つからない[false]
 		*/
 		bool seekFind(const char* str);
 
 		/* 移動 */
-		virtual void seek(int offset,StreamSeek seek) override;
-		
+		virtual void seek(int offset, StreamSeek seek) override;
+
 		/* 次の行に移動します */
 		void seekline(int offset);
 
@@ -137,7 +137,6 @@ namespace Core
 
 
 	};// class FileStream
-
 }// namespace Core
 
-#endif // ifndef FILESTREAM_H
+#endif // ifndef CORE_IO_FILESTREAM_H

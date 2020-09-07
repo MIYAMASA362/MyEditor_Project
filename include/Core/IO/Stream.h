@@ -1,6 +1,6 @@
 #pragma once
-#ifndef CORE_STREAM_H
-#define CORE_STREAM_H
+#ifndef CORE_IO_STREAM_H
+#define CORE_IO_STREAM_H
 
 namespace Core
 {
@@ -43,4 +43,4 @@ namespace Core
 
 }//namespace Core
 
-#endif //ifndef CORE_STREAM_H
+#endif //ifndef CORE_IO_STREAM_H
