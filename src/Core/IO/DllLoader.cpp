@@ -1,11 +1,7 @@
 #include"stdafx.h"
 
-#include<Windows.h>
-
 #include"Core/Base/Result.h"
 #include"Core/IO/DllLoader.h"
-
-typedef int(WINAPI *MessageBoxFunc)(HWND,LPCWSTR,LPCWSTR,UINT);
 
 namespace Core
 {
@@ -25,7 +21,7 @@ namespace Core
 	{
 		if (m_hModule)
 		{
-			FreeLibrary(m_hModule);
+			this->free();
 		}
 	}
 

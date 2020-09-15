@@ -35,6 +35,15 @@
 #endif
 
 /****************************************************************
+*	Support Macro
+*****************************************************************/
+
+//Variable name to String
+#define TO_STRING(variable) #variable
+
+
+
+/****************************************************************
 *	Platform Target Macro
 *****************************************************************/
 
@@ -114,7 +123,7 @@ typedef unsigned long long uintptr_t;
 //===============================================================
 #if defined(ENGINE_DIRECTX11)
 
-#include"Thirdparty/Graphics/DirectX11.h"
+#include"../Thirdparty/Graphics/DirectX11/DirectX11.h"
 
 #endif //if defined(ENGINE_DIRECTX11)
 
@@ -172,5 +181,8 @@ using uptr = uintptr_t;
 *	EXPLICIT
 *****************************************************************/
 #define EXPLICIT explicit
+
+
+
 
 #endif	// ifndef PLATFORM_CONFIG_H

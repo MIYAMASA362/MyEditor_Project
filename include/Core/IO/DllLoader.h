@@ -8,7 +8,7 @@ namespace Core
 	* @class    DllLoader
 	* @brief    
 	*/
-	class DllLoader final
+	class DllLoader
 	{
 	private:
 		HMODULE m_hModule;
@@ -16,7 +16,7 @@ namespace Core
 	public:
 		DllLoader();
 		DllLoader(const char* libfileName);
-		~DllLoader();
+		virtual ~DllLoader();
 
 		bool load(const char* libfileName);
 		void free();

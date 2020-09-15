@@ -4,6 +4,10 @@
 
 namespace detail
 {
+	/**
+	* @class    Singleton
+	* @brief    
+	*/
 	template<typename T>
 	class Singleton
 	{
@@ -43,4 +47,4 @@ namespace detail
 
 }//namespace detail
 
-#endif //ifndef CORE_SINGLETON_H
+#endif //ifndef PLATFORM_SINGLETON_H

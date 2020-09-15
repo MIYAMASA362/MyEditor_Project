@@ -1,6 +1,6 @@
 #pragma once
-#ifndef MODULE_H
-#define MODULE_H
+#ifndef CORE_MODULE_H
+#define CORE_MODULE_H
 
 namespace Core
 {
@@ -50,7 +50,6 @@ namespace Core
 		};//class IModule
 
 	}//namespace Core::detail
-
 }//namespace Core
 
-#endif//ifndef MODULE_H
+#endif//ifndef CORE_MODULE_H

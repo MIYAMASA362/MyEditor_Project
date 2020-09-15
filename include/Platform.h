@@ -6,6 +6,7 @@
 #include"Platform/Config.h"
 
 #include"Platform/DesignPattern/Singleton.h"
+#include"Platform/DesignPattern/Factory.h"
 
 //Platform Base
 #include"Platform/Base/ISystem.h"
@@ -22,7 +23,6 @@
 //Graphics
 #if defined(ENGINE_DIRECTX11)
 #include"Platform/Graphics/DirectX11.h"
-#pragma comment(lib,"DirectX11.lib")
 
 #endif //if defined(ENGINE_DIRECTX11)
 

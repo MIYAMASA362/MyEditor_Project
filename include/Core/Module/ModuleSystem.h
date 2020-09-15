@@ -1,6 +1,6 @@
 #pragma once
-#ifndef MODULE_SYSTEM_H
-#define MODULE_SYSTEM_H
+#ifndef CORE_MODULESYSTEM_H
+#define CORE_MODULESYSTEM_H
 
 #include<map>
 #include<vector>
@@ -38,4 +38,4 @@ namespace Core
 
 }//namespace Core
 
-#endif
+#endif //if CORE_MODULESYSTEM_H

@@ -8,15 +8,15 @@ namespace Platform
 	{
 		/**
 		* @class    IRenderer
-		* @brief    Renderer Platform Interface
+		* @brief    Renderer Intarface 
 		*/
 		class ENGINE_API IRenderer
 		{
 		protected:
 
 		public:
-			IRenderer() = default;
-			virtual ~IRenderer() = default;
+			IRenderer(HWND hWnd) {};
+			virtual ~IRenderer() {};
 
 			virtual void clear() = 0;
 			virtual void begin() = 0;

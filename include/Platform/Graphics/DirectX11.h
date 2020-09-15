@@ -3,6 +3,14 @@
 #ifndef PLATFORM_DIRECTX11
 #define PLATFORM_DIRECTX11
 
+/*
+*	DirectX 11.h is a third party DirectX 11 wrapped header
+*	
+*	class 
+*		・DX11Graphics	DirecrX11 共通グラフィックス設定
+*		・DX11Renderer	DirectX11 個別グラフィックス設定
+*/
+
 namespace Platform
 {
 	namespace Graphics
