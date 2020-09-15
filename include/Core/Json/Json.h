@@ -2,9 +2,7 @@
 #ifndef JSON_H
 #define JSON_H
 
-#include"Core/Common.h"
-
-#include"nlohmann/json.hpp"
+#include"../external/json-3.9.1/include/nlohmann/json.hpp"
 
 using json = nlohmann::json;
 

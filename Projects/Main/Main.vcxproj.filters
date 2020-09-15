@@ -47,9 +47,6 @@
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX12.h">
       <Filter>ヘッダー ファイル\Thirdparty</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Editor\Console\Console.h">
-      <Filter>ヘッダー ファイル\Editor\Console</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Core.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -58,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="..\..\include\Engine.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Editor\Console\Console.h">
+      <Filter>ヘッダー ファイル\Editor\Console</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

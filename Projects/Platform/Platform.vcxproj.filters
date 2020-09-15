@@ -42,6 +42,9 @@
     <ClInclude Include="..\..\include\Platform\Config.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\Platform\DesignPattern\Factory.h">
+      <Filter>ヘッダー ファイル\DesignPattern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
