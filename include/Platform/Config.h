@@ -80,12 +80,24 @@
 //===============================================================
 #if defined(ENGINE_WIN)
 
-#include<string>
-#include<stdint.h>
+//===============================================================
+//	Winsock
+//===============================================================
+
+#if defined(ENGINE_WINSOCK)
+
+#include <WinSock2.h>
+#include <WS2tcpip.h>
+
+#pragma comment (lib, "Ws2_32.lib")
+
+#endif
 
 #include<Windows.h>
+#include<stdint.h>
 #include<iostream>
 
+#include<string>
 
 #else //if defined(ENGINE_WIN)
 //===============================================================
@@ -144,6 +156,8 @@ typedef unsigned long long uintptr_t;
 #include"Thirdparty/Graphics/OpenGL.h"
 
 #endif //if defined(ENGINE_OPENGL)
+
+
 
 /****************************************************************
 *	Type
