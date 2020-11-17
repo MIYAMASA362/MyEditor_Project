@@ -95,6 +95,7 @@ namespace Core
 		EXPLICIT Logger(detail::LogLevel::Severity severity);
 		~Logger();
 	
+		// Output
 		static inline void Write(const detail::LogLevel::Severity& severity, const char* funcName, const char* fileName, const int lineNum, const char* fmt, ...)
 		{
 			char buffer[512] = { '\0' };
