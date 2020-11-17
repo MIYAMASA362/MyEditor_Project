@@ -18,10 +18,12 @@
 // IO
 #include"Core/IO/FileStream.h"
 #include"Core/IO/Path.h"
+#include"Core/IO/DllLoader.h"
 
 // Module
 #include"Core/Module/Module.h"
 #include"Core/Module/ModuleSystem.h"
+#include"Core/Module/GraphicsFactory.h"
 
 #pragma comment(lib,"Core.lib")
 
