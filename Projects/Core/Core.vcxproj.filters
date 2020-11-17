@@ -46,6 +46,21 @@
     <Filter Include="ヘッダー ファイル\Math">
       <UniqueIdentifier>{f76d70ff-421d-4f57-b110-e14325cfdad2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Thread">
+      <UniqueIdentifier>{3a58be0c-8cd3-4d8c-9dcf-ccc02bd9cb10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Time">
+      <UniqueIdentifier>{279a100e-8335-40b5-9b2b-91e06d45fde0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Task">
+      <UniqueIdentifier>{e0ab0695-3a0b-4291-9f8a-d41b429310a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Network">
+      <UniqueIdentifier>{2916228a-a354-4c79-aa70-6d1168a6281b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Network">
+      <UniqueIdentifier>{44c27bda-d76b-4a2e-96d7-f5c1dc4734fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -132,6 +147,18 @@
     <ClInclude Include="..\..\include\Core\Module\GraphicsFactory.h">
       <Filter>ヘッダー ファイル\Module</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\Core\Thread\Thread.h">
+      <Filter>ヘッダー ファイル\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\Time\Time.h">
+      <Filter>ヘッダー ファイル\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\Task\Task.h">
+      <Filter>ヘッダー ファイル\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\Network\Network.h">
+      <Filter>ヘッダー ファイル\Network</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -172,6 +199,15 @@
     </ClCompile>
     <ClCompile Include="..\..\include\Core\Module\GraphicsFactory.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\Thread\Thread.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\Task\Task.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\Network\Network.cpp">
+      <Filter>ソース ファイル\Network</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

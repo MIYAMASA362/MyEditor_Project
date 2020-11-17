@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -183,6 +183,10 @@
     <ClInclude Include="..\..\include\Core\Module\GraphicsFactory.h" />
     <ClInclude Include="..\..\include\Core\Module\Module.h" />
     <ClInclude Include="..\..\include\Core\Module\ModuleSystem.h" />
+    <ClInclude Include="..\..\include\Core\Network\Network.h" />
+    <ClInclude Include="..\..\include\Core\Task\Task.h" />
+    <ClInclude Include="..\..\include\Core\Thread\Thread.h" />
+    <ClInclude Include="..\..\include\Core\Time\Time.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -199,6 +203,9 @@
     <ClCompile Include="..\..\src\Core\IO\Path.cpp" />
     <ClCompile Include="..\..\src\Core\IO\PathHelper.cpp" />
     <ClCompile Include="..\..\src\Core\Module\ModuleSystem.cpp" />
+    <ClCompile Include="..\..\src\Core\Network\Network.cpp" />
+    <ClCompile Include="..\..\src\Core\Task\Task.cpp" />
+    <ClCompile Include="..\..\src\Core\Thread\Thread.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
