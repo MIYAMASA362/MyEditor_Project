@@ -1,19 +1,14 @@
 #define ENGINE_DIRECTX11
-
-#include <stdlib.h>  
-#include <crtdbg.h> 
-
-#include<string>
+#define ENGINE_WINSOCK
 
 #include"Platform.h"
 #include"Core.h"
 #include"Engine.h"
 
-#include"Editor/Console/Console.h"
+#include "Core/Thread/Thread.h"
+#include "Core/Time/Time.h"
 
-#include"Core/IO/DllLoader.h"
-
-#include"Core/Module/GraphicsFactory.h"
+#include "Core/Network/Network.h"
 
 int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCmdShow)
 {
@@ -36,6 +31,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine
 	//GraphicLoder.getProcess(TO_STRING(Platform::Graphics::DX11Graphics));
 	//
 
+
 	Platform::Windows::Window window;
 	window.Create(
 		hInstance,
@@ -57,6 +53,14 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine
 	mainSystem.mainLoop();
 
 	graphicsModule.ReleaseRenderer(&mainSystem.m_Renderer);
+
+	Core::Thread th1([]() 
+	{
+		LOG_DEBUG("Thread 1 Processing");
+		std::this_thread::sleep_for(Core::Time::NanoSeconds(1));
+	});
+	th1.run();
+	LOG_DEBUG("Thread End");
 
 	return 0;
 }
