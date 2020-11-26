@@ -1,7 +1,17 @@
 #include "stdafx.h"
 
+#include<vector>
+#include<map>
+
+// Platform Layer
 #include "Platform/Base/ISystem.h"
 #include "Platform/Base/IRenderer.h"
+
+// Core Layer
+#include "Core/Module/Module.h"
+#include "Core/System/System.h"
+
+// Engine Layer
 #include "Engine/Base/System.h"
 
 namespace Engine
@@ -21,6 +31,8 @@ namespace Engine
 	{
 		MSG msg;
 
+		this->ProcessModule(Core::System::ModuleType::Initialize);
+
 		do
 		{
 			if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
@@ -30,14 +42,20 @@ namespace Engine
 			}
 			else
 			{
+				this->ProcessModule(Core::System::ModuleType::Update);
+
 				m_Renderer->clear();
 
 				m_Renderer->begin();
+
+				this->ProcessModule(Core::System::ModuleType::Render);
 
 				m_Renderer->end();
 			}
 
 		} while (msg.message != WM_QUIT);
+
+		this->ProcessModule(Core::System::ModuleType::Finalize);
 
 		return (int)msg.wParam;
 	}

@@ -22,8 +22,9 @@
 
 // Module
 #include"Core/Module/Module.h"
-#include"Core/Module/ModuleSystem.h"
 #include"Core/Module/GraphicsFactory.h"
+
+#include"Core/System/System.h"
 
 #pragma comment(lib,"Core.lib")
 

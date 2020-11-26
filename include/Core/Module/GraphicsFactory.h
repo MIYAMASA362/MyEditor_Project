@@ -35,9 +35,9 @@ namespace Core
 
 	/**
 	* @class    GraphicsModule
-	* @brief    
+	* @brief    グラフィック関連のモジュール
 	*/
-	class GraphicsModule
+	class GraphicsModule : public detail::IModule
 	{
 	private:
 		Core::DllLoader* m_dllLoader;

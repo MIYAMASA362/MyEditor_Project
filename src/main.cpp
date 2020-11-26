@@ -1,6 +1,9 @@
 #define ENGINE_DIRECTX11
 #define ENGINE_WINSOCK
 
+#include<vector>
+#include<map>
+
 #include"Platform.h"
 #include"Core.h"
 #include"Engine.h"
@@ -45,7 +48,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine
 
 	Engine::System mainSystem;
 
-	//Module
+	// Module
 	Core::GraphicsModule graphicsModule("DirectX11.dll");
 
 	graphicsModule.CreateRenderer(window.GetHWnd(),&mainSystem.m_Renderer);
