@@ -168,6 +168,7 @@
     <ClInclude Include="..\..\include\Core\Base\Result.h" />
     <ClInclude Include="..\..\include\Core\Base\String.h" />
     <ClInclude Include="..\..\include\Core\Base\StringHelper.h" />
+    <ClInclude Include="..\..\include\Core\Graphics\GraphicsFactory.h" />
     <ClInclude Include="..\..\include\Core\IO\DllLoader.h" />
     <ClInclude Include="..\..\include\Core\IO\FileStream.h" />
     <ClInclude Include="..\..\include\Core\IO\Path.h" />
@@ -180,7 +181,6 @@
     <ClInclude Include="..\..\include\Core\Math\Vector2.h" />
     <ClInclude Include="..\..\include\Core\Math\Vector4.h" />
     <ClInclude Include="..\..\include\Core\Math\Vector3.h" />
-    <ClInclude Include="..\..\include\Core\Module\GraphicsFactory.h" />
     <ClInclude Include="..\..\include\Core\Module\Module.h" />
     <ClInclude Include="..\..\include\Core\Module\NetworkModule.h" />
     <ClInclude Include="..\..\include\Core\Network\Network.h" />
@@ -198,11 +198,11 @@
     <ClCompile Include="..\..\src\Core\Allocator\StackAllocator.cpp" />
     <ClCompile Include="..\..\src\Core\Base\Logger.cpp" />
     <ClCompile Include="..\..\src\Core\Base\String.cpp" />
+    <ClCompile Include="..\..\src\Core\Graphics\GraphicsFactory.cpp" />
     <ClCompile Include="..\..\src\Core\IO\DllLoader.cpp" />
     <ClCompile Include="..\..\src\Core\IO\FileStream.cpp" />
     <ClCompile Include="..\..\src\Core\IO\Path.cpp" />
     <ClCompile Include="..\..\src\Core\IO\PathHelper.cpp" />
-    <ClCompile Include="..\..\src\Core\Module\GraphicsFactory.cpp" />
     <ClCompile Include="..\..\src\Core\Network\Network.cpp" />
     <ClCompile Include="..\..\src\Core\System\System.cpp" />
     <ClCompile Include="..\..\src\Core\Task\Task.cpp" />

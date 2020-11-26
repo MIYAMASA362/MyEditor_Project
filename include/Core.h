@@ -22,7 +22,7 @@
 
 // Module
 #include"Core/Module/Module.h"
-#include"Core/Module/GraphicsFactory.h"
+#include"Core/Graphics/GraphicsFactory.h"
 
 #include"Core/System/System.h"
 

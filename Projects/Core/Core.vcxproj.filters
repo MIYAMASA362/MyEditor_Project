@@ -37,9 +37,6 @@
     <Filter Include="ソース ファイル\Json">
       <UniqueIdentifier>{fb4328af-4bb0-4c09-a123-71b72131a126}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Module">
-      <UniqueIdentifier>{7f17e327-53f2-4a80-b31f-206fd1090f6d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Base">
       <UniqueIdentifier>{038ff924-3ff4-44fd-a16d-93d6a26ad658}</UniqueIdentifier>
     </Filter>
@@ -66,6 +63,12 @@
     </Filter>
     <Filter Include="ヘッダー ファイル\System">
       <UniqueIdentifier>{5d16dee3-afa7-410b-8659-de5a5a3ff450}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Graphics">
+      <UniqueIdentifier>{7f17e327-53f2-4a80-b31f-206fd1090f6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Graphics">
+      <UniqueIdentifier>{93cd0a79-4ce2-41fa-bb55-452255be1632}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -147,9 +150,6 @@
     <ClInclude Include="..\..\include\Core\IO\DllLoader.h">
       <Filter>ヘッダー ファイル\IO</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Core\Module\GraphicsFactory.h">
-      <Filter>ヘッダー ファイル\Module</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Core\Thread\Thread.h">
       <Filter>ヘッダー ファイル\Thread</Filter>
     </ClInclude>
@@ -167,6 +167,9 @@
     </ClInclude>
     <ClInclude Include="..\..\include\Core\System\System.h">
       <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\Graphics\GraphicsFactory.h">
+      <Filter>ヘッダー ファイル\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -215,8 +218,8 @@
     <ClCompile Include="..\..\src\Core\System\System.cpp">
       <Filter>ソース ファイル\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Core\Module\GraphicsFactory.cpp">
-      <Filter>ソース ファイル\Module</Filter>
+    <ClCompile Include="..\..\src\Core\Graphics\GraphicsFactory.cpp">
+      <Filter>ソース ファイル\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
