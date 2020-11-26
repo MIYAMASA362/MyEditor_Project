@@ -4,7 +4,11 @@
 
 namespace Engine
 {
-	class System final : public Platform::detail::ISystem
+	/**
+	* @class    System
+	* @brief	アプリケーションの基幹システム
+	*/
+	class System final : public Core::System::ISystem
 	{
 	private:
 		
@@ -19,7 +23,6 @@ namespace Engine
 		virtual int mainLoop() override;
 
 	};//class System
-
 }//namespace Engine
 
 #endif //ifndef ENGINE_H

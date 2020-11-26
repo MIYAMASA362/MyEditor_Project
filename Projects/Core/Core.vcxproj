@@ -182,8 +182,9 @@
     <ClInclude Include="..\..\include\Core\Math\Vector3.h" />
     <ClInclude Include="..\..\include\Core\Module\GraphicsFactory.h" />
     <ClInclude Include="..\..\include\Core\Module\Module.h" />
-    <ClInclude Include="..\..\include\Core\Module\ModuleSystem.h" />
+    <ClInclude Include="..\..\include\Core\Module\NetworkModule.h" />
     <ClInclude Include="..\..\include\Core\Network\Network.h" />
+    <ClInclude Include="..\..\include\Core\System\System.h" />
     <ClInclude Include="..\..\include\Core\Task\Task.h" />
     <ClInclude Include="..\..\include\Core\Thread\Thread.h" />
     <ClInclude Include="..\..\include\Core\Time\Time.h" />
@@ -191,7 +192,6 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\include\Core\Module\GraphicsFactory.cpp" />
     <ClCompile Include="..\..\src\Core\Allocator\DoubleBufferAllocator.cpp" />
     <ClCompile Include="..\..\src\Core\Allocator\LinerAllocator.cpp" />
     <ClCompile Include="..\..\src\Core\Allocator\PoolAllocator.cpp" />
@@ -202,8 +202,9 @@
     <ClCompile Include="..\..\src\Core\IO\FileStream.cpp" />
     <ClCompile Include="..\..\src\Core\IO\Path.cpp" />
     <ClCompile Include="..\..\src\Core\IO\PathHelper.cpp" />
-    <ClCompile Include="..\..\src\Core\Module\ModuleSystem.cpp" />
+    <ClCompile Include="..\..\src\Core\Module\GraphicsFactory.cpp" />
     <ClCompile Include="..\..\src\Core\Network\Network.cpp" />
+    <ClCompile Include="..\..\src\Core\System\System.cpp" />
     <ClCompile Include="..\..\src\Core\Task\Task.cpp" />
     <ClCompile Include="..\..\src\Core\Thread\Thread.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -112,8 +112,7 @@ namespace Core
 					detail::LogLevel::ToString(severity).c_str(),
 					buffer,
 					funcName,
-					fileName,
-					lineNum
+					fileName,lineNum
 				);
 		}
 

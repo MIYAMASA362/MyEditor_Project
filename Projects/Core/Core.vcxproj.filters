@@ -61,6 +61,12 @@
     <Filter Include="ソース ファイル\Network">
       <UniqueIdentifier>{44c27bda-d76b-4a2e-96d7-f5c1dc4734fd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\System">
+      <UniqueIdentifier>{9a2abb63-9395-4112-bc85-0f3808272b6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\System">
+      <UniqueIdentifier>{5d16dee3-afa7-410b-8659-de5a5a3ff450}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -114,9 +120,6 @@
     <ClInclude Include="..\..\include\Core\Module\Module.h">
       <Filter>ヘッダー ファイル\Module</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Core\Module\ModuleSystem.h">
-      <Filter>ヘッダー ファイル\Module</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Core\Math\Math.h">
       <Filter>ヘッダー ファイル\Math</Filter>
     </ClInclude>
@@ -159,6 +162,12 @@
     <ClInclude Include="..\..\include\Core\Network\Network.h">
       <Filter>ヘッダー ファイル\Network</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\Core\Module\NetworkModule.h">
+      <Filter>ヘッダー ファイル\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\System\System.h">
+      <Filter>ヘッダー ファイル\System</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -191,14 +200,8 @@
     <ClCompile Include="..\..\src\Core\IO\PathHelper.cpp">
       <Filter>ソース ファイル\IO</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Core\Module\ModuleSystem.cpp">
-      <Filter>ソース ファイル\Module</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\Core\IO\DllLoader.cpp">
       <Filter>ソース ファイル\IO</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\Core\Module\GraphicsFactory.cpp">
-      <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\Core\Thread\Thread.cpp">
       <Filter>ソース ファイル</Filter>
@@ -208,6 +211,12 @@
     </ClCompile>
     <ClCompile Include="..\..\src\Core\Network\Network.cpp">
       <Filter>ソース ファイル\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\System\System.cpp">
+      <Filter>ソース ファイル\System</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\Module\GraphicsFactory.cpp">
+      <Filter>ソース ファイル\Module</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
