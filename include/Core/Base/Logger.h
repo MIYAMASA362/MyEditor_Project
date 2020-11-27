@@ -162,12 +162,12 @@ namespace Core
 
 }// namespace log
 
-#define LOG_DEBUG(format,...)		Core::Logger::LogDebug(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
-#define LOG_INFO(format,...)		Core::Logger::LogInfo(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
-#define LOG_WARRNING(format,...)	Core::Logger::LogWarning(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
-#define LOG_ERROR(format,...)		Core::Logger::LogError(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
-#define LOG_FATAL(format,...)		Core::Logger::LogFatal(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
-#define LOG_ASSERT(format,...)		Core::Logger::LogAssert(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
+#define LOG_DEBUG(format,...)		::Core::Logger::LogDebug(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
+#define LOG_INFO(format,...)		::Core::Logger::LogInfo(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
+#define LOG_WARRNING(format,...)	::Core::Logger::LogWarning(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
+#define LOG_ERROR(format,...)		::Core::Logger::LogError(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
+#define LOG_FATAL(format,...)		::Core::Logger::LogFatal(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
+#define LOG_ASSERT(format,...)		::Core::Logger::LogAssert(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
 
 #else // if !defined(DISABLE_LOGGING)
 

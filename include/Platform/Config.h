@@ -144,7 +144,7 @@ typedef unsigned long long uintptr_t;
 //===============================================================
 #if defined(ENGINE_DIRECTX12)
 
-#include"Thirdparty/Graphics/DirectX12.h"
+#include"../Thirdparty/Graphics/DirectX12/DirectX12.h"
 
 #endif //if defined(ENGINE_DIRECTX12)
 
@@ -153,7 +153,7 @@ typedef unsigned long long uintptr_t;
 //===============================================================
 #if defined(ENGINE_OPENGL)
 
-#include"Thirdparty/Graphics/OpenGL.h"
+#include"../Thirdparty/Graphics/OpenGL/OpenGL.h"
 
 #endif //if defined(ENGINE_OPENGL)
 

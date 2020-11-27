@@ -166,14 +166,15 @@ xcopy /y /d "$(OutDir)$(TargetName).lib" "..\..\lib\$(IntDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\Platform\Graphics\DirectX11.h" />
-    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\DX11GraphicsFactory.h" />
+    <ClInclude Include="..\..\include\Platform\Graphics\Graphics.h" />
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\DirectX11.h" />
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Factory.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\include\Thirdparty\Graphics\DirectX11\DX11GraphicsFactory.cpp" />
-    <ClCompile Include="..\..\src\Platform\Graphics\DirectX11.cpp" />
+    <ClCompile Include="..\..\include\Thirdparty\Graphics\DirectX11\Factory.cpp" />
+    <ClCompile Include="..\..\src\Platform\Graphics\Graphics.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

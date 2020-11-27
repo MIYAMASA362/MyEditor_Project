@@ -148,9 +148,6 @@
     <ClInclude Include="..\..\include\Editor\Console\Console.h" />
     <ClInclude Include="..\..\include\Engine.h" />
     <ClInclude Include="..\..\include\Platform.h" />
-    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11.h" />
-    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX12.h" />
-    <ClInclude Include="..\..\include\Thirdparty\Graphics\OpenGL.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

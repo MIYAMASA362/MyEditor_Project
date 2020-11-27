@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Thirdparty">
-      <UniqueIdentifier>{8559743b-1fb6-4d49-9273-389be9b04ceb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Editor">
       <UniqueIdentifier>{cec05735-5fe4-42cc-8ac5-882bdcb90bab}</UniqueIdentifier>
     </Filter>
@@ -38,15 +35,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\Thirdparty\Graphics\OpenGL.h">
-      <Filter>ヘッダー ファイル\Thirdparty</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11.h">
-      <Filter>ヘッダー ファイル\Thirdparty</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX12.h">
-      <Filter>ヘッダー ファイル\Thirdparty</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Core.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>

@@ -8,19 +8,19 @@ namespace Core
 
 	/**
 	* @class    IGraphicsFactory
-	* @brief    
+	* @brief
 	*/
 	class ENGINE_API IGraphicsFactory
 	{
 		//static_assert(std::is_base_of<Platform::detail::IRenderer,Type>::value,"Type must inherit form IRenderer");
 	public:
-		using Value_Type = Platform::detail::IRenderer;
+		using Value_Type = ::Platform::detail::IRenderer;
 
 		IGraphicsFactory() {};
 		virtual ~IGraphicsFactory() {};
 
 	public:
-		virtual void create(HWND hWnd,Value_Type** output) = 0;
+		virtual void create(HWND hWnd, Value_Type** output) = 0;
 		virtual void release(Value_Type** instance) = 0;
 
 	};//class IGraphicsFactory
@@ -37,10 +37,10 @@ namespace Core
 	* @class    GraphicsModule
 	* @brief    グラフィック関連のモジュール
 	*/
-	class GraphicsModule : public detail::IModule
+	class GraphicsModule : public ::Core::detail::IModule
 	{
 	private:
-		Core::DllLoader* m_dllLoader;
+		::Core::DllLoader* m_dllLoader;
 
 		IGraphicsFactory* m_Factory;
 
@@ -51,11 +51,11 @@ namespace Core
 		GraphicsModule(const char* moduleName);
 		virtual ~GraphicsModule();
 
-		void CreateRenderer(HWND hWnd,Platform::detail::IRenderer** renderer);
-		void ReleaseRenderer(Platform::detail::IRenderer** renderer);
+		void CreateRenderer(HWND hWnd, ::Platform::detail::IRenderer** renderer);
+		void ReleaseRenderer(::Platform::detail::IRenderer** renderer);
 
-	};//GraphicsModule
+	};// class GraphicsModule
 
-}//namespace Core
+}// namespace Core
 
 #endif //ifndef CORE_GRAPHICSFACTORY_H

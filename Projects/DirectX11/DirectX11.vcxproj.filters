@@ -21,10 +21,13 @@
     <ClInclude Include="targetver.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\DX11GraphicsFactory.h">
+    <ClInclude Include="..\..\include\Platform\Graphics\Graphics.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Graphics\DirectX11.h">
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Factory.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\DirectX11.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,10 +38,10 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Platform\Graphics\DirectX11.cpp">
+    <ClCompile Include="..\..\include\Thirdparty\Graphics\DirectX11\Factory.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\include\Thirdparty\Graphics\DirectX11\DX11GraphicsFactory.cpp">
+    <ClCompile Include="..\..\src\Platform\Graphics\Graphics.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

@@ -20,12 +20,6 @@
 
 #endif //if defined(ENGINE_WIN32)
 
-//Graphics
-#if defined(ENGINE_DIRECTX11)
-#include"Platform/Graphics/DirectX11.h"
-
-#endif //if defined(ENGINE_DIRECTX11)
-
 #pragma comment(lib,"Platform.lib")
 
 

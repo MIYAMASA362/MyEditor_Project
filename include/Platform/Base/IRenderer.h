@@ -15,7 +15,7 @@ namespace Platform
 		protected:
 
 		public:
-			IRenderer(HWND hWnd) {};
+			IRenderer() {};
 			virtual ~IRenderer() {};
 
 			virtual void clear() = 0;
