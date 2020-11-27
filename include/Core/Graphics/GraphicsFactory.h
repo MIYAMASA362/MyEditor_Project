@@ -25,13 +25,18 @@ namespace Core
 
 	};//class IGraphicsFactory
 
+	/*
+	* @brief DLLä÷êî
+	*/
+	namespace detail
+	{
+		typedef IGraphicsFactory* (*GetGraphicsFactory)();
+		extern "C" ENGINE_API IGraphicsFactory* base_GetGraphicsFactory();
 
-	typedef IGraphicsFactory* (*GetGraphicsFactory)();
-	extern "C" ENGINE_API IGraphicsFactory* base_GetGraphicsFactory();
+		typedef void(*ReleaseGraphicsFactory)(IGraphicsFactory** instance);
+		extern "C" ENGINE_API void base_ReleaseGraphicsFactory(IGraphicsFactory** instance);
 
-	typedef void(*ReleaseGraphicsFactory)(IGraphicsFactory** instance);
-	extern "C" ENGINE_API void base_ReleaseGraphicsFactory(IGraphicsFactory** instance);
-
+	}// namespace Core::detail
 
 	/**
 	* @class    GraphicsModule
@@ -40,12 +45,12 @@ namespace Core
 	class GraphicsModule : public ::Core::detail::IModule
 	{
 	private:
-		::Core::DllLoader* m_dllLoader;
+		Core::DllLoader* m_dllLoader;
 
 		IGraphicsFactory* m_Factory;
 
-		Core::GetGraphicsFactory get;
-		Core::ReleaseGraphicsFactory release;
+		Core::detail::GetGraphicsFactory get;
+		Core::detail::ReleaseGraphicsFactory release;
 
 	public:
 		GraphicsModule(const char* moduleName);

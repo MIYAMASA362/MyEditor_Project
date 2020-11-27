@@ -11,10 +11,10 @@ namespace Core
 {
 	GraphicsModule::GraphicsModule(const char * moduleName)
 	{
-		m_dllLoader = new ::Core::DllLoader(moduleName);
+		m_dllLoader = new Core::DllLoader(moduleName);
 
-		get = (Core::GetGraphicsFactory)m_dllLoader->getProcess("base_GetGraphicsFactory");
-		release = (Core::ReleaseGraphicsFactory)m_dllLoader->getProcess("base_ReleaseGraphicsFactory");
+		get = (Core::detail::GetGraphicsFactory)m_dllLoader->getProcess(TO_STRING(base_GetGraphicsFactory));
+		release = (Core::detail::ReleaseGraphicsFactory)m_dllLoader->getProcess(TO_STRING(base_ReleaseGraphicsFactory));
 
 		m_Factory = get();
 	}
