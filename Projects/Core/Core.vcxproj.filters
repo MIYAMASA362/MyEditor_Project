@@ -162,9 +162,6 @@
     <ClInclude Include="..\..\include\Core\Network\Network.h">
       <Filter>ヘッダー ファイル\Network</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Core\Module\NetworkModule.h">
-      <Filter>ヘッダー ファイル\Module</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Core\System\System.h">
       <Filter>ヘッダー ファイル\System</Filter>
     </ClInclude>

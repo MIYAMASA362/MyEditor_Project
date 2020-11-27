@@ -108,7 +108,7 @@ namespace Core
 		// ソケット生成
 		int Sock::Create(SOCKET* output)
 		{
-			int result;
+			int result = 0;
 			(*output) = socket(AF_INET,SOCK_STREAM,IPPROTO_TCP);
 			if((*output) == INVALID_SOCKET)
 			{

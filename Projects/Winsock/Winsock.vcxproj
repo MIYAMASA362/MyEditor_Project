@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -20,37 +20,37 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{52626AFF-6294-4A47-BC1A-8BBE9AEF754C}</ProjectGuid>
+    <ProjectGuid>{AE1BEA7C-CA37-4BF0-8E5D-99FEBB064811}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Core</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <RootNamespace>Winsock</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -72,7 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(IntDir)</OutDir>
+    <LibraryPath>C:\Users\MIYAM\Desktop\MyEditor_Project\lib\x64\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -82,7 +82,6 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(IntDir)</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -90,16 +89,19 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;WINSOCK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\MIYAM\Desktop\MyEditor_Project\include;C:\Users\MIYAM\Desktop\MyEditor_Project\Projects\Core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>C:\Users\MIYAM\Desktop\MyEditor_Project\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalLibraryDirectories>C:\Users\MIYAM\Desktop\MyEditor_Project\lib\$(IntDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /y /d "$(OutDir)$(TargetFileName)" "..\..\lib\$(IntDir)"</Command>
+      <Command>xcopy /y /d "$(OutDir)$(TargetFileName)" "..\..\build\$(IntDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -108,12 +110,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;WINSOCK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -124,14 +128,16 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;WINSOCK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -142,71 +148,26 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;WINSOCK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\MIYAM\Desktop\MyEditor_Project\include;C:\Users\MIYAM\Desktop\MyEditor_Project\Projects\Core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
     </Link>
-    <PostBuildEvent>
-      <Command>xcopy /y /d "$(OutDir)$(TargetFileName)" "..\..\lib\$(IntDir)"</Command>
-    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\Core\Allocator\DoubleBufferAllocator.h" />
-    <ClInclude Include="..\..\include\Core\Allocator\IAllocator.h" />
-    <ClInclude Include="..\..\include\Core\Allocator\LinerAllocator.h" />
-    <ClInclude Include="..\..\include\Core\Allocator\PoolAllocator.h" />
-    <ClInclude Include="..\..\include\Core\Allocator\StackAllocator.h" />
-    <ClInclude Include="..\..\include\Core\Base\Assert.h" />
-    <ClInclude Include="..\..\include\Core\Base\BitFlags.h" />
-    <ClInclude Include="..\..\include\Core\Base\Logger.h" />
-    <ClInclude Include="..\..\include\Core\Base\Result.h" />
-    <ClInclude Include="..\..\include\Core\Base\String.h" />
-    <ClInclude Include="..\..\include\Core\Base\StringHelper.h" />
-    <ClInclude Include="..\..\include\Core\Graphics\GraphicsFactory.h" />
-    <ClInclude Include="..\..\include\Core\IO\DllLoader.h" />
-    <ClInclude Include="..\..\include\Core\IO\FileStream.h" />
-    <ClInclude Include="..\..\include\Core\IO\Path.h" />
-    <ClInclude Include="..\..\include\Core\IO\PathHelper.h" />
-    <ClInclude Include="..\..\include\Core\IO\Stream.h" />
-    <ClInclude Include="..\..\include\Core\Json\Json.h" />
-    <ClInclude Include="..\..\include\Core\Math\Math.h" />
-    <ClInclude Include="..\..\include\Core\Math\Matrix.h" />
-    <ClInclude Include="..\..\include\Core\Math\Quaternion.h" />
-    <ClInclude Include="..\..\include\Core\Math\Vector2.h" />
-    <ClInclude Include="..\..\include\Core\Math\Vector4.h" />
-    <ClInclude Include="..\..\include\Core\Math\Vector3.h" />
-    <ClInclude Include="..\..\include\Core\Module\Module.h" />
-    <ClInclude Include="..\..\include\Core\Network\Network.h" />
-    <ClInclude Include="..\..\include\Core\System\System.h" />
-    <ClInclude Include="..\..\include\Core\Task\Task.h" />
-    <ClInclude Include="..\..\include\Core\Thread\Thread.h" />
-    <ClInclude Include="..\..\include\Core\Time\Time.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Winsock.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Core\Allocator\DoubleBufferAllocator.cpp" />
-    <ClCompile Include="..\..\src\Core\Allocator\LinerAllocator.cpp" />
-    <ClCompile Include="..\..\src\Core\Allocator\PoolAllocator.cpp" />
-    <ClCompile Include="..\..\src\Core\Allocator\StackAllocator.cpp" />
-    <ClCompile Include="..\..\src\Core\Base\Logger.cpp" />
-    <ClCompile Include="..\..\src\Core\Base\String.cpp" />
-    <ClCompile Include="..\..\src\Core\Graphics\GraphicsFactory.cpp" />
-    <ClCompile Include="..\..\src\Core\IO\DllLoader.cpp" />
-    <ClCompile Include="..\..\src\Core\IO\FileStream.cpp" />
-    <ClCompile Include="..\..\src\Core\IO\Path.cpp" />
-    <ClCompile Include="..\..\src\Core\IO\PathHelper.cpp" />
-    <ClCompile Include="..\..\src\Core\Network\Network.cpp" />
-    <ClCompile Include="..\..\src\Core\System\System.cpp" />
-    <ClCompile Include="..\..\src\Core\Task\Task.cpp" />
-    <ClCompile Include="..\..\src\Core\Thread\Thread.cpp" />
-    <ClCompile Include="stdafx.cpp">
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
