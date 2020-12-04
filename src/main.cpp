@@ -49,9 +49,15 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine
 	Engine::System mainSystem;
 
 	// Module
-	Core::GraphicsModule graphicsModule("DirectX11.dll");
-
+	Core::Graphics::GraphicsModule graphicsModule("DirectX11.dll");
 	graphicsModule.CreateRenderer(window.GetHWnd(),&mainSystem.m_Renderer);
+
+	Core::Network::NetworkModule networkModule("Winsock.dll");
+	::Platform::Network::detail::INetwork* network;
+	networkModule.CreateNetwork(&network);
+	network->Startup();
+	network->Cleanup();
+	networkModule.ReleaseNetwork(&network);
 
 	mainSystem.mainLoop();
 
