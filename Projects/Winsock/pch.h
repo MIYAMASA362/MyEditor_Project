@@ -10,10 +10,17 @@
 // プリコンパイルするヘッダーをここに追加します
 #include "framework.h"
 
+#define ENGINE_EXPORT
+
 #include "Platform/Config.h"
 #include "Platform/Network/Network.h"
 
 #include "Core/Base/Logger.h"
 #include "Core/Base/Assert.h"
+#include "Core/Module/Module.h"
+#include "Core/Network/Network.h"
+
+#include "Thirdparty/Network/Winsock/Winsock.h"
+#include "Thirdparty/Network/Winsock/Network.h"
 
 #endif //PCH_H

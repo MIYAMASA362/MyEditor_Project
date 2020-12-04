@@ -19,7 +19,7 @@ namespace Core
 			virtual ~IModule() {};
 		};//class IModule
 
-	}//namespace Core::detail
-}//namespace Core
+	}// namespace Core::detail
+}// namespace Core
 
-#endif//ifndef CORE_MODULE_H
+#endif// ifndef CORE_MODULE_H

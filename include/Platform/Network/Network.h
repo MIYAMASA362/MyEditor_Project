@@ -6,92 +6,91 @@ namespace Platform
 {
 	namespace Network
 	{
-		/* ポート番号 */
-		typedef int Port;
+		constexpr int FAILED = -1;
+		constexpr int SUCCESS = 0;
 
 		// Family
-		enum Family
+		enum class Family
 		{
 			IPv4,
 			IPv6
 		};
 
 		// SocketType
-		enum SocketType
+		enum class SocketType
 		{
 			STREAM,
 			DGRAM
 		};
 
 		// Protocol
-		enum Protocol
+		enum class Protocol
 		{
 			TCP,
 			UDP
 		};
 
-		// IPv4 Address Code
-		struct Address
-		{
-			union {
-				struct { unsigned char b0, b1, b2, b3; } S_un_b;
-				struct { unsigned short w0, w1; } S_un_w;
-				unsigned long S_addr;
-			}S_un;
-		};
-
-#define CONECT_ANY			(ULONG)0x00000000
-#define CONECT_LOOPBACK		(ULONG)0x7f000001
-#define CONECT_BROADCAST	(ULONG)0xffffffff
-#define CONECT_NONE			(ULONG)0xffffffff
-
 		// NetType
-		enum NetType
+		enum class NetType
 		{
 			Server,
 			Client
 		};
 
+		struct SocketInfo
+		{
+			Family		m_family	 = Family::IPv4;
+			Protocol	m_protocol	 = Protocol::TCP;
+			SocketType	m_socketType = SocketType::STREAM;
+			LPSTR		m_Address	 = NULL;
+			LPSTR		m_Port		 = NULL;
+		};
+
 		namespace detail
 		{
-			// Network Scoket
-			class ISocket
+			// ISocket
+			class ENGINE_API ISocket
 			{
 			private:
 
 			public:
-				Family m_Family;
-				Protocol m_Protocol;
-			};
+				
+
+			};// class IScoket
 
 			// Network
-			class INetwork
+			/*
+				Socketの情報を使う
+			*/
+			class ENGINE_API INetwork
 			{
-			private:
-
 			public:
+				INetwork() = default;
+				virtual ~INetwork() = default;
 
-				// 受け入れ
-				//	クライアントからの接続待機
-				virtual void Accept() = 0;
-
-				// 接続 
-				//	サーバへの接続
-				virtual void Conect() = 0;
-
-				// 受信
-				//	データ受信
-				virtual void Recv() = 0;
-
-				// 送信
-				//	データ送信
-				virtual void Send() = 0;
-
-				// 接続終了
-				virtual void Close() = 0;
-
+				// 初期化
+				virtual int Startup() = 0;
 				// 終了処理
 				virtual void Cleanup() = 0;
+
+				// ソケット 作成
+				virtual int Create(ISocket* output, SocketInfo& info) = 0;
+				// ソケット 紐づけ
+				virtual int Bind(ISocket* iSocket) = 0;
+				// ソケット 開放
+				virtual int Listen(ISocket* iSocket) = 0;
+				// ソケット 受け入れ
+				virtual int Accept(ISocket* iSocket) = 0;
+				// ソケット 接続
+				virtual int Connect(ISocket* iSocket) = 0;
+				// ソケット 受信
+				virtual int Recv(ISocket* iSocket, char* buf, int buflen) = 0;
+				// ソケット 送信
+				virtual int Send(ISocket* iSocket, char* buf, int sendlen) = 0;
+				// ソケット 閉鎖
+				virtual int Close(ISocket* iSocket) = 0;
+				// ソケット 破棄
+				virtual void Release(ISocket* iSocket) = 0;
 
 			};// class INetwork
 

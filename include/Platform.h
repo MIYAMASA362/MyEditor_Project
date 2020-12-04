@@ -8,12 +8,15 @@
 #include"Platform/DesignPattern/Singleton.h"
 #include"Platform/DesignPattern/Factory.h"
 
-//Platform Base
+// Platform Base
 #include"Platform/Base/ISystem.h"
 #include"Platform/Base/IWindow.h"
 #include"Platform/Base/IRenderer.h"
 
-//Platform 
+// 
+#include"Platform/Network/Network.h"
+
+// Platform 
 #if defined(ENGINE_WIN32)
 #include"Platform/Windows/Window.h"
 #pragma comment(lib,"Windows.lib")
