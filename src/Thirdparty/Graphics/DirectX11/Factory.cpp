@@ -4,12 +4,12 @@ namespace Core
 {
 	namespace detail
 	{
-		extern "C" ENGINE_API IGraphicsFactory* base_GetGraphicsFactory()
+		EXTERN_C ENGINE_API IGraphicsFactory* base_GetGraphicsFactory()
 		{
 			return new ThirdParty::Core::DX11GraphicsFactory();
 		}
 
-		extern "C" ENGINE_API void base_ReleaseGraphicsFactory(IGraphicsFactory** instance)
+		EXTERN_C ENGINE_API void base_ReleaseGraphicsFactory(IGraphicsFactory** instance)
 		{
 			delete dynamic_cast<ThirdParty::Core::DX11GraphicsFactory*>(*instance);
 		}

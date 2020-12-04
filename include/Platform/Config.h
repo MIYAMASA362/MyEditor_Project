@@ -34,13 +34,18 @@
 #endif
 #endif
 
+// EXTERN C
+#ifndef EXTERN_C
+#define EXTERN_C extern "C"
+#endif// ifndef EXTERN_C
+
 /****************************************************************
 *	Support Macro
 *****************************************************************/
 
 //Variable name to String
 #define TO_STRING(variable) #variable
-
+#define NAMEOF(variable) TO_STRING(variable)
 
 
 /****************************************************************
