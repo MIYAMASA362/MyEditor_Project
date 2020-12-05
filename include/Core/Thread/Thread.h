@@ -50,8 +50,8 @@ namespace Core {
 
 		};// class Thread_guard
 
-	}
-}// namespace Core::detail
+	}// namespace Core::detail
+}// namespace Core
 
 namespace Core
 {

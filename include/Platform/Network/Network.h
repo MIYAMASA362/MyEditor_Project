@@ -37,13 +37,29 @@ namespace Platform
 			Client
 		};
 
+		// 
+		enum class Flags
+		{
+			NONE			= 0,
+			PASSIVE,
+		};
+
+		// 
+		enum class CloseType
+		{
+			RECEIVE = 0,
+			SEND,
+			BOTH,
+		};
+
 		struct SocketInfo
 		{
-			Family		m_family	 = Family::IPv4;
-			Protocol	m_protocol	 = Protocol::TCP;
+			Family		m_family		 = Family::IPv4;
+			Protocol		m_protocol	 = Protocol::TCP;
 			SocketType	m_socketType = SocketType::STREAM;
-			LPSTR		m_Address	 = NULL;
-			LPSTR		m_Port		 = NULL;
+			PCSTR		m_address	 = NULL;
+			PCSTR		m_port		 = NULL;
+			Flags		m_flags		 = Flags::NONE;
 		};
 
 		namespace detail
@@ -74,23 +90,23 @@ namespace Platform
 				virtual void Cleanup() = 0;
 
 				// ソケット 作成
-				virtual int Create(ISocket* output, SocketInfo& info) = 0;
+				virtual int Create(ISocket** output, SocketInfo& info) = 0;
 				// ソケット 紐づけ
 				virtual int Bind(ISocket* iSocket) = 0;
 				// ソケット 開放
 				virtual int Listen(ISocket* iSocket) = 0;
 				// ソケット 受け入れ
-				virtual int Accept(ISocket* iSocket) = 0;
+				virtual int Accept(ISocket* iSocket, ISocket** client) = 0;
 				// ソケット 接続
 				virtual int Connect(ISocket* iSocket) = 0;
 				// ソケット 受信
 				virtual int Recv(ISocket* iSocket, char* buf, int buflen) = 0;
 				// ソケット 送信
-				virtual int Send(ISocket* iSocket, char* buf, int sendlen) = 0;
+				virtual int Send(ISocket* iSocket, const char* buf, int sendlen) = 0;
 				// ソケット 閉鎖
-				virtual int Close(ISocket* iSocket) = 0;
+				virtual int Close(ISocket* iSocket,CloseType type) = 0;
 				// ソケット 破棄
-				virtual void Release(ISocket* iSocket) = 0;
+				virtual void Release(ISocket** iSocket) = 0;
 
 			};// class INetwork
 

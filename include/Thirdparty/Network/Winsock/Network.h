@@ -40,23 +40,23 @@ namespace ThirdParty
 			virtual void Cleanup() override;
 			
 			// ソケット 作成
-			virtual int Create(ISocket* output, SocketInfo& info) override;
+			virtual int Create(ISocket** output, SocketInfo& info) override;
 			// ソケット 紐づけ
 			virtual int Bind(ISocket* iSocket) override;
 			// ソケット 開放
 			virtual int Listen(ISocket* iSocket) override;
 			// ソケット 受け入れ
-			virtual int Accept(ISocket* iSocket) override;
+			virtual int Accept(ISocket* iSocket, ISocket** client) override;
 			// ソケット 接続
 			virtual int Connect(ISocket* iSocket) override;
 			// ソケット 受信
 			virtual int Recv(ISocket* iSocket, char* buf, int buflen) override;
 			// ソケット 送信
-			virtual int Send(ISocket* iSocket, char* buf, int sendlen) override;
+			virtual int Send(ISocket* iSocket, const char* buf, int sendlen) override;
 			// ソケット 閉鎖
-			virtual int Close(ISocket* iSocket) override;
+			virtual int Close(ISocket* iSocket,Platform::Network::CloseType type) override;
 			// ソケット 破棄
-			virtual void Release(ISocket* iSocket) override;
+			virtual void Release(ISocket** iSocket) override;
 
 		private:
 			WSADATA m_wsaData;
