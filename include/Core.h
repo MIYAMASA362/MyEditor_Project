@@ -27,6 +27,7 @@
 // Module
 #include"Core/Module/Module.h"
 #include"Core/Graphics/GraphicsModule.h"
+#include"Core/Network/NetworkModule.h"
 
 // Graphics
 #include"Core/Graphics/Renderer.h"

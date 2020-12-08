@@ -1,9 +1,6 @@
 #include "stdafx.h"
 
-#include <WinSock2.h>
-#include <WS2tcpip.h>
-
-#include "Platform/Network/Network.h"
+#include "Platform/Network/INetwork.h"
 
 #include "Core/IO/DllLoader.h"
 
@@ -11,7 +8,7 @@
 #include "Core/Base/Assert.h"
 
 #include "Core/Module/Module.h"
-#include "Core/Network/Network.h"
+#include "Core/Network/NetworkModule.h"
 
 namespace Core
 {

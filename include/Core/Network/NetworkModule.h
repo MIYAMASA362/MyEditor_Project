@@ -1,6 +1,6 @@
 #pragma once
-#ifndef CORE_NETWORK_H
-#define CORE_NETWORK_H
+#ifndef CORE_NETWORKMODULE_H
+#define CORE_NETWORKMODULE_H
 
 namespace Core
 {

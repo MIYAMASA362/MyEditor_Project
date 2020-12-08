@@ -2,9 +2,10 @@
 #ifndef PLATFORM_H
 #define PLATFORM_H
 
-
+// Config
 #include"Platform/Config.h"
 
+// DesignPattern
 #include"Platform/DesignPattern/Singleton.h"
 #include"Platform/DesignPattern/Factory.h"
 
@@ -12,9 +13,7 @@
 #include"Platform/Base/ISystem.h"
 #include"Platform/Base/IWindow.h"
 #include"Platform/Base/IRenderer.h"
-
-// 
-#include"Platform/Network/Network.h"
+#include"Platform/Network/INetwork.h"
 
 // Platform 
 #if defined(ENGINE_WIN32)
