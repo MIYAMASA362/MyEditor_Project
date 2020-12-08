@@ -77,8 +77,11 @@ namespace Core
 
 		};// class LogLevel
 
-	}//namespace log::detail
+	}//namespace Core::detail
+}// namespace Core
 
+namespace Core
+{
 	/**
 	* @class    Logger
 	* @brief    

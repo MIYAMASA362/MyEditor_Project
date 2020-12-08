@@ -19,8 +19,8 @@
     <Filter Include="ヘッダー ファイル\DesignPattern">
       <UniqueIdentifier>{2d576d4d-eaa8-4fce-beef-dcb407622a8b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Network">
-      <UniqueIdentifier>{3859f874-a40e-44bb-885d-a76e4177f37b}</UniqueIdentifier>
+    <Filter Include="ヘッダー ファイル\Interface">
+      <UniqueIdentifier>{960dbf2f-dd39-437a-a581-b75aacc72623}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -29,15 +29,6 @@
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\IRenderer.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\ISystem.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\IWindow.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\DesignPattern\Singleton.h">
       <Filter>ヘッダー ファイル\DesignPattern</Filter>
@@ -48,8 +39,20 @@
     <ClInclude Include="..\..\include\Platform\DesignPattern\Factory.h">
       <Filter>ヘッダー ファイル\DesignPattern</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Network\Network.h">
-      <Filter>ヘッダー ファイル\Network</Filter>
+    <ClInclude Include="..\..\include\Platform.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\IWindow.h">
+      <Filter>ヘッダー ファイル\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\IRenderer.h">
+      <Filter>ヘッダー ファイル\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\ISystem.h">
+      <Filter>ヘッダー ファイル\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Network\INetwork.h">
+      <Filter>ヘッダー ファイル\Interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -157,7 +157,11 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\Engine.h" />
     <ClInclude Include="..\..\include\Engine\Base\System.h" />
+    <ClInclude Include="..\..\include\Engine\Component\Component.h" />
+    <ClInclude Include="..\..\include\Engine\Entity\Entity.h" />
+    <ClInclude Include="..\..\include\Engine\Object\Object.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

@@ -11,8 +11,6 @@
 #include "Core/Thread/Thread.h"
 #include "Core/Time/Time.h"
 
-#include "Core/Network/Network.h"
-
 int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCmdShow)
 {
 	TCHAR curDir[MAX_PATH + 1];
