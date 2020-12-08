@@ -2,10 +2,10 @@
 
 #include<string>
 
-#include "Core/IO/PathHelper.h"
-#include "Core/IO/Path.h"
+#include "IO/PathHelper.h"
+#include "IO/Path.h"
 
-namespace Core
+namespace Platform
 {
 	Path::Path()
 	{
@@ -53,17 +53,17 @@ namespace Core
 
 	std::string Path::getFileName() const
 	{
-		return Core::detail::PathFormat::getFileName(&m_path);
+		return detail::PathFormat::getFileName(&m_path);
 	}
 
 	std::string Path::getFile() const
 	{
-		return Core::detail::PathFormat::getFileNameSub(&m_path);
+		return detail::PathFormat::getFileNameSub(&m_path);
 	}
 
 	std::string Path::getExtension() const
 	{
-		return Core::detail::PathFormat::getFileExtension(&m_path);
+		return detail::PathFormat::getFileExtension(&m_path);
 	}
 
-}//namespace Core
+}//namespace Platform

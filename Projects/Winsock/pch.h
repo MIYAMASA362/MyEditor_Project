@@ -12,15 +12,16 @@
 
 #define ENGINE_EXPORT
 
-#include "Platform/Config.h"
-#include "Platform/Network/Network.h"
+#include"Platform/Config.h"
+#include"Platform/Base/INetwork.h"
+#include"Platform/Base/Logger.h"
+#include"Platform/Base/Assert.h"
+#include"Platform/IO/DllLoader.h"
+#include"Platform/Module/Module.h"
 
-#include "Core/Base/Logger.h"
-#include "Core/Base/Assert.h"
-#include "Core/Module/Module.h"
-#include "Core/Network/Network.h"
+#include"Core/Network/NetworkModule.h"
 
-#include "Thirdparty/Network/Winsock/Winsock.h"
-#include "Thirdparty/Network/Winsock/Network.h"
+#include"Thirdparty/Network/Winsock/Winsock.h"
+#include"Thirdparty/Network/Winsock/Network.h"
 
 #endif //PCH_H

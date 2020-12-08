@@ -2,16 +2,14 @@
 
 #include<iostream>
 
-#include"Core/Base/Logger.h"
-#include"Core/Base/Result.h"
+#include"Base/StringHelper.h"
 
-#include"Core/IO/FileStream.h"
+#include"IO/FileStream.h"
 
-#include"Core/Base/StringHelper.h"
 
 #define BUFFER_SIZE (256)
 
-namespace Core
+namespace Platform
 {
 	FileStream::FileStream(std::string filePath, FileMode mode)
 		:
@@ -127,12 +125,12 @@ namespace Core
 
 	int FileStream::find(const char * str, const char * search)
 	{
-		return StringHelper::find<char>(str,search);
+		return ::Platform::StringHelper::find<char>(str,search);
 	}
 
 	int FileStream::find(const char * str, const char * search, const char * endstr)
 	{
-		return StringHelper::find<char>(str,search,endstr);
+		return ::Platform::StringHelper::find<char>(str,search,endstr);
 	}
 
 	bool FileStream::seekFind(const char * str)
@@ -145,14 +143,14 @@ namespace Core
 			count = find(buffer, str);
 			if (count >= 0)
 			{
-				seek(count - (this->getPos() - pos), Core::StreamSeek::Current);
+				seek(count - (this->getPos() - pos), StreamSeek::Current);
 				//‰üs•¶Žš‚ðŠÜ‚ß‚È‚¢
 				if(buffer[count-1] == '\n')
 					seek(1, StreamSeek::Current);
 				return true;
 			}
 		}
-		seek(-(this->getPos() - pos),Core::StreamSeek::Current);
+		seek(-(this->getPos() - pos),StreamSeek::Current);
 		return false;
 	}
 
@@ -175,7 +173,7 @@ namespace Core
 	{
 		char buffer[256];
 		this->readline(&buffer[0], 256);
-		this->seek(offset,Core::StreamSeek::Current);
+		this->seek(offset,StreamSeek::Current);
 	}
 
 	long FileStream::getPos() const
@@ -204,4 +202,4 @@ namespace Core
 	}
 
 
-}// namespace Core
+}// namespace Platform

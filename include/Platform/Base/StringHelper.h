@@ -1,12 +1,12 @@
 #pragma once
-#ifndef CORE_STRINGHELPER_H
-#define CORE_STRINGHELPER_H
+#ifndef PLATFORM_STRINGHELPER_H
+#define PLATFORM_STRINGHELPER_H
 
 #include<string>
 
 #define NOT_FIND (-1)
 
-namespace Core
+namespace Platform
 {
 
 	class StringHelper final
@@ -123,6 +123,6 @@ namespace Core
 		wsprintf(buffer,format,std::forward<Args>(args)...);
 	}
 
-}//namespace Core
+}//namespace Platform
 
-#endif //ifndef CORE_STRINGHELPER_H
+#endif //ifndef PLATFORM_STRINGHELPER_H

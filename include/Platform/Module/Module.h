@@ -1,8 +1,8 @@
 #pragma once
-#ifndef CORE_MODULE_H
-#define CORE_MODULE_H
+#ifndef PLATFORM_MODULE_H
+#define PLATFORM_MODULE_H
 
-namespace Core
+namespace Platform
 {
 	namespace detail
 	{
@@ -19,7 +19,7 @@ namespace Core
 			virtual ~IModule() {};
 		};//class IModule
 
-	}// namespace Core::detail
-}// namespace Core
+	}// namespace Platform::detail
+}// namespace Platform
 
-#endif// ifndef CORE_MODULE_H
+#endif// ifndef PLATFORM_MODULE_H

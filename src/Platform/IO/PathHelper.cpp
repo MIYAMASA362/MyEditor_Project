@@ -4,10 +4,10 @@
 #include<Windows.h>
 
 
-#include"Core/Base/Logger.h"
-#include"Core/IO/PathHelper.h"
+#include"Base/Logger.h"
+#include"IO/PathHelper.h"
 
-namespace Core
+namespace Platform
 {
 	namespace detail
 	{
@@ -48,6 +48,6 @@ namespace Core
 			return false;
 		}
 
-	}//namespace detail
-}//namespace Core
+	}//namespace Platform::detail
+}//namespace Platform
 

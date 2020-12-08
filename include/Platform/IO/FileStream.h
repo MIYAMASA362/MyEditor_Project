@@ -1,12 +1,12 @@
 #pragma once
-#ifndef CORE_IO_FILESTREAM_H
-#define CORE_IO_FILESTREAM_H
+#ifndef PLATFORM_FILESTREAM_H
+#define PLATFORM_FILESTREAM_H
 
 #include<fstream>
 
 #include"Stream.h"
 
-namespace Core
+namespace Platform
 {
 	/**
 	*	@brief	FileMode
@@ -137,6 +137,6 @@ namespace Core
 
 
 	};// class FileStream
-}// namespace Core
+}// namespace Platform
 
-#endif // ifndef CORE_IO_FILESTREAM_H
+#endif // ifndef PLATFORM_FILESTREAM_H

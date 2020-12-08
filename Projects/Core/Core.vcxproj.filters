@@ -16,12 +16,6 @@
     <Filter Include="ヘッダー ファイル\Allocator">
       <UniqueIdentifier>{a7ec206b-9b96-4e17-a762-0122aef689d1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Base">
-      <UniqueIdentifier>{fe7da9a5-413b-4d7b-b99a-e53141bf7aa1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\IO">
-      <UniqueIdentifier>{98883816-9a6c-4452-b1a5-4a16ca4de993}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Json">
       <UniqueIdentifier>{5c3fb115-37c7-4c98-9794-f3f486b84f12}</UniqueIdentifier>
     </Filter>
@@ -30,15 +24,6 @@
     </Filter>
     <Filter Include="ソース ファイル\Allocator">
       <UniqueIdentifier>{9fd8810c-5a50-4889-9780-a63936ef68d5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\IO">
-      <UniqueIdentifier>{15c15874-a7e5-4937-bcc4-1c3260324e16}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Json">
-      <UniqueIdentifier>{fb4328af-4bb0-4c09-a123-71b72131a126}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Base">
-      <UniqueIdentifier>{038ff924-3ff4-44fd-a16d-93d6a26ad658}</UniqueIdentifier>
     </Filter>
     <Filter Include="ヘッダー ファイル\Math">
       <UniqueIdentifier>{f76d70ff-421d-4f57-b110-e14325cfdad2}</UniqueIdentifier>
@@ -51,9 +36,6 @@
     </Filter>
     <Filter Include="ヘッダー ファイル\Task">
       <UniqueIdentifier>{e0ab0695-3a0b-4291-9f8a-d41b429310a0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\Network">
-      <UniqueIdentifier>{44c27bda-d76b-4a2e-96d7-f5c1dc4734fd}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\System">
       <UniqueIdentifier>{9a2abb63-9395-4112-bc85-0f3808272b6e}</UniqueIdentifier>
@@ -96,35 +78,8 @@
     <ClInclude Include="..\..\include\Core\Allocator\StackAllocator.h">
       <Filter>ヘッダー ファイル\Allocator</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Core\Base\Assert.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Base\BitFlags.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Base\Logger.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Base\Result.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Base\String.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\IO\FileStream.h">
-      <Filter>ヘッダー ファイル\IO</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\IO\Path.h">
-      <Filter>ヘッダー ファイル\IO</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\IO\PathHelper.h">
-      <Filter>ヘッダー ファイル\IO</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Core\Json\Json.h">
       <Filter>ヘッダー ファイル\Json</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Module\Module.h">
-      <Filter>ヘッダー ファイル\Module</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Core\Math\Math.h">
       <Filter>ヘッダー ファイル\Math</Filter>
@@ -143,15 +98,6 @@
     </ClInclude>
     <ClInclude Include="..\..\include\Core\Math\Vector3.h">
       <Filter>ヘッダー ファイル\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\IO\Stream.h">
-      <Filter>ヘッダー ファイル\IO</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Base\StringHelper.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\IO\DllLoader.h">
-      <Filter>ヘッダー ファイル\IO</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Core\Thread\Thread.h">
       <Filter>ヘッダー ファイル\Thread</Filter>
@@ -196,24 +142,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\Core\Allocator\StackAllocator.cpp">
       <Filter>ソース ファイル\Allocator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Core\Base\Logger.cpp">
-      <Filter>ソース ファイル\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Core\Base\String.cpp">
-      <Filter>ソース ファイル\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Core\IO\FileStream.cpp">
-      <Filter>ソース ファイル\IO</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Core\IO\Path.cpp">
-      <Filter>ソース ファイル\IO</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Core\IO\PathHelper.cpp">
-      <Filter>ソース ファイル\IO</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Core\IO\DllLoader.cpp">
-      <Filter>ソース ファイル\IO</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\Core\System\System.cpp">
       <Filter>ソース ファイル\System</Filter>

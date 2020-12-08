@@ -1,10 +1,10 @@
 #include"stdafx.h"
 
-#include"Core/Base/Logger.h"
+#include"Base/Logger.h"
 
 #if !defined(DISABLE_LOGGING)
 
-namespace Core 
+namespace Platform
 {
 
 	Logger::Logger(detail::LogLevel::Severity severity)
@@ -19,5 +19,6 @@ namespace Core
 
 	}
 
-}// namespace Core
-#endif
+}// namespace Platform
+
+#endif // ifndef !defined(DISABLE_LOGGING)

@@ -1,8 +1,5 @@
 #include"stdafx.h"
 
-#include"Core/Base/Logger.h"
-#include"Core/Base/Assert.h"
-
 #include"Core/Allocator/IAllocator.h"
 #include"Core/Allocator/LinerAllocator.h"
 

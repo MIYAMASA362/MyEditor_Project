@@ -3,10 +3,6 @@
 #define CORE_H
 
 // Core Base
-#include"Core/Base/BitFlags.h"
-#include"Core/Base/Logger.h"
-#include"Core/Base/Assert.h"
-#include"Core/Base/Result.h"
 
 // Allocator
 #include"Core/Allocator/IAllocator.h"
@@ -16,16 +12,11 @@
 #include"Core/Allocator/DoubleBufferAllocator.h"
 
 // IO
-#include"Core/IO/Stream.h"
-#include"Core/IO/FileStream.h"
-#include"Core/IO/Path.h"
-#include"Core/IO/DllLoader.h"
 
 // Factory
 #include"Core/Graphics/GraphicsFactory.h"
 
 // Module
-#include"Core/Module/Module.h"
 #include"Core/Graphics/GraphicsModule.h"
 #include"Core/Network/NetworkModule.h"
 

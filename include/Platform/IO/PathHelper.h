@@ -1,8 +1,8 @@
 #pragma once
-#ifndef CORE_IO_PATHHELPER_H
-#define CORE_IO_PATHHELPER_H
+#ifndef PLATFORM_PATHHELPER_H
+#define PLATFORM_PATHHELPER_H
 
-namespace Core
+namespace Platform
 {
 	namespace detail
 	{
@@ -25,6 +25,6 @@ namespace Core
 		};//class PathFormat
 
 	}//namespace detail
-}//namespace Core
+}//namespace Platform
 
-#endif //ifndef CORE_IO_PATHHELPER_H
+#endif //ifndef PLATFORM_PATHHELPER_H

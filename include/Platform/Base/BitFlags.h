@@ -1,8 +1,8 @@
 #pragma once
-#ifndef BITFLAGS_H
-#define BITFLAGS_H
+#ifndef PLATFORM_BITFLAGS_H
+#define PLATFORM_BITFLAGS_H
 
-namespace Core
+namespace Platform
 {
 	namespace detail
 	{
@@ -19,7 +19,7 @@ namespace Core
 
 		};//class BitFlags
 
-	}//namespace Core::detail
-}//namespace Core
+	}//namespace Platform::detail
+}//namespace Platform
 
-#endif //ifndef BITFLAGS_H
+#endif //ifndef PLATFORM_BITFLAGS_H

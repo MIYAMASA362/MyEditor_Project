@@ -1,8 +1,8 @@
 #pragma once
-#ifndef CORE_IO_PATH_H
-#define CORE_IO_PATH_H
+#ifndef PLATFORM_PATH_H
+#define PLATFORM_PATH_H
 
-namespace Core
+namespace Platform
 {
 	/**
 	* @class    Path
@@ -45,6 +45,6 @@ namespace Core
 
 
 	};//class Path
-}//namespace Core
+}//namespace Platform
 
-#endif //ifndef CORE_IO_PATH_H
+#endif //ifndef PLATFORM_PATH_H

@@ -19,8 +19,20 @@
     <Filter Include="ヘッダー ファイル\DesignPattern">
       <UniqueIdentifier>{2d576d4d-eaa8-4fce-beef-dcb407622a8b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Interface">
+    <Filter Include="ヘッダー ファイル\Base\Interface">
       <UniqueIdentifier>{960dbf2f-dd39-437a-a581-b75aacc72623}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Base">
+      <UniqueIdentifier>{da83a593-a0a7-463e-a95f-3840724ad9e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\IO">
+      <UniqueIdentifier>{614f029c-8aac-41b4-bfa5-6bf83c857ba3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\IO">
+      <UniqueIdentifier>{9771febf-faa7-4a8c-ba8a-ae96b69cd88e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Module">
+      <UniqueIdentifier>{2eff81ed-1d3e-4cf6-abf4-2b76c53a2446}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -43,21 +55,75 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\IWindow.h">
-      <Filter>ヘッダー ファイル\Interface</Filter>
+      <Filter>ヘッダー ファイル\Base\Interface</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\IRenderer.h">
-      <Filter>ヘッダー ファイル\Interface</Filter>
+      <Filter>ヘッダー ファイル\Base\Interface</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\ISystem.h">
-      <Filter>ヘッダー ファイル\Interface</Filter>
+      <Filter>ヘッダー ファイル\Base\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Network\INetwork.h">
-      <Filter>ヘッダー ファイル\Interface</Filter>
+    <ClInclude Include="..\..\include\Platform\Base\INetwork.h">
+      <Filter>ヘッダー ファイル\Base\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\Logger.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\Assert.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\BitFlags.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\Result.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\String.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\StringHelper.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\IO\DllLoader.h">
+      <Filter>ヘッダー ファイル\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\IO\FileStream.h">
+      <Filter>ヘッダー ファイル\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\IO\Path.h">
+      <Filter>ヘッダー ファイル\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\IO\PathHelper.h">
+      <Filter>ヘッダー ファイル\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\IO\Stream.h">
+      <Filter>ヘッダー ファイル\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Module\Module.h">
+      <Filter>ヘッダー ファイル\Module</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Platform\Base\Logger.cpp">
+      <Filter>ソース ファイル\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Platform\Base\String.cpp">
+      <Filter>ソース ファイル\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Platform\IO\DllLoader.cpp">
+      <Filter>ソース ファイル\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Platform\IO\FileStream.cpp">
+      <Filter>ソース ファイル\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Platform\IO\Path.cpp">
+      <Filter>ソース ファイル\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Platform\IO\PathHelper.cpp">
+      <Filter>ソース ファイル\IO</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

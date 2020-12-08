@@ -65,7 +65,7 @@ namespace Core
 		* @class    SystemModule
 		* @brief    システムに組み込まれるモジュール
 		*/
-		class ISystemModule : public Core::detail::IModule
+		class ISystemModule : public ::Platform::detail::IModule
 		{
 			friend ISystem;
 		private:

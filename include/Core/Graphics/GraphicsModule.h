@@ -27,10 +27,10 @@ namespace Core
 		* @class    GraphicsModule
 		* @brief    グラフィック関連のモジュール
 		*/
-		class GraphicsModule : public ::Core::detail::IModule
+		class GraphicsModule : public ::Platform::detail::IModule
 		{
 		private:
-			Core::DllLoader* m_dllLoader;
+			::Platform::DllLoader* m_dllLoader;
 
 			IGraphicsFactory* m_Factory;
 

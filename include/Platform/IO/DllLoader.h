@@ -1,8 +1,8 @@
 #pragma once
-#ifndef CORE_IO_DLLLOADER_H
-#define CORE_IO_DLLLOADER_H
+#ifndef PLATFORM_DLLLOADER_H
+#define PLATFORM_DLLLOADER_H
 
-namespace Core
+namespace Platform
 {
 	/**
 	* @class    DllLoader
@@ -25,6 +25,6 @@ namespace Core
 
 	};//class DllLoader
 
-}//namespace Core
+}//namespace Platform
 
 #endif //CORE_IO_DLLLOADER_H

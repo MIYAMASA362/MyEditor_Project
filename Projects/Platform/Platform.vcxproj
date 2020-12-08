@@ -92,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\MIYAM\Desktop\MyEditor_Project\include\Platform;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\MIYAM\Desktop\MyEditor_Project\include\Platform;C:\Users\MIYAM\Desktop\MyEditor_Project\Projects\Platform;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -160,17 +160,35 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Platform.h" />
+    <ClInclude Include="..\..\include\Platform\Base\Assert.h" />
+    <ClInclude Include="..\..\include\Platform\Base\BitFlags.h" />
+    <ClInclude Include="..\..\include\Platform\Base\INetwork.h" />
     <ClInclude Include="..\..\include\Platform\Base\IRenderer.h" />
     <ClInclude Include="..\..\include\Platform\Base\ISystem.h" />
     <ClInclude Include="..\..\include\Platform\Base\IWindow.h" />
+    <ClInclude Include="..\..\include\Platform\Base\Logger.h" />
+    <ClInclude Include="..\..\include\Platform\Base\Result.h" />
+    <ClInclude Include="..\..\include\Platform\Base\String.h" />
+    <ClInclude Include="..\..\include\Platform\Base\StringHelper.h" />
     <ClInclude Include="..\..\include\Platform\Config.h" />
     <ClInclude Include="..\..\include\Platform\DesignPattern\Factory.h" />
     <ClInclude Include="..\..\include\Platform\DesignPattern\Singleton.h" />
-    <ClInclude Include="..\..\include\Platform\Network\INetwork.h" />
+    <ClInclude Include="..\..\include\Platform\IO\DllLoader.h" />
+    <ClInclude Include="..\..\include\Platform\IO\FileStream.h" />
+    <ClInclude Include="..\..\include\Platform\IO\Path.h" />
+    <ClInclude Include="..\..\include\Platform\IO\PathHelper.h" />
+    <ClInclude Include="..\..\include\Platform\IO\Stream.h" />
+    <ClInclude Include="..\..\include\Platform\Module\Module.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Platform\Base\Logger.cpp" />
+    <ClCompile Include="..\..\src\Platform\Base\String.cpp" />
+    <ClCompile Include="..\..\src\Platform\IO\DllLoader.cpp" />
+    <ClCompile Include="..\..\src\Platform\IO\FileStream.cpp" />
+    <ClCompile Include="..\..\src\Platform\IO\Path.cpp" />
+    <ClCompile Include="..\..\src\Platform\IO\PathHelper.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

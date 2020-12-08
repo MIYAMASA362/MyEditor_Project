@@ -1,12 +1,11 @@
 #include"stdafx.h"
 
-#include"Core/Base/String.h"
-
+#include"Base/String.h"
 /*
 	strcpy_sŠÖ”‚Íˆ—‚ÉŽžŠÔ‚ª‚©‚©‚éB
 
 */
-namespace Core
+namespace Platform
 {
 	String::String()
 	{
@@ -177,4 +176,4 @@ namespace Core
 		return (pos == NULL) ? (std::string::npos) : (pos - this->m_data);
 	}
 
-}//namespace Core
+}//namespace Platform

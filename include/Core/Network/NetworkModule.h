@@ -22,10 +22,10 @@ namespace Core
 		* @class    NetworkModule
 		* @brief    ネットワークモジュール
 		*/
-		class NetworkModule : public ::Core::detail::IModule
+		class NetworkModule : public ::Platform::detail::IModule
 		{
 		private:
-			Core::DllLoader* m_dllLoader;
+			::Platform::DllLoader* m_dllLoader;
 
 			detail::GetNetworkInterface get;
 			detail::ReleaseNetworkInterface release;

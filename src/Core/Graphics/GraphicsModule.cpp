@@ -1,9 +1,8 @@
 #include"stdafx.h"
 
 #include"Platform/Base/IRenderer.h"
-
-#include"Core/IO/DllLoader.h"
-#include"Core/Module/Module.h"
+#include"Platform/IO/DllLoader.h"
+#include"Platform/Module/Module.h"
 
 #include"Core/Graphics/GraphicsModule.h"
 #include"Core/Graphics/GraphicsFactory.h"
@@ -14,7 +13,7 @@ namespace Core
 	{
 		GraphicsModule::GraphicsModule(const char* moduleName)
 		{
-			m_dllLoader = new Core::DllLoader(moduleName);
+			m_dllLoader = new ::Platform::DllLoader(moduleName);
 
 			get = (Core::Graphics::detail::GetGraphicsFactory)m_dllLoader->getProcess(TO_STRING(base_GetGraphicsFactory));
 			release = (Core::Graphics::detail::ReleaseGraphicsFactory)m_dllLoader->getProcess(TO_STRING(base_ReleaseGraphicsFactory));

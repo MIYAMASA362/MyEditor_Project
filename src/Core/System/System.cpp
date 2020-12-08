@@ -4,10 +4,7 @@
 #include <map>
 
 #include"Platform/Base/ISystem.h"
-
-#include"Core/Base/Logger.h"
-#include"Core/Base/Assert.h"
-#include"Core/Module/Module.h"
+#include"Platform/Module/Module.h"
 
 #include"Core/System/System.h"
 

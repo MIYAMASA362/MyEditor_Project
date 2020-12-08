@@ -1,8 +1,8 @@
 #pragma once
-#ifndef CORE_IO_STREAM_H
-#define CORE_IO_STREAM_H
+#ifndef PLATFORM_STREAM_H
+#define PLATFORM_STREAM_H
 
-namespace Core
+namespace Platform
 {
 	/*
 	* @brief	StreamSeek 
@@ -41,6 +41,6 @@ namespace Core
 	
 	}//namespace detail
 
-}//namespace Core
+}//namespace Platform
 
-#endif //ifndef CORE_IO_STREAM_H
+#endif //ifndef PLATFORM_STREAM_H

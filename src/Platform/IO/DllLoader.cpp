@@ -1,9 +1,8 @@
 #include"stdafx.h"
 
-#include"Core/Base/Result.h"
-#include"Core/IO/DllLoader.h"
+#include"IO/DllLoader.h"
 
-namespace Core
+namespace Platform
 {
 	DllLoader::DllLoader()
 		:
@@ -41,4 +40,4 @@ namespace Core
 		return GetProcAddress(m_hModule,funcName);
 	}
 
-}//namespace Core
+}//namespace Platform

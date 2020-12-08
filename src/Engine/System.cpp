@@ -6,9 +6,9 @@
 // Platform Layer
 #include "Platform/Base/ISystem.h"
 #include "Platform/Base/IRenderer.h"
+#include "Platform/Module/Module.h"
 
 // Core Layer
-#include "Core/Module/Module.h"
 #include "Core/System/System.h"
 
 // Engine Layer

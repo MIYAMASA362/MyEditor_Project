@@ -1,8 +1,8 @@
 #pragma once
-#ifndef CORE_STRING_H
-#define CORE_STRING_H
+#ifndef PLATFORM_STRING_H
+#define PLATFORM_STRING_H
 
-namespace Core
+namespace Platform
 {
 	/**
 	* @class    String
@@ -48,6 +48,6 @@ namespace Core
 	};//class CString
 
 
-}//namespace Core
+}//namespace Platform
 
 #endif //ifndef CORE_STRING_H

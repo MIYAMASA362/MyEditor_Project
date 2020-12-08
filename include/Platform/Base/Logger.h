@@ -6,8 +6,10 @@
 */
 #pragma once
 
-#ifndef LOGGER_H
-#define LOGGER_H
+#ifndef PLATFORM_LOGGER_H
+#define PLATFORM_LOGGER_H
+
+#if !defined(DISABLE_LOGGING)
 
 // Logger Macro
 #define LOGGER_OUTPUT(text) OutputDebugStringA(text);
@@ -23,9 +25,7 @@
 
 #endif
 
-#if !defined(DISABLE_LOGGING)
-
-namespace Core
+namespace Platform
 {
 	namespace detail
 	{
@@ -77,10 +77,10 @@ namespace Core
 
 		};// class LogLevel
 
-	}//namespace Core::detail
-}// namespace Core
+	}//namespace Platform::detail
+}// namespace Platform
 
-namespace Core
+namespace Platform
 {
 	/**
 	* @class    Logger
@@ -163,14 +163,16 @@ namespace Core
 
 	};// class Logger
 
-}// namespace log
+}// namespace Platform
 
-#define LOG_DEBUG(format,...)		::Core::Logger::LogDebug(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
-#define LOG_INFO(format,...)		::Core::Logger::LogInfo(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
-#define LOG_WARRNING(format,...)	::Core::Logger::LogWarning(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
-#define LOG_ERROR(format,...)		::Core::Logger::LogError(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
-#define LOG_FATAL(format,...)		::Core::Logger::LogFatal(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
-#define LOG_ASSERT(format,...)		::Core::Logger::LogAssert(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
+typedef ::Platform::Logger Logger;
+
+#define LOG_DEBUG(format,...)		Logger::LogDebug(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
+#define LOG_INFO(format,...)		Logger::LogInfo(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
+#define LOG_WARRNING(format,...)	Logger::LogWarning(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
+#define LOG_ERROR(format,...)		Logger::LogError(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
+#define LOG_FATAL(format,...)		Logger::LogFatal(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
+#define LOG_ASSERT(format,...)		Logger::LogAssert(format,FUNCTION,__FILE__,__LINE__,__VA_ARGS__);
 
 #else // if !defined(DISABLE_LOGGING)
 
@@ -184,4 +186,4 @@ namespace Core
 
 #endif // defined(DISABLE_LOGGING)
 
-#endif // ifndef LOGGER_H
+#endif // ifndef PLATFORM_LOGGER_H
