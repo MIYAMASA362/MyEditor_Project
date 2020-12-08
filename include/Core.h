@@ -29,6 +29,7 @@
 #include"Core/Graphics/GraphicsModule.h"
 
 // Graphics
+#include"Core/Graphics/Renderer.h"
 
 // System
 #include"Core/System/System.h"
