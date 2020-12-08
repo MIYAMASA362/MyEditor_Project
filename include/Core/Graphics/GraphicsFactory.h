@@ -4,8 +4,6 @@
 
 namespace Core
 {
-	class DllLoader;
-
 	namespace Graphics
 	{
 		/**
@@ -16,7 +14,7 @@ namespace Core
 		{
 			//static_assert(std::is_base_of<Platform::detail::IRenderer,Type>::value,"Type must inherit form IRenderer");
 		public:
-			using Value_Type = ::Platform::detail::IRenderer;
+			using Value_Type = ::Platform::Graphics::detail::IRenderer;
 
 			IGraphicsFactory() {};
 			virtual ~IGraphicsFactory() {};
@@ -26,42 +24,6 @@ namespace Core
 			virtual void release(Value_Type** instance) = 0;
 
 		};// class IGraphicsFactory
-
-		/*
-		* @brief DLL関数
-		*/
-		namespace detail
-		{
-			typedef IGraphicsFactory* (*GetGraphicsFactory)();
-			EXTERN_C ENGINE_API IGraphicsFactory* base_GetGraphicsFactory();
-
-			typedef void(*ReleaseGraphicsFactory)(IGraphicsFactory** instance);
-			EXTERN_C ENGINE_API void base_ReleaseGraphicsFactory(IGraphicsFactory** instance);
-
-		}// namespace Core::detail
-
-		/**
-		* @class    GraphicsModule
-		* @brief    グラフィック関連のモジュール
-		*/
-		class GraphicsModule : public ::Core::detail::IModule
-		{
-		private:
-			Core::DllLoader* m_dllLoader;
-
-			IGraphicsFactory* m_Factory;
-
-			Core::Graphics::detail::GetGraphicsFactory get;
-			Core::Graphics::detail::ReleaseGraphicsFactory release;
-
-		public:
-			GraphicsModule(const char* moduleName);
-			virtual ~GraphicsModule();
-
-			void CreateRenderer(HWND hWnd, ::Platform::detail::IRenderer** renderer);
-			void ReleaseRenderer(::Platform::detail::IRenderer** renderer);
-
-		};// class GraphicsModule
 
 	}// namespace Core::Graphics
 }// namespace Core

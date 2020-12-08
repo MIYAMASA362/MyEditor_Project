@@ -6,7 +6,7 @@ namespace ThirdParty
 {
 	namespace Core
 	{
-		class ENGINE_API DX11GraphicsFactory : public ::Core::IGraphicsFactory
+		class ENGINE_API DX11GraphicsFactory : public ::Core::Graphics::IGraphicsFactory
 		{
 		private:
 

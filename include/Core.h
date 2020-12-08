@@ -16,16 +16,25 @@
 #include"Core/Allocator/DoubleBufferAllocator.h"
 
 // IO
+#include"Core/IO/Stream.h"
 #include"Core/IO/FileStream.h"
 #include"Core/IO/Path.h"
 #include"Core/IO/DllLoader.h"
 
-// Module
-#include"Core/Module/Module.h"
+// Factory
 #include"Core/Graphics/GraphicsFactory.h"
 
+// Module
+#include"Core/Module/Module.h"
+#include"Core/Graphics/GraphicsModule.h"
+
+// Graphics
+
+// System
 #include"Core/System/System.h"
 
+
+// Lib
 #pragma comment(lib,"Core.lib")
 
 #endif // ifndef CORE_H

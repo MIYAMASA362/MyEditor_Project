@@ -55,7 +55,7 @@ namespace ThirdParty
 			* @class    DX11Renderer
 			* @brief
 			*/
-			class ENGINE_API DX11Renderer : public ::Platform::detail::IRenderer
+			class ENGINE_API DX11Renderer : public ::Platform::Graphics::detail::IRenderer
 			{
 			protected:
 				HWND m_hWnd;
