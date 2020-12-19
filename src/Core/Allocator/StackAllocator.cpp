@@ -27,13 +27,12 @@ namespace Core
 		{
 			void* asVoidPtr;
 			uptr asUptr;
-			HeaderInfo* asHeader;
 		};
 
 		// union memory
 		asVoidPtr = (void*)this->m_MemoryFirstAddress;
 		asUptr += this->m_MemoryUsed;
-
+		
 		// メモリ境界差分の取得
 		u8 adjustment = detail::GetAdjustment(asVoidPtr, alignment, sizeof(HeaderInfo));
 
@@ -44,14 +43,15 @@ namespace Core
 			return nullptr;
 		}
 
-		// store alignment in allocation header info
-		asHeader->adjustment = adjustment;
+		HeaderInfo* header = (HeaderInfo*)asUptr + adjustment - sizeof(HeaderInfo);
+		header->adjustment = adjustment;
 
 		// aligned memory address
 		asUptr += adjustment;
 
+
 		// update book keeping
-		this->m_MemoryUsed += size + adjustment;
+		this->m_MemoryUsed += adjustment + size;
 		this->m_MemoryAllocations++;
 
 		// return aligned memory address
@@ -67,7 +67,7 @@ namespace Core
 		{
 			void* asVoidPtr;
 			uptr asUptr;
-			HeaderInfo* asMeta;
+			HeaderInfo* asHeader;
 		};
 
 		// union memory
@@ -79,7 +79,7 @@ namespace Core
 		ASSERT((uptr)this->m_MemoryFirstAddress <= asUptr && asUptr <= (uptr)this->m_MemoryFirstAddress + this->m_MemorySize, "管轄外のアドレスです。");
 
 		// free used memory
-		this->m_MemoryUsed -= ((uptr)this->m_MemoryFirstAddress + this->m_MemoryUsed) - ((uptr)memory + asMeta->adjustment);
+		this->m_MemoryUsed -= ((uptr)this->m_MemoryFirstAddress + this->m_MemoryUsed) - ((uptr)memory - asHeader->adjustment);
 
 		// decrement allocation count
 		this->m_MemoryAllocations--;
