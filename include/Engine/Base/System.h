@@ -14,7 +14,7 @@ namespace Engine
 		
 	public:
 		//
-		Platform::Graphics::detail::IRenderer* m_Renderer;
+		::Platform::Graphics::detail::IRenderer* m_Renderer;
 
 	public:
 

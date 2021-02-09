@@ -34,14 +34,11 @@
     <Filter Include="ヘッダー ファイル\Module">
       <UniqueIdentifier>{2eff81ed-1d3e-4cf6-abf4-2b76c53a2446}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Base\Types">
+      <UniqueIdentifier>{11300db8-dc50-445b-b473-d56cab2efc77}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Platform\DesignPattern\Singleton.h">
       <Filter>ヘッダー ファイル\DesignPattern</Filter>
     </ClInclude>
@@ -78,12 +75,6 @@
     <ClInclude Include="..\..\include\Platform\Base\Result.h">
       <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\String.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\StringHelper.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Platform\IO\DllLoader.h">
       <Filter>ヘッダー ファイル\IO</Filter>
     </ClInclude>
@@ -102,11 +93,17 @@
     <ClInclude Include="..\..\include\Platform\Module\Module.h">
       <Filter>ヘッダー ファイル\Module</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\String.h">
+      <Filter>ヘッダー ファイル\Base\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\StringHelper.h">
+      <Filter>ヘッダー ファイル\Base\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\IGraphics.h">
+      <Filter>ヘッダー ファイル\Base\Interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\Platform\Base\Logger.cpp">
       <Filter>ソース ファイル\Base</Filter>
     </ClCompile>

@@ -1,4 +1,4 @@
-#include"stdafx.h"
+#include"Config.h"
 
 #include"Core/Allocator/IAllocator.h"
 #include"Core/Allocator/StackAllocator.h"

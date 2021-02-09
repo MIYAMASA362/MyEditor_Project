@@ -21,7 +21,7 @@ namespace Platform
 
 	public:
 		bool isEnmpty() const;
-		int lenght() const;
+		size_t lenght() const;
 		const char* c_str() const;
 		const std::string& str() const;
 

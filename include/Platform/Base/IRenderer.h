@@ -11,6 +11,10 @@ namespace Platform
 			/**
 			* @class    IRenderer
 			* @brief    Renderer Intarface
+			* 
+			*	w’è—Ìˆæ“à‚Å‚Ì•`‰æˆ—
+			* 
+			* 
 			*/
 			class ENGINE_API IRenderer
 			{

@@ -47,7 +47,6 @@
 #define TO_STRING(variable) #variable
 #define NAMEOF(variable) TO_STRING(variable)
 
-
 /****************************************************************
 *	Platform Target Macro
 *****************************************************************/

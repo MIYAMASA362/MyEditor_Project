@@ -13,21 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\Platform">
+      <UniqueIdentifier>{b53435a5-4a5b-4c97-afd4-b7ec8cda067d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Platform">
+      <UniqueIdentifier>{e27225a0-8265-44a1-a2ea-3a88ed40c11f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Factory.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\DirectX11.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Renderer.h">
+      <Filter>ヘッダー ファイル\Platform</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Graphics.h">
+      <Filter>ヘッダー ファイル\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\DirectX11.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -39,10 +42,10 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Graphics.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Platform</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Factory.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Renderer.cpp">
+      <Filter>ソース ファイル\Platform</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

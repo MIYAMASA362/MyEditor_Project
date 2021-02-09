@@ -167,14 +167,13 @@ xcopy /y /d "$(OutDir)$(TargetName).lib" "..\..\lib\$(IntDir)"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\DirectX11.h" />
-    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Factory.h" />
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Graphics.h" />
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Renderer.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Factory.cpp" />
     <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Graphics.cpp" />
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Renderer.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -1,6 +1,7 @@
-#include"stdafx.h"
+#include"Config.h"
 
 #include"Platform/Base/IRenderer.h"
+#include"Platform/Base/IGraphics.h"
 #include"Platform/IO/DllLoader.h"
 #include"Platform/Module/Module.h"
 
@@ -15,27 +16,27 @@ namespace Core
 		{
 			m_dllLoader = new ::Platform::DllLoader(moduleName);
 
-			get = (Core::Graphics::detail::GetGraphicsFactory)m_dllLoader->getProcess(TO_STRING(base_GetGraphicsFactory));
-			release = (Core::Graphics::detail::ReleaseGraphicsFactory)m_dllLoader->getProcess(TO_STRING(base_ReleaseGraphicsFactory));
-
-			m_Factory = get();
+			get = (Core::Graphics::GetGraphics)m_dllLoader->getProcess(TO_STRING(base_GetGraphics));
+			release = (Core::Graphics::ReleaseGraphics)m_dllLoader->getProcess(TO_STRING(base_ReleaseGraphics));
+			m_Graphics = get();
 		}
 
 		GraphicsModule::~GraphicsModule()
 		{
-			release(&m_Factory);
+			release(&m_Graphics);
 
 			delete m_dllLoader;
 		}
 
 		void GraphicsModule::CreateRenderer(HWND hWnd, Platform::Graphics::detail::IRenderer** renderer)
 		{
-			m_Factory->create(hWnd, renderer);
+			m_Graphics->CreateRenderer(hWnd, renderer);
 		}
 
 		void GraphicsModule::ReleaseRenderer(Platform::Graphics::detail::IRenderer** renderer)
 		{
-			m_Factory->release(renderer);
+			m_Graphics->ReleaseRenderer(renderer);
 		}
+
 	}
 }

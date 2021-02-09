@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "Config.h"
 
 #include<string>
 
@@ -36,7 +36,7 @@ namespace Platform
 		return m_path.empty();
 	}
 
-	int Path::lenght() const
+	size_t Path::lenght() const
 	{
 		return m_path.length();
 	}

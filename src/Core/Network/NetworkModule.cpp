@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "Config.h"
 
 #include "Platform/Base/INetwork.h"
 #include "Platform/IO/DllLoader.h"

@@ -11,10 +11,12 @@
 #include"Core/Allocator/PoolAllocator.h"
 #include"Core/Allocator/DoubleBufferAllocator.h"
 
+#include "Core/Thread/Thread.h"
+#include "Core/Time/Time.h"
+
 // IO
 
 // Factory
-#include"Core/Graphics/GraphicsFactory.h"
 
 // Module
 #include"Core/Graphics/GraphicsModule.h"

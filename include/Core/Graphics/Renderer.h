@@ -2,28 +2,37 @@
 #ifndef CORE_RENDERER_H
 #define CORE_RENDERER_H
 
+/**
+* @file     Renderer.h
+* @author   unkown
+* @brief    
+* 
+*	IRendererを利用したエンジンがサポートできるラッパークラス
+* 
+* 
+*/
+
 namespace Core
 {
 	namespace Graphics
 	{
+		typedef ::Platform::Graphics::detail::IRenderer IRenderer;
+
 		/**
 		* @class    Renderer
 		* @brief    
 		*	Thirdpartyから得られるRendererの内容をラップする
 		* 
 		*/
-		class Renderer : public ::Platform::Graphics::detail::IRenderer
+		class Renderer
 		{
 		public:
 			Renderer();
 			virtual ~Renderer();
 
-			virtual void clear() override;
-			virtual void begin() override;
-			virtual void end() override;
-
 		private:
-			::Platform::Graphics::detail::IRenderer* m_Renderer;
+			IRenderer* m_Renderer;
+
 
 		};// namespace Renderer
 

@@ -86,13 +86,14 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\MIYAM\Desktop\MyEditor_Project\Projects\Engine;C:\Users\MIYAM\Desktop\MyEditor_Project\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -158,21 +159,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Engine.h" />
+    <ClInclude Include="..\..\include\Engine\Base\MemoryManager.h" />
     <ClInclude Include="..\..\include\Engine\Base\System.h" />
     <ClInclude Include="..\..\include\Engine\Component\Component.h" />
+    <ClInclude Include="..\..\include\Engine\Component\ComponentManager.h" />
     <ClInclude Include="..\..\include\Engine\Entity\Entity.h" />
     <ClInclude Include="..\..\include\Engine\Object\Object.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
+    <ClInclude Include="..\..\include\Engine\Renderer\Renderer.h" />
+    <ClInclude Include="Config.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Engine\Component\Component.cpp" />
+    <ClCompile Include="..\..\src\Engine\Component\ComponentManager.cpp" />
+    <ClCompile Include="..\..\src\Engine\Renderer\Renderer.cpp" />
     <ClCompile Include="..\..\src\Engine\System.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

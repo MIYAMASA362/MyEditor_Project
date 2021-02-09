@@ -6,7 +6,8 @@ namespace Core
 {
 	struct Vector3
 	{
-		union {
+		union
+		{
 			float f[3];
 			struct { float x, y, z; };
 		};

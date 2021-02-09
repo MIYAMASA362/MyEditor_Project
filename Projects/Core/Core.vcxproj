@@ -86,13 +86,14 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\MIYAM\Desktop\MyEditor_Project\include;C:\Users\MIYAM\Desktop\MyEditor_Project\Projects\Core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -166,6 +167,7 @@
     <ClInclude Include="..\..\include\Core\Graphics\GraphicsFactory.h" />
     <ClInclude Include="..\..\include\Core\Graphics\GraphicsModule.h" />
     <ClInclude Include="..\..\include\Core\Graphics\Renderer.h" />
+    <ClInclude Include="..\..\include\Core\Graphics\Shader.h" />
     <ClInclude Include="..\..\include\Core\Json\Json.h" />
     <ClInclude Include="..\..\include\Core\Math\Math.h" />
     <ClInclude Include="..\..\include\Core\Math\Matrix.h" />
@@ -178,8 +180,7 @@
     <ClInclude Include="..\..\include\Core\Task\Task.h" />
     <ClInclude Include="..\..\include\Core\Thread\Thread.h" />
     <ClInclude Include="..\..\include\Core\Time\Time.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Config.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Core\Allocator\DoubleBufferAllocator.cpp" />
@@ -188,16 +189,11 @@
     <ClCompile Include="..\..\src\Core\Allocator\StackAllocator.cpp" />
     <ClCompile Include="..\..\src\Core\Graphics\GraphicsModule.cpp" />
     <ClCompile Include="..\..\src\Core\Graphics\Renderer.cpp" />
+    <ClCompile Include="..\..\src\Core\Graphics\Shader.cpp" />
     <ClCompile Include="..\..\src\Core\Network\NetworkModule.cpp" />
     <ClCompile Include="..\..\src\Core\System\System.cpp" />
     <ClCompile Include="..\..\src\Core\Task\Task.cpp" />
     <ClCompile Include="..\..\src\Core\Thread\Thread.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

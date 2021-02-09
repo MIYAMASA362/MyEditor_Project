@@ -8,20 +8,16 @@ namespace Core
 
 	namespace Graphics
 	{
-		class IGraphicsFactory;
 
 		/*
 		* @brief DLLä÷êî
 		*/
-		namespace detail
-		{
-			typedef IGraphicsFactory* (*GetGraphicsFactory)();
-			EXTERN_C ENGINE_API IGraphicsFactory* base_GetGraphicsFactory();
+		typedef ::Platform::Graphics::detail::IGraphics* (*GetGraphics)();
+		EXTERN_C ENGINE_API::Platform::Graphics::detail::IGraphics* base_GetGraphics();
 
-			typedef void(*ReleaseGraphicsFactory)(IGraphicsFactory** instance);
-			EXTERN_C ENGINE_API void base_ReleaseGraphicsFactory(IGraphicsFactory** instance);
+		typedef void(*ReleaseGraphics)(::Platform::Graphics::detail::IGraphics** instance);
+		EXTERN_C ENGINE_API void base_ReleaseGraphics(::Platform::Graphics::detail::IGraphics** instance);
 
-		}// namespace Core::detail
 
 		/**
 		* @class    GraphicsModule
@@ -32,15 +28,16 @@ namespace Core
 		private:
 			::Platform::DllLoader* m_dllLoader;
 
-			IGraphicsFactory* m_Factory;
+			::Platform::Graphics::detail::IGraphics* m_Graphics;
 
-			Core::Graphics::detail::GetGraphicsFactory get;
-			Core::Graphics::detail::ReleaseGraphicsFactory release;
+			Core::Graphics::GetGraphics get;
+			Core::Graphics::ReleaseGraphics release;
 
 		public:
 			GraphicsModule(const char* moduleName);
 			virtual ~GraphicsModule();
 
+			// Renderer
 			void CreateRenderer(HWND hWnd, ::Platform::Graphics::detail::IRenderer** renderer);
 			void ReleaseRenderer(::Platform::Graphics::detail::IRenderer** renderer);
 

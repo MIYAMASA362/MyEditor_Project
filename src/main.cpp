@@ -7,10 +7,7 @@
 #include"Platform.h"
 #include"Core.h"
 #include"Engine.h"
-
-#include "Core/Thread/Thread.h"
-#include "Core/Time/Time.h"
-
+	
 int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCmdShow)
 {
 	TCHAR curDir[MAX_PATH + 1];
@@ -49,12 +46,23 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine
 
 	// Graphics Module
 	Core::Graphics::GraphicsModule graphicsModule("DirectX11.dll");
-	graphicsModule.CreateRenderer(window.GetHWnd(),&mainSystem.m_Renderer);
+	graphicsModule.CreateRenderer(window.GetHWnd(),&mainSystem.m_Renderer); // •`‰æ—Ìˆæ‚Ìİ’è
+
+	// Graphics 
+	
+	// Shader‚Ìİ’è
+	
 
 	// Network Module
 	Core::Network::NetworkModule networkModule("Winsock.dll");
 	::Platform::Network::detail::INetwork* network;
 	networkModule.CreateNetwork(&network);
+
+	// ComponentManager
+	Engine::Internal::ComponentManager ComponentManager;
+
+	
+
 
 	network->Startup();
 

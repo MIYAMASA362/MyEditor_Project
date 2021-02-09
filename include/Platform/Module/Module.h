@@ -17,6 +17,7 @@ namespace Platform
 		public:
 			IModule() {};
 			virtual ~IModule() {};
+
 		};//class IModule
 
 	}// namespace Platform::detail

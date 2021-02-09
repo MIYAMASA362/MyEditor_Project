@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "Config.h"
 #include "Core/Thread/Thread.h"
 
 namespace Core

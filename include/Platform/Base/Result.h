@@ -13,7 +13,6 @@ namespace Platform
 		};//enum class ResultLevel
 
 	}//namespace Platform::detail
-
 }// namespace Platform
 
 namespace Platform
@@ -26,7 +25,7 @@ namespace Platform
 	{
 	private:
 		detail::ResultLevel m_Level;
-
+		
 	public:
 		Result(bool result)
 			:

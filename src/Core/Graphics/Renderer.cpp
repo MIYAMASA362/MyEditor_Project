@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "Config.h"
 
 #include"Platform/Base/IRenderer.h"
 #include"Platform/Module/Module.h"
@@ -18,21 +18,6 @@ namespace Core
 		Renderer::~Renderer()
 		{
 
-		}
-
-		void Renderer::clear()
-		{
-			m_Renderer->clear();
-		}
-
-		void Renderer::begin()
-		{
-			m_Renderer->begin();
-		}
-
-		void Renderer::end()
-		{
-			m_Renderer->end();
 		}
 	}
 }
