@@ -108,9 +108,6 @@
     <ClInclude Include="..\..\include\Core.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Core\Graphics\GraphicsFactory.h">
-      <Filter>ヘッダー ファイル\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Core\Network\NetworkModule.h">
       <Filter>ヘッダー ファイル\Module</Filter>
     </ClInclude>

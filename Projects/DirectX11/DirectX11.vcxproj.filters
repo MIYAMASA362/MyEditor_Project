@@ -19,6 +19,9 @@
     <Filter Include="ヘッダー ファイル\Platform">
       <UniqueIdentifier>{e27225a0-8265-44a1-a2ea-3a88ed40c11f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Internal">
+      <UniqueIdentifier>{0d1255ce-0388-41bd-8d73-e303f6ca09fb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -33,6 +36,9 @@
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\DirectX11.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Shader.h">
+      <Filter>ヘッダー ファイル\Internal</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -46,6 +52,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Renderer.cpp">
       <Filter>ソース ファイル\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\Thirdparty\Graphics\DirectX11\Shader.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

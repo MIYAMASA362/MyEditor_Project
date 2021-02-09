@@ -169,9 +169,11 @@ xcopy /y /d "$(OutDir)$(TargetName).lib" "..\..\lib\$(IntDir)"</Command>
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\DirectX11.h" />
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Graphics.h" />
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Renderer.h" />
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Shader.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\include\Thirdparty\Graphics\DirectX11\Shader.cpp" />
     <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Graphics.cpp" />
     <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Renderer.cpp" />
     <ClCompile Include="dllmain.cpp" />

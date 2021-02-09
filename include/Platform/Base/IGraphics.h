@@ -28,7 +28,7 @@ namespace Platform
 				virtual void ReleaseRenderer(IRenderer** instance) = 0;
 
 				// Shader
-				virtual void CreateShader(){}
+				virtual void CreateShader(const char* fileName){}
 				virtual void ReleaseShader(){}
 
 			};// class IGraphics
