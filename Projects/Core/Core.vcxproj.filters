@@ -120,9 +120,6 @@
     <ClInclude Include="Config.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Core\Graphics\Shader.h">
-      <Filter>ヘッダー ファイル\Graphics</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Core\Allocator\DoubleBufferAllocator.cpp">
@@ -154,9 +151,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\Core\Task\Task.cpp">
       <Filter>ソース ファイル\Thread</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\Core\Graphics\Shader.cpp">
-      <Filter>ソース ファイル\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

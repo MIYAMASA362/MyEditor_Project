@@ -166,7 +166,6 @@
     <ClInclude Include="..\..\include\Core\Allocator\StackAllocator.h" />
     <ClInclude Include="..\..\include\Core\Graphics\GraphicsModule.h" />
     <ClInclude Include="..\..\include\Core\Graphics\Renderer.h" />
-    <ClInclude Include="..\..\include\Core\Graphics\Shader.h" />
     <ClInclude Include="..\..\include\Core\Json\Json.h" />
     <ClInclude Include="..\..\include\Core\Math\Math.h" />
     <ClInclude Include="..\..\include\Core\Math\Matrix.h" />
@@ -188,7 +187,6 @@
     <ClCompile Include="..\..\src\Core\Allocator\StackAllocator.cpp" />
     <ClCompile Include="..\..\src\Core\Graphics\GraphicsModule.cpp" />
     <ClCompile Include="..\..\src\Core\Graphics\Renderer.cpp" />
-    <ClCompile Include="..\..\src\Core\Graphics\Shader.cpp" />
     <ClCompile Include="..\..\src\Core\Network\NetworkModule.cpp" />
     <ClCompile Include="..\..\src\Core\System\System.cpp" />
     <ClCompile Include="..\..\src\Core\Task\Task.cpp" />
