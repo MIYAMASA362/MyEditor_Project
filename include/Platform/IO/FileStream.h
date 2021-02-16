@@ -25,6 +25,8 @@ namespace Platform
 		return static_cast<FileMode>(static_cast<u8>(a) & static_cast<u8>(b));
 	};
 
+	
+
 	/**
 	* @class    FileStream
 	* @brief    ファイルの読み書き
@@ -40,12 +42,23 @@ namespace Platform
 		/**
 		*	@brief	ファイル生成
 		*
-		*	@in[string]	  :	ファイルパス
-		*	@in[FileMode] : ファイルモード
-		*
+		*	@in[filePath]	: ファイルパス
+		*	@in[mode]		: ファイルモード
+		*	@out[output]	: 生成したファイル
+		* 
 		*	@return[bool] : オープン・生成に成功/失敗(ファイル無し)
 		*/
 		static bool create(std::string filePath, FileMode mode, FileStream** output);
+
+
+		/**
+		* @brief    データファイル読み込み
+		* @in[fileName] : ファイル名
+		* @out[buffer]	: ファイルデータ
+		* @out[fsize]	: ファイルサイズ
+		* @return   None
+		*/
+		static void loadFile(const char* fileName, unsigned char** buffer, long int* fsize);
 
 	protected:
 		void open(const char* const fmode);
@@ -137,6 +150,7 @@ namespace Platform
 
 
 	};// class FileStream
+
 }// namespace Platform
 
 #endif // ifndef PLATFORM_FILESTREAM_H

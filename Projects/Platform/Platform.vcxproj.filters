@@ -37,6 +37,9 @@
     <Filter Include="ヘッダー ファイル\Base\Types">
       <UniqueIdentifier>{11300db8-dc50-445b-b473-d56cab2efc77}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Base\Interface\Graphics">
+      <UniqueIdentifier>{ffea8625-a951-4788-9131-4e08222846ed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Platform\DesignPattern\Singleton.h">
@@ -52,9 +55,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\IWindow.h">
-      <Filter>ヘッダー ファイル\Base\Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\IRenderer.h">
       <Filter>ヘッダー ファイル\Base\Interface</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\ISystem.h">
@@ -100,7 +100,13 @@
       <Filter>ヘッダー ファイル\Base\Types</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\IGraphics.h">
-      <Filter>ヘッダー ファイル\Base\Interface</Filter>
+      <Filter>ヘッダー ファイル\Base\Interface\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\IRenderer.h">
+      <Filter>ヘッダー ファイル\Base\Interface\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\IShader.h">
+      <Filter>ヘッダー ファイル\Base\Interface\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +127,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\Platform\IO\PathHelper.cpp">
       <Filter>ソース ファイル\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\Platform\Base\IGraphics.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

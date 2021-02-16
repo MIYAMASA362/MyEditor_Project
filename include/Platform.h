@@ -21,6 +21,7 @@
 #include"Platform/Base/ISystem.h"
 #include"Platform/Base/IWindow.h"
 #include"Platform/Base/IRenderer.h"
+#include"Platform/Base/IShader.h"
 #include"Platform/Base/IGraphics.h"
 #include"Platform/Base/INetwork.h"
 

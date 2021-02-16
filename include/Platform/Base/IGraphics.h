@@ -26,10 +26,10 @@ namespace Platform
 				// Renderer
 				virtual void CreateRenderer(HWND hWnd,IRenderer** output) = 0;
 				virtual void ReleaseRenderer(IRenderer** instance) = 0;
-
-				// Shader
-				virtual void CreateShader(const char* fileName){}
-				virtual void ReleaseShader(){}
+				
+				//  
+				virtual void CreateVertexShader(const char* fileNAme, detail::IVertexShader** output) =0;
+				virtual void CreatePixelShader(const char* fileName, detail::IPixelShader** output) =0;
 
 			};// class IGraphics
 

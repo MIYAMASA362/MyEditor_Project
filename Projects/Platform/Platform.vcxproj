@@ -166,6 +166,7 @@
     <ClInclude Include="..\..\include\Platform\Base\IGraphics.h" />
     <ClInclude Include="..\..\include\Platform\Base\INetwork.h" />
     <ClInclude Include="..\..\include\Platform\Base\IRenderer.h" />
+    <ClInclude Include="..\..\include\Platform\Base\IShader.h" />
     <ClInclude Include="..\..\include\Platform\Base\ISystem.h" />
     <ClInclude Include="..\..\include\Platform\Base\IWindow.h" />
     <ClInclude Include="..\..\include\Platform\Base\Logger.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="..\..\include\Platform\Module\Module.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\include\Platform\Base\IGraphics.cpp" />
     <ClCompile Include="..\..\src\Platform\Base\Logger.cpp" />
     <ClCompile Include="..\..\src\Platform\Base\String.cpp" />
     <ClCompile Include="..\..\src\Platform\IO\DllLoader.cpp" />
