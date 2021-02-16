@@ -7,82 +7,61 @@ namespace Platform
 {
 	namespace Graphics
 	{
-		namespace Shaders
+		/**
+		* @class    VertexShader
+		* @brief    頂点シェーダ
+		* 
+		*/
+		class ENGINE_API VertexShader : public detail::IVertexShader
 		{
-			/**
-			* @class    ConstantBuffer
-			* @brief    定数バッファ
-			*/
-			class ConstantBuffer final
+		public:
+			enum class VERTEX_INPUT_LAYOUT
 			{
-			public:
-				enum BUFFER_LAYOUT
-				{
-					BUFFER_WORLD = 0,
-					BUFFER_VIEW,
-					BUFFER_PROJECTION,
-					BUFFER_NUM	// Size marker
-				};
+				VSIL_POSITION,
+				VSIL_NORMAL,
+				VSIL_COLOR,
+				VSIL_TEXCOORD
+			};
 
-				ID3D11Buffer* m_Buffer[BUFFER_LAYOUT::BUFFER_NUM];
+		protected:
+			ID3D11VertexShader* m_Source;
+			ID3D11InputLayout* m_Layout;
 
-			public:
-				ConstantBuffer();
-				~ConstantBuffer();
+		public:
+			VertexShader();
+			virtual ~VertexShader();
 
-				void CreateBuffer();
-
-			};// class ConstantBuffer
-
-			class Shader
-			{
-			protected:
-				Shader() = default;
-				void LoadShaderFile(const char* fileName,unsigned char** buffer,long int* fsize);
-
-			public:
-				virtual ~Shader() = default;
-
-			};// class Shader
-
-			class VertexShader : public Shader
-			{
-			public:
-				enum class VERTEX_INPUT_LAYOUT
-				{
-					VSIL_POSITION,
-					VSIL_NORMAL,
-					VSIL_COLOR,
-					VSIL_TEXCOORD
-				};
-
-			protected:
-				ID3D11VertexShader* m_Source;
-				ID3D11InputLayout* m_Layout;
+			virtual void CreateShader(const void* buffer, const unsigned long size, VERTEX_INPUT_LAYOUT* inputLayout, unsigned int layoutSize);
+			virtual void SetShader() override;
+			virtual void SetInputLayout();
 
 
-			public:
-				VertexShader();
-				virtual ~VertexShader();
+		};// class VertexShader
 
-				virtual void CreateShader(const char* fileName, VERTEX_INPUT_LAYOUT* inputLayout, unsigned int layoutSize);
 
-			};// class VertexShader
 
-			class PixelShader : public Shader
-			{
-			protected:
-				ID3D11PixelShader* m_Source;
+		/**
+		* @class    PixelShader
+		* @brief    ピクセルシェーダ
+		* 
+		*/
+		class ENGINE_API PixelShader : public detail::IPixelShader
+		{
+		protected:
+			ID3D11PixelShader* m_Source;
 
-			public:
-				PixelShader();
-				virtual ~PixelShader();
+		public:
+			PixelShader();
+			virtual ~PixelShader();
 
-				virtual void CreateShader(const char* fileName);
+			virtual void CreateShader(const void* buffer, const unsigned long size);
+			virtual void SetShader() override;
 
-			};// class PixelShader
 
-		}// namespace Platform::Graphics::Shaders
+		};// class PixelShader
+		
+		
+		
 	}// namespace Platform::Graphics
 }// namespace Platform
 

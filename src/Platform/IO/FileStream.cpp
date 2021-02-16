@@ -1,6 +1,7 @@
 #include"Config.h"
 
 #include<iostream>
+#include<io.h>
 
 #include"Base/StringHelper.h"
 
@@ -58,6 +59,18 @@ namespace Platform
 		//ファイルオープン失敗
 		delete result;
 		return false;
+	}
+
+	void FileStream::loadFile(const char* fileName, unsigned char** buffer, long int* fsize)
+	{
+		FILE* file = nullptr;
+		fopen_s(&file,fileName, "rb");
+		if (file == nullptr) return;
+		*fsize = _filelength(_fileno(file));
+
+		*buffer = new unsigned char[*fsize];
+		fread(*buffer, *fsize, 1, file);
+		fclose(file);
 	}
 
 	void FileStream::open(const char* const fmode)

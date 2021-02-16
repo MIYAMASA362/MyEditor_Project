@@ -1,4 +1,6 @@
 #pragma once
+#include <Thirdparty/Graphics/DirectX11/Shader.h>
+#include <Thirdparty/Graphics/DirectX11/Shader.h>
 
 #ifndef THIRDPARTY_DIRECTX11_GRAPHICS_H
 #define THIRDPARTY_DIRECTX11_GRAPHICS_H
@@ -9,31 +11,15 @@
 *	class
 *		・DX11Graphics	DirecrX11 共通グラフィックス設定
 *		・DX11Renderer	DirectX11 個別グラフィックス設定
+*	
+* 
 */
 
 namespace Platform
 {
 	namespace Graphics
 	{
-		namespace detail
-		{
-			enum CONSTANT_BUFFER_ELEMENT
-			{
-				CONSTANT_BUFFER_WORLD = 0,
-				CONSTANT_BUFFER_VIEW,
-				CONSTANT_BUFFER_PROJECTION,
-				CONSTANT_BUFFER_NUM
-			};
-
-			enum VERTEX_INPUT_LAYOUT
-			{
-				VSIL_POSITION,
-				VSIL_NORMAL,
-				VSIL_COLOR,
-				VSIL_TEXCOORD
-			};
-
-		}
+		class ConstantBuffer;
 
 		/**
 		* @class    DX11Graphics
@@ -50,7 +36,7 @@ namespace Platform
 			ID3D11DeviceContext* m_pImmediateContext;
 
 			D3D_FEATURE_LEVEL m_FeatureLevel;
-			
+
 		public:
 			DX11Graphics();
 			virtual ~DX11Graphics();
@@ -61,20 +47,10 @@ namespace Platform
 			static HRESULT CreateSwapChain(DXGI_SWAP_CHAIN_DESC* pDesc,IDXGISwapChain** pSwapChain);
 			static HRESULT CreateRenderTargetView(ID3D11Resource* pResource,D3D11_RENDER_TARGET_VIEW_DESC* pDesc,ID3D11RenderTargetView** ppRTView);
 
+
 		public:
 			virtual void CreateRenderer(HWND hWnd, Value_Type** output) override;
 			virtual void ReleaseRenderer(Value_Type** instance) override;
-
-		private:
-			ID3D11Buffer* m_ConstantBuffer[detail::CONSTANT_BUFFER_ELEMENT::CONSTANT_BUFFER_NUM];
-
-		public:
-			void CreateConstantBuffer();
-
-			void CreateVertexShader(const char* fileName,detail::VERTEX_INPUT_LAYOUT* inputLayout,unsigned int layoutSize);
-			void CreatePiexelShader(const char* fileName);
-
-
 
 		};//class DX11Graphics
 

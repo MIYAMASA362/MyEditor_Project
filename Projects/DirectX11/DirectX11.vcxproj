@@ -30,14 +30,14 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -74,6 +74,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(IntDir)</OutDir>
     <LibraryPath>C:\Users\MIYAM\Desktop\MyEditor_Project\lib\$(IntDir);$(LibraryPath)</LibraryPath>
+    <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -166,16 +167,26 @@ xcopy /y /d "$(OutDir)$(TargetName).lib" "..\..\lib\$(IntDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\ConstantBuffer.h" />
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\DirectX11.h" />
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Graphics.h" />
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\IBuffer.h" />
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\IndexBuffer.h" />
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Renderer.h" />
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Shader.h" />
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Texture.h" />
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\VertexBuffer.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\include\Thirdparty\Graphics\DirectX11\Shader.cpp" />
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\ConstantBuffer.cpp" />
     <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Graphics.cpp" />
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\IBuffer.cpp" />
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\IndexBuffer.cpp" />
     <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Renderer.cpp" />
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Shader.cpp" />
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Texture.cpp" />
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\VertexBuffer.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

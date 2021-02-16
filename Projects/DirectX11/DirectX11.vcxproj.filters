@@ -19,8 +19,17 @@
     <Filter Include="ヘッダー ファイル\Platform">
       <UniqueIdentifier>{e27225a0-8265-44a1-a2ea-3a88ed40c11f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Internal">
+    <Filter Include="ヘッダー ファイル\Resource">
       <UniqueIdentifier>{0d1255ce-0388-41bd-8d73-e303f6ca09fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Resource">
+      <UniqueIdentifier>{85079623-22fd-48b4-870f-08c67cde36c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Resource\Buffer">
+      <UniqueIdentifier>{3fca72eb-08ab-4354-8801-8e80a87f5eb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Resource\Buffer">
+      <UniqueIdentifier>{1f5223a1-925d-4af0-8954-c116870e8397}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,7 +46,22 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Shader.h">
-      <Filter>ヘッダー ファイル\Internal</Filter>
+      <Filter>ヘッダー ファイル\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Texture.h">
+      <Filter>ヘッダー ファイル\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\IndexBuffer.h">
+      <Filter>ヘッダー ファイル\Resource\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\VertexBuffer.h">
+      <Filter>ヘッダー ファイル\Resource\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\ConstantBuffer.h">
+      <Filter>ヘッダー ファイル\Resource\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\IBuffer.h">
+      <Filter>ヘッダー ファイル\Resource\Buffer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -53,8 +77,23 @@
     <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Renderer.cpp">
       <Filter>ソース ファイル\Platform</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\include\Thirdparty\Graphics\DirectX11\Shader.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Texture.cpp">
+      <Filter>ソース ファイル\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\IndexBuffer.cpp">
+      <Filter>ソース ファイル\Resource\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\VertexBuffer.cpp">
+      <Filter>ソース ファイル\Resource\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\ConstantBuffer.cpp">
+      <Filter>ソース ファイル\Resource\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Shader.cpp">
+      <Filter>ソース ファイル\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\IBuffer.cpp">
+      <Filter>ソース ファイル\Resource\Buffer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

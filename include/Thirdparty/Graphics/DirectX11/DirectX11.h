@@ -9,4 +9,6 @@
 #pragma comment(lib,"winmm.lib")
 #pragma comment(lib,"d3d11.lib")
 
+using namespace DirectX;
+
 #endif //ifndef THIRDPARTY_DIRECTX11_H

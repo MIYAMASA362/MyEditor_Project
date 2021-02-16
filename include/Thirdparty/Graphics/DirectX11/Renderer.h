@@ -50,8 +50,8 @@ namespace Platform
 			virtual void begin() override;
 			virtual void end() override;
 
-		private:
-			
+		public:
+			D3D11_VIEWPORT* GetViewPort() { return &m_ViewPort; };
 
 		};//class DX11Renderer
 

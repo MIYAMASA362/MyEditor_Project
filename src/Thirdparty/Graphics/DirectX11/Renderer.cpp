@@ -119,7 +119,7 @@ namespace Platform
 
 			//ViewPortê›íË
 			{
-				CD3D11_VIEWPORT viewport;
+				D3D11_VIEWPORT viewport;
 				viewport.Width = (FLOAT)width;
 				viewport.Height = (FLOAT)height;
 				viewport.MinDepth = 0.0f;
