@@ -25,7 +25,7 @@ namespace Core
 		class NetworkModule : public ::Platform::detail::IModule
 		{
 		private:
-			::Platform::DllLoader* m_dllLoader;
+			::Platform::IO::DllLoader* m_dllLoader;
 
 			detail::GetNetworkInterface get;
 			detail::ReleaseNetworkInterface release;

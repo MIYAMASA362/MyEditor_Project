@@ -14,7 +14,7 @@ namespace Core
 	{
 		GraphicsModule::GraphicsModule(const char* moduleName)
 		{
-			m_dllLoader = new ::Platform::DllLoader(moduleName);
+			m_dllLoader = new ::Platform::IO::DllLoader(moduleName);
 
 			get = (Core::Graphics::GetGraphics)m_dllLoader->getProcess(TO_STRING(base_GetGraphics));
 			release = (Core::Graphics::ReleaseGraphics)m_dllLoader->getProcess(TO_STRING(base_ReleaseGraphics));

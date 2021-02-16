@@ -4,43 +4,45 @@
 
 namespace Platform
 {
-	/*
-	* @brief	StreamSeek 
-	*
-	*/
-	enum class StreamSeek
+	namespace IO
 	{
-		Begin,
-		Current,
-		End,
-	};
-
-	namespace detail
-	{
-		/**
-		* @class    IStream
-		* @brief    Stream interface
+		/*
+		* @brief	StreamSeek
+		*
 		*/
-		class IStream
+		enum class StreamSeek
 		{
-		private:
+			Begin,
+			Current,
+			End,
+		};
 
-		protected:
-			IStream() = default;
-			virtual ~IStream() = default;
+		namespace detail
+		{
+			/**
+			* @class    IStream
+			* @brief    Stream interface
+			*/
+			class IStream
+			{
+			private:
 
-		public:
-			virtual bool isRead() const = 0;
-			virtual bool isWrite() const = 0;
+			protected:
+				IStream() = default;
+				virtual ~IStream() = default;
 
-			virtual bool read(void* buffer,size_t size) = 0;
-			virtual bool write(const void* buffer,size_t size) = 0;
-			virtual void seek(int offset,StreamSeek seek) = 0;
+			public:
+				virtual bool isRead() const = 0;
+				virtual bool isWrite() const = 0;
 
-		};//class Stream
-	
-	}//namespace detail
+				virtual bool read(void* buffer, size_t size) = 0;
+				virtual bool write(const void* buffer, size_t size) = 0;
+				virtual void seek(int offset, StreamSeek seek) = 0;
 
+			};//class Stream
+
+		}//namespace detail
+	}// namespace Platform::IO
 }//namespace Platform
 
 #endif //ifndef PLATFORM_STREAM_H
