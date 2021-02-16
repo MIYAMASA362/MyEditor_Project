@@ -26,7 +26,7 @@ namespace Core
 		class GraphicsModule : public ::Platform::detail::IModule
 		{
 		private:
-			::Platform::DllLoader* m_dllLoader;
+			::Platform::IO::DllLoader* m_dllLoader;
 
 			::Platform::Graphics::detail::IGraphics* m_Graphics;
 

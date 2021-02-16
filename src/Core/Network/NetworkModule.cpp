@@ -12,7 +12,7 @@ namespace Core
 	{
 		NetworkModule::NetworkModule(const char * moduleName)
 		{
-			m_dllLoader = new ::Platform::DllLoader(moduleName);
+			m_dllLoader = new ::Platform::IO::DllLoader(moduleName);
 
 			get = (Core::Network::detail::GetNetworkInterface)m_dllLoader->getProcess(TO_STRING(base_GetNetworkInterface));
 			release = (Core::Network::detail::ReleaseNetworkInterface)m_dllLoader->getProcess(TO_STRING(base_ReleaseNetworkInterface));

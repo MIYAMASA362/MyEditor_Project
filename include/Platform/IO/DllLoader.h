@@ -4,27 +4,30 @@
 
 namespace Platform
 {
-	/**
-	* @class    DllLoader
-	* @brief    
-	*/
-	class DllLoader
+	namespace IO
 	{
-	private:
-		HMODULE m_hModule;
 
-	public:
-		DllLoader();
-		DllLoader(const char* libfileName);
-		virtual ~DllLoader();
+		/**
+		* @class    DllLoader
+		* @brief
+		*/
+		class DllLoader
+		{
+		private:
+			HMODULE m_hModule;
 
-		bool load(const char* libfileName);
-		void free();
+		public:
+			DllLoader();
+			DllLoader(const char* libfileName);
+			virtual ~DllLoader();
 
-		FARPROC getProcess(const char* funcName);
+			bool load(const char* libfileName);
+			void free();
 
-	};//class DllLoader
+			FARPROC getProcess(const char* funcName);
 
+		};//class DllLoader
+	}// namespace Platform::IO
 }//namespace Platform
 
 #endif //CORE_IO_DLLLOADER_H

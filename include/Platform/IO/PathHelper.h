@@ -4,27 +4,30 @@
 
 namespace Platform
 {
-	namespace detail
+	namespace IO
 	{
-		class PathFormat
+		namespace detail
 		{
-		private:
+			class PathFormat
+			{
+			private:
 #ifdef ENGINE_WIN
-			static const char cDirectorySeparatorChar = '\\';
+				static const char cDirectorySeparatorChar = '\\';
 #else //other
-			static const char cDirectorySeparatorChar = 0x00;
+				static const char cDirectorySeparatorChar = 0x00;
 #endif
 
-		public:
-			static std::string getFileName(const std::string* path);
-			static std::string getFileNameSub(const std::string* path);
-			static std::string getFileExtension(const std::string* path);
+			public:
+				static std::string getFileName(const std::string* path);
+				static std::string getFileNameSub(const std::string* path);
+				static std::string getFileExtension(const std::string* path);
 
-			static bool isRoot(std::string* path);
+				static bool isRoot(std::string* path);
 
-		};//class PathFormat
+			};//class PathFormat
 
-	}//namespace detail
+		}//namespace detail
+	}// namespace Platform::IO
 }//namespace Platform
 
 #endif //ifndef PLATFORM_PATHHELPER_H
