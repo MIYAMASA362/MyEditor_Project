@@ -50,6 +50,13 @@ namespace Platform
 				return false;
 			}
 
+			std::string PathFormat::getCurentDirectory()
+			{
+				TCHAR curDir[MAX_PATH + 1];
+				GetCurrentDirectory(MAX_PATH + 1, curDir);
+				return std::string(curDir);
+			}
+
 		}//namespace Platform::detail
 	}// namespace Platform::IO
 }//namespace Platform

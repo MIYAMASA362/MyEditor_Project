@@ -2,24 +2,20 @@
 
 #include"Thirdparty/Graphics/DirectX11/Graphics.h"
 
-#include"Thirdparty/Graphics/DirectX11/IBuffer.h"
 #include"Thirdparty/Graphics/DirectX11/IndexBuffer.h"
 
 namespace Platform
 {
 	namespace Graphics
 	{
-		IndexBuffer::IndexBuffer()
+		void IndexBuffer::internal_release()
 		{
-
-		}
-		
-		IndexBuffer::~IndexBuffer()
-		{
-
+			if (m_Buffer) m_Buffer->Release();
 		}
 
-		void IndexBuffer::CreateBuffer(const void* index, unsigned int size, unsigned int indexNum)
+		IndexBuffer::IndexBuffer(const void* index, unsigned int size, unsigned int indexNum)
+			:
+			m_Buffer(nullptr)
 		{
 			D3D11_BUFFER_DESC desc;
 			{
@@ -36,10 +32,15 @@ namespace Platform
 				sd.SysMemSlicePitch = 0;
 			}
 
-			DX11Graphics::GetDevice()->CreateBuffer(&desc,&sd,&m_Buffer);
+			DX11Graphics::GetDevice()->CreateBuffer(&desc, &sd, &m_Buffer);
+		}
+		
+		IndexBuffer::~IndexBuffer()
+		{
+			if (m_Buffer) m_Buffer->Release();
 		}
 
-		void IndexBuffer::SetBuffer(unsigned int offset)
+		void IndexBuffer::SetBufferResource(unsigned int offset)
 		{
 			DX11Graphics::GetImmediateContext()->IASetIndexBuffer(m_Buffer, DXGI_FORMAT_R32_UINT, offset);
 		}

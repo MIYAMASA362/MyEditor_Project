@@ -55,6 +55,12 @@
     <Filter Include="ソース ファイル\Thread">
       <UniqueIdentifier>{f05ec238-c380-42d8-87cb-c24830196c81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Object">
+      <UniqueIdentifier>{2053cdf3-bb2c-4bcd-aeed-265edc4e8c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Object">
+      <UniqueIdentifier>{ca7181e9-894a-40c0-930a-34ef960ef5b8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Core\Allocator\DoubleBufferAllocator.h">
@@ -120,6 +126,12 @@
     <ClInclude Include="Config.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\Core\Graphics\GameObject.h">
+      <Filter>ヘッダー ファイル\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\Transform.h">
+      <Filter>ヘッダー ファイル\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Core\Allocator\DoubleBufferAllocator.cpp">
@@ -151,6 +163,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\Core\Task\Task.cpp">
       <Filter>ソース ファイル\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\Transform.cpp">
+      <Filter>ソース ファイル\Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,81 +1,161 @@
 #define ENGINE_DIRECTX11
 #define ENGINE_WINSOCK
 
+// 有効フラグ
+#define NETWORK_ENABLE 0
+
+
 #include<vector>
 #include<map>
 
 #include"Platform.h"
 #include"Core.h"
 #include"Engine.h"
-	
-int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,int nCmdShow)
+
+/**
+*
+*	WinMain
+*
+*
+*/
+int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	TCHAR curDir[MAX_PATH + 1];
-	GetCurrentDirectory(MAX_PATH + 1,curDir);
 
-	//Core::FileStream* stream;
-	//Core::FileStream::create("StreamTest.txt",Core::FileMode::ReadWrite,&stream);
+	//###################################################################################
+	/**
+	*
+	*	FileStream
+	*
+	*
+	*/
+#if 0
 
-	//stream->writeFormat("[Initialize]\n[Update]\n[Renderer]\n[Finalize]");
-	//stream->seek(10,Core::StreamSeek::Begin);
+	Platform::IO::FileStream* stream;
+	Platform::IO::FileStream::create("StreamTest.txt", Platform::IO::FileMode::ReadWrite, &stream);
 
-	//stream->seekFind("[Update]");
-	//std::string str(100, '\0');
-	//stream->read(str);
+	stream->writeFormat("[Initialize]\n[Update]\n[Renderer]\n[Finalize]");
+	stream->seek(10, Platform::IO::StreamSeek::Begin);
 
-	//delete stream;
+	stream->seekFind("[Update]");
+	std::string str(100, '\0');
+	stream->read(str);
 
-	//Core::DllLoader GraphicLoder;
-	//GraphicLoder.getProcess(TO_STRING(Platform::Graphics::DX11Graphics));
-	//
+	delete stream;
+
+	Platform::IO::DllLoader GraphicLoder;
+	GraphicLoder.getProcess(TO_STRING(Platform::Graphics::DX11Graphics));
+
+#endif
+
+	//###################################################################################
+	/**
+	*
+	*	OpenGLなどのシェーダに独自対応するためには、独自のシェーダ定義フォーマットファイルを作成する必要がある
+	*	独自のシェーダからHLSLを抽出して定義、内部コンパイルでcsoなどのリソースを吐き出す。
+	*	または内部で確保・隠ぺいしておく
+	*
+	*	HLSL コンパイル fxc.exe (SDK/utility/bin/x86)
+	*
+	*	独自のシェーダファイルをプリコンパイルさせる際に利用する
+	*	エフェクトファイルの隠ぺいなどに利用できる可能性もあるので要確認
+	*
+	*	Qiita : HLSLのオフラインコンパイル時に気を付けること
+	*	・https://qiita.com/shiro_naga/items/c1bac277df82fdd8bf52
+	*	・
+	*
+	*/
+#if 0
+	char path[MAX_PATH + 1];
+	strcpy_s(path, curDir);
+
+	// fxファイル
+	system("C:\\Users\\MIYAM\\Desktop\\MyEditor_Project\\external\\fxc.exe TestShader.hlsl /T fx_5_0 /Fo Test.cfx");
+
+#endif
+
+	// Engine
+	Engine::System* mainSystem = new Engine::System();
 
 	// Platform
-	Platform::Windows::Window window;
-	window.Create(
-		hInstance,
-		(LPSTR)"MainWindow",
-		(LPSTR)"MainWindow",
-		CW_USEDEFAULT,
-		CW_USEDEFAULT,
-		1024,576,
-		WS_OVERLAPPEDWINDOW
-	);
-
-	// MainSystem
-	Engine::System mainSystem;
+	Platform::detail::IWindow* iWindow = 
+		new Platform::Windows::Window(
+			hInstance,
+			(LPSTR)"MainWindow",
+			(LPSTR)"MainWindow",
+			CW_USEDEFAULT, CW_USEDEFAULT,
+			1024, 576,
+			WS_OVERLAPPEDWINDOW
+		);
 
 	// Graphics Module
-	Core::Graphics::GraphicsModule graphicsModule("DirectX11.dll");
-	graphicsModule.CreateRenderer(window.GetHWnd(),&mainSystem.m_Renderer); // 描画領域の設定
+	Core::Graphics::GraphicsModule* graphicsModule = new Core::Graphics::GraphicsModule("DirectX11.dll");
+	graphicsModule->GetGraphics()->CreateRenderer(iWindow, &mainSystem->m_Renderer); // 描画領域の設定
 
-	// Graphics 
-	
-	// Shaderの設定
-	
 
-	// Network Module
+	//###################################################################################
+	/**
+	*
+	*	Shader
+	*
+	*/
+#if 1
+
+	unsigned long fsize;
+	unsigned char* buffer;
+
+	// 頂点シェーダ設定
+	Platform::Graphics::detail::IShader* vertexShader;
+	if (Platform::IO::FileStream::readFileInfo("Default_VertexShaer.cso", &fsize, &buffer))
+	{
+		LOG_DEBUG("頂点シェーダ読み込み...");
+		Platform::Graphics::VERTEX_INPUT_LAYOUT layouts[1];
+
+		layouts[0] = Platform::Graphics::VERTEX_INPUT_LAYOUT::VSIL_POSITION;
+
+		graphicsModule->GetGraphics()->CreateVertexShader(buffer, fsize, layouts, 1, &vertexShader);
+		graphicsModule->GetGraphics()->ReleaseVertexShader(&vertexShader);
+
+		delete[] buffer;
+	}
+
+	// ピクセルシェーダ設定
+	Platform::Graphics::detail::IShader * pixelShader;
+	if (Platform::IO::FileStream::readFileInfo("Default_PixelShader.cso", &fsize, &buffer))
+	{
+		LOG_DEBUG("ピクセルシェーダ読み込み...");
+
+		graphicsModule->GetGraphics()->CreatePixelShader(buffer, fsize, &pixelShader);
+		graphicsModule->GetGraphics()->ReleasePixelShader(&pixelShader);
+
+		delete[] buffer;
+	}
+
+#endif
+
+	//###################################################################################
+	/**
+	*
+	*	Network
+	*
+	*/
+#if NETWORK_ENABLE
+
 	Core::Network::NetworkModule networkModule("Winsock.dll");
 	::Platform::Network::detail::INetwork* network;
 	networkModule.CreateNetwork(&network);
 
-	// ComponentManager
-	Engine::Internal::ComponentManager ComponentManager;
-
-	
-
-
 	network->Startup();
 
 	// Thread
-	Core::Thread server([network](){
+	Core::Thread server([network]() {
 		::Platform::Network::detail::ISocket* iSocket = nullptr;
 
 		::Platform::Network::SocketInfo info;
 		info.m_address = NULL;
 		info.m_port = "27015";
 		info.m_flags = ::Platform::Network::Flags::PASSIVE;
-		
-		if (network->Create(&iSocket, info) == Platform::Network::FAILED){
+
+		if (network->Create(&iSocket, info) == Platform::Network::FAILED) {
 			network->Release(&iSocket);
 			return;
 		}
@@ -91,7 +171,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine
 
 		::Platform::Network::detail::ISocket* iClient = nullptr;
 
-		if(network->Accept(iSocket,&iClient) == Platform::Network::FAILED) {
+		if (network->Accept(iSocket, &iClient) == Platform::Network::FAILED) {
 			network->Release(&iSocket);
 			return;
 		}
@@ -103,35 +183,35 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine
 		do
 		{
 			LOG_DEBUG("Server Idle");
-			iResult = network->Recv(iClient,buf,256);
-			if(iResult > 0)
+			iResult = network->Recv(iClient, buf, 256);
+			if (iResult > 0)
 			{
-				int send = network->Send(iClient,buf,iResult);
-				if(send == Platform::Network::FAILED) {
+				int send = network->Send(iClient, buf, iResult);
+				if (send == Platform::Network::FAILED) {
 					network->Release(&iClient);
 					return;
 				}
 				buf[send] = '\0';
-				LOG_DEBUG("Recived Message : %s",buf);
+				LOG_DEBUG("Recived Message : %s", buf);
 				break;
 			}
-			else if(iResult == 0)
+			else if (iResult == 0)
 			{
-				
+
 			}
 			else
 			{
 				break;
 			}
-		} while (iResult>0);
+		} while (iResult > 0);
 
-		network->Close(iClient,::Platform::Network::CloseType::BOTH);
+		network->Close(iClient, ::Platform::Network::CloseType::BOTH);
 		network->Release(&iClient);
 
 		LOG_DEBUG("Server Thread End");
-	});
+		});
 
-	Core::Thread client([network](){
+	Core::Thread client([network]() {
 		std::this_thread::sleep_for(Core::Time::Seconds(3));
 
 		::Platform::Network::detail::ISocket* iSocket = nullptr;
@@ -153,8 +233,8 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine
 		char buf[256];
 		const char* sendbuf = "this is a test";
 		int iResult = 0;
-		iResult = network->Send(iSocket,sendbuf,(int)strlen(sendbuf));
-		if(iResult == Platform::Network::FAILED) {
+		iResult = network->Send(iSocket, sendbuf, (int)strlen(sendbuf));
+		if (iResult == Platform::Network::FAILED) {
 			network->Release(&iSocket);
 			return;
 		}
@@ -162,26 +242,36 @@ int APIENTRY WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine
 		do
 		{
 			LOG_DEBUG("Client Idle");
-			iResult = network->Recv(iSocket,buf,256);
+			iResult = network->Recv(iSocket, buf, 256);
 		} while (iResult > 0);
 
-		network->Close(iSocket,::Platform::Network::CloseType::SEND);
+		network->Close(iSocket, ::Platform::Network::CloseType::SEND);
 		network->Release(&iSocket);
 
 		LOG_DEBUG("Client Thread End");
-	});
+		});
+
+#endif
 
 	// MainLoop
-	mainSystem.mainLoop();
+	mainSystem->mainLoop();
+
+
+#if NETWORK_ENABLE
 
 	client.run();
 	server.run();
 
 	network->Cleanup();
 
-	// Release Module
 	networkModule.ReleaseNetwork(&network);
-	graphicsModule.ReleaseRenderer(&mainSystem.m_Renderer);
+
+#endif
+
+	graphicsModule->GetGraphics()->ReleaseRenderer(&mainSystem->m_Renderer);
+
+	delete mainSystem;
+	delete graphicsModule;
 
 	return 0;
 }

@@ -12,7 +12,7 @@ namespace Core
 			struct { float x, y; };
 		};
 
-		Vector2() = default;
+		Vector2() : Vector2(0.0f, 0.0f) {}
 		constexpr Vector2(float _x, float _y) : x(_x), y(_y) {}
 
 		inline operator const float* () const { return f; }

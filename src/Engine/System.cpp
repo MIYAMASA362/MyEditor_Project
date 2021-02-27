@@ -17,14 +17,15 @@
 namespace Engine
 {
 	System::System()
+		:
+		m_Renderer(nullptr)
 	{
-		
+
 	}
 
 	System::~System()
 	{
-		if (m_Renderer)
-			delete m_Renderer;
+		if (m_Renderer) delete m_Renderer;
 	}
 
 	int System::mainLoop()
@@ -44,13 +45,13 @@ namespace Engine
 			{
 				this->ProcessModule(Core::System::ModuleType::Update);
 
-				m_Renderer->clear();
+				if(m_Renderer) m_Renderer->clear();
 
-				m_Renderer->begin();
+				if(m_Renderer) m_Renderer->begin();
 
 				this->ProcessModule(Core::System::ModuleType::Render);
 
-				m_Renderer->end();
+				if(m_Renderer) m_Renderer->end();
 			}
 
 		} while (msg.message != WM_QUIT);

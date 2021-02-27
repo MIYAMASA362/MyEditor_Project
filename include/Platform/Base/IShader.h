@@ -6,6 +6,14 @@ namespace Platform
 {
 	namespace Graphics
 	{
+		enum class VERTEX_INPUT_LAYOUT
+		{
+			VSIL_POSITION,
+			VSIL_NORMAL,
+			VSIL_COLOR,
+			VSIL_TEXCOORD
+		};
+
 		namespace detail
 		{
 			/**
@@ -14,50 +22,16 @@ namespace Platform
 			* 
 			* 
 			*/
-			class ENGINE_API IShader
+			class ENGINE_API IShader : public IResource
 			{
-			public:
+			protected:
 				IShader() = default;
-				virtual ~IShader() = default;
 
-				// シェーダを適用させる
-				virtual void SetShader() = 0;
+			public:
+				virtual ~IShader() = default;
+				virtual void SetShaderResource() = 0;
 
 			};// class IShader
-
-
-			/**
-			* @class    IVertexShader
-			* @brief	頂点シェーダ
-			* 
-			* 
-			*/
-			class ENGINE_API IVertexShader : public IShader
-			{
-			public:
-				IVertexShader() = default;
-				virtual ~IVertexShader() = default;
-
-				virtual void CreateShader(const void* buffer,const unsigned long size) = 0;
-
-			};// class IVertexShader
-
-
-			/**
-			* @class    IPixelShader
-			* @brief    ピクセルシェーダ
-			* 
-			* 
-			*/
-			class ENGINE_API IPixelShader : public IShader
-			{
-			public:
-				IPixelShader() = default;
-				virtual ~IPixelShader() = default;
-
-				virtual void CreateShader(const void* buffer,const unsigned long size) = 0;
-
-			};// class IPixelShader
 
 		}// namespace Platform::Graphics::detail
 	}// namespace Platform::Graphics

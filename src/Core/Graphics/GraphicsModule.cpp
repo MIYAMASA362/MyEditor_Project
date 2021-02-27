@@ -1,12 +1,6 @@
 #include"Config.h"
 
-#include"Platform/Base/IRenderer.h"
-#include"Platform/Base/IGraphics.h"
-#include"Platform/IO/DllLoader.h"
-#include"Platform/Module/Module.h"
-
 #include"Core/Graphics/GraphicsModule.h"
-#include"Core/Graphics/GraphicsFactory.h"
 
 namespace Core
 {
@@ -27,16 +21,5 @@ namespace Core
 
 			delete m_dllLoader;
 		}
-
-		void GraphicsModule::CreateRenderer(HWND hWnd, Platform::Graphics::detail::IRenderer** renderer)
-		{
-			m_Graphics->CreateRenderer(hWnd, renderer);
-		}
-
-		void GraphicsModule::ReleaseRenderer(Platform::Graphics::detail::IRenderer** renderer)
-		{
-			m_Graphics->ReleaseRenderer(renderer);
-		}
-
 	}
 }

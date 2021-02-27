@@ -34,11 +34,14 @@
     <Filter Include="ヘッダー ファイル\Module">
       <UniqueIdentifier>{2eff81ed-1d3e-4cf6-abf4-2b76c53a2446}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Base\Types">
-      <UniqueIdentifier>{11300db8-dc50-445b-b473-d56cab2efc77}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Base\Interface\Graphics">
       <UniqueIdentifier>{ffea8625-a951-4788-9131-4e08222846ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Base\Interface\Resource">
+      <UniqueIdentifier>{b9054717-8b5b-4ec1-aab2-3d3470b4545d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Base\Types">
+      <UniqueIdentifier>{4c8eeede-0545-4f05-8ccb-5c51929a81a7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -63,18 +66,6 @@
     <ClInclude Include="..\..\include\Platform\Base\INetwork.h">
       <Filter>ヘッダー ファイル\Base\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\Logger.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\Assert.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\BitFlags.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\Result.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Platform\IO\DllLoader.h">
       <Filter>ヘッダー ファイル\IO</Filter>
     </ClInclude>
@@ -93,12 +84,6 @@
     <ClInclude Include="..\..\include\Platform\Module\Module.h">
       <Filter>ヘッダー ファイル\Module</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\String.h">
-      <Filter>ヘッダー ファイル\Base\Types</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\StringHelper.h">
-      <Filter>ヘッダー ファイル\Base\Types</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\IGraphics.h">
       <Filter>ヘッダー ファイル\Base\Interface\Graphics</Filter>
     </ClInclude>
@@ -106,7 +91,34 @@
       <Filter>ヘッダー ファイル\Base\Interface\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\IShader.h">
-      <Filter>ヘッダー ファイル\Base\Interface\Graphics</Filter>
+      <Filter>ヘッダー ファイル\Base\Interface\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\IResource.h">
+      <Filter>ヘッダー ファイル\Base\Interface\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\StringHelper.h">
+      <Filter>ヘッダー ファイル\Base\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\Assert.h">
+      <Filter>ヘッダー ファイル\Base\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\BitFlags.h">
+      <Filter>ヘッダー ファイル\Base\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\Logger.h">
+      <Filter>ヘッダー ファイル\Base\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\Result.h">
+      <Filter>ヘッダー ファイル\Base\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\String.h">
+      <Filter>ヘッダー ファイル\Base\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\RefObject.h">
+      <Filter>ヘッダー ファイル\Base\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\IBuffer.h">
+      <Filter>ヘッダー ファイル\Base\Interface\Resource</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -127,9 +139,6 @@
     </ClCompile>
     <ClCompile Include="..\..\src\Platform\IO\PathHelper.cpp">
       <Filter>ソース ファイル\IO</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\Platform\Base\IGraphics.cpp">
-      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

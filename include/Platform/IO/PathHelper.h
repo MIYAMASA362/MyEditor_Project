@@ -24,6 +24,8 @@ namespace Platform
 
 				static bool isRoot(std::string* path);
 
+				static std::string getCurentDirectory();
+
 			};//class PathFormat
 
 		}//namespace detail

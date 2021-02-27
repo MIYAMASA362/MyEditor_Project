@@ -18,10 +18,13 @@
 #include"Platform/Base/Result.h"
 
 // Platform Interface
+#include"Platform/Base/IResource.h"
+#include"Platform/Base/IShader.h"
+#include"Platform/Base/IBuffer.h"
+
 #include"Platform/Base/ISystem.h"
 #include"Platform/Base/IWindow.h"
 #include"Platform/Base/IRenderer.h"
-#include"Platform/Base/IShader.h"
 #include"Platform/Base/IGraphics.h"
 #include"Platform/Base/INetwork.h"
 

@@ -60,14 +60,8 @@
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\ConstantBuffer.h">
       <Filter>ヘッダー ファイル\Resource\Buffer</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\IBuffer.h">
-      <Filter>ヘッダー ファイル\Resource\Buffer</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -92,8 +86,8 @@
     <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Shader.cpp">
       <Filter>ソース ファイル\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\IBuffer.cpp">
-      <Filter>ソース ファイル\Resource\Buffer</Filter>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

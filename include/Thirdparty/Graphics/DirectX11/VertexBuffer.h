@@ -6,14 +6,17 @@ namespace Platform
 {
 	namespace Graphics
 	{
-		class ENGINE_API VertexBuffer : public IBuffer
+		class ENGINE_API VertexBuffer : public detail::IVertexBuffer
 		{
+		protected:
+			ID3D11Buffer* m_Buffer;
+
+			virtual void internal_release() override;
 		public:
-			VertexBuffer();
+			VertexBuffer(const void* vertex, unsigned int size, unsigned int vertexNum);
 			virtual ~VertexBuffer();
 
-			void CreateBuffer(const void* vertex,unsigned int size, unsigned int vertexNum);
-			void SetBuffer(unsigned int slot, unsigned int numBuffers, const unsigned int* stride, const unsigned int* offset);
+			virtual void SetBufferResource(unsigned int slot, unsigned int numBuffers, const unsigned int* stride, const unsigned int* offset) override;
 
 		};// class VertexBuffer
 

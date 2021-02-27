@@ -10,17 +10,21 @@ namespace Platform
 		* @class    ConstantBuffer
 		* @brief    定数バッファ
 		*
-		*	Stride : float
 		*
 		*/
-		class ENGINE_API ConstantBuffer final : public IBuffer
+		class ENGINE_API ConstantBuffer final : public detail::IConstantBuffer
 		{
+		protected:
+			ID3D11Buffer* m_Buffer;
+
+		protected:
+			virtual void internal_release() override;
+
 		public:
-			ConstantBuffer();
+			ConstantBuffer(unsigned int byteWidth,unsigned int byteStride);
 			virtual ~ConstantBuffer();
 
-			void CreateBuffer(unsigned int size);
-			void UpdateSubresource(const void* data);
+			virtual void UpdateBufferResource(const void* data) override;
 
 			void SetVSConstantBuffer(unsigned int slot, unsigned int numBuffer = 1);
 			void SetPSConstantBuffer(unsigned int slot, unsigned int numBuffer = 1);

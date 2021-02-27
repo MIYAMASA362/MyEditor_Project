@@ -10,17 +10,16 @@ namespace Platform
 		* @class    Window Windows32
 		* @brief	Windows Platform version
 		*/
-		class ENGINE_API Window : public detail::IWindow
+		class ENGINE_API Window final : public detail::IWindow
 		{
 		protected:
 			HWND m_hWnd;
 
 		public:
-			Window();
-			virtual ~Window();
+			Window(HINSTANCE hInstance, LPSTR lpClassName, LPSTR lpCaption, int x, int y, long width, long height, DWORD style);
+			~Window();
 
-			virtual LRESULT localWndProc(HWND hWnd,UINT uMsg,WPARAM wParam,LPARAM lParam);
-			virtual HRESULT Create(HINSTANCE hInstance, LPSTR lpClassName, LPSTR lpCaption, int x, int y, long width, long height, DWORD style);
+			LRESULT localWndProc(HWND hWnd,UINT uMsg,WPARAM wParam,LPARAM lParam);
 
 			void SetProcParam(HWND hWnd);
 			HWND GetHWnd() { return m_hWnd; };

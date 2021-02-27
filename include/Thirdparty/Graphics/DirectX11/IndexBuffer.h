@@ -6,14 +6,18 @@ namespace Platform
 {
 	namespace Graphics
 	{
-		class ENGINE_API IndexBuffer : public IBuffer
+		class ENGINE_API IndexBuffer : public detail::IIndexBuffer
 		{
+		protected:
+			ID3D11Buffer* m_Buffer;
+
+			virtual void internal_release() override;
+
 		public:
-			IndexBuffer();
+			IndexBuffer(const void* index, unsigned int size, unsigned int indexNum);
 			virtual ~IndexBuffer();
 
-			void CreateBuffer(const void* index,unsigned int size,unsigned int indexNum);
-			void SetBuffer(unsigned int offset);
+			virtual void SetBufferResource(unsigned int offset) override;
 
 		};// class IndexBuffer
 

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 
+#include"Platform/Base/IResource.h"
 #include"Platform/Base/IShader.h"
 
 #include"Thirdparty/Graphics/DirectX11/DirectX11.h"
@@ -12,21 +13,15 @@ namespace Platform
 {
 	namespace Graphics
 	{
-		VertexShader::VertexShader()
-			:
+		VertexShader::VertexShader(
+			ID3D11Device* pDevice,
+			const void* buffer,
+			const unsigned long size,
+			VERTEX_INPUT_LAYOUT* inputLayout,
+			unsigned int layoutSize
+		) :
 			m_Source(nullptr),
 			m_Layout(nullptr)
-		{
-			
-		}
-
-		VertexShader::~VertexShader()
-		{
-			if (m_Layout) m_Layout->Release();
-			if (m_Source) m_Source->Release();
-		}
-
-		void VertexShader::CreateShader(const void* buffer, const unsigned long size, VERTEX_INPUT_LAYOUT* inputLayout, unsigned int layoutSize)
 		{
 			DX11Graphics::GetDevice()->CreateVertexShader(buffer, size, NULL, &m_Source);
 
@@ -94,12 +89,22 @@ namespace Platform
 				delete[] layout;
 
 			}
-
 		}
 
-		void VertexShader::SetShader()
+		VertexShader::~VertexShader()
 		{
-			DX11Graphics::GetImmediateContext()->VSSetShader(m_Source,NULL,0);
+			
+		}
+
+		void VertexShader::internal_release()
+		{
+			if (m_Layout) m_Layout->Release();
+			if (m_Source) m_Source->Release();
+		}
+
+		void VertexShader::SetShaderResource()
+		{
+			DX11Graphics::GetImmediateContext()->VSSetShader(m_Source, NULL, 0);
 		}
 
 		void VertexShader::SetInputLayout()
@@ -110,29 +115,35 @@ namespace Platform
 
 
 
-		PixelShader::PixelShader()
-			:
+		
+
+		PixelShader::PixelShader(
+			ID3D11Device* pDevice,
+			const void* buffer,
+			const unsigned long size
+		):
 			m_Source(nullptr)
 		{
-
+			pDevice->CreatePixelShader(buffer, size, NULL, &m_Source);
 		}
 
 		PixelShader::~PixelShader()
 		{
+			
+		}
+
+		void PixelShader::internal_release()
+		{
 			if (m_Source) m_Source->Release();
 		}
 
-		void PixelShader::CreateShader(const void* buffer, const unsigned long size)
-		{
-			DX11Graphics::GetDevice()->CreatePixelShader(buffer, size, NULL, &m_Source);
-		}
 
-		void PixelShader::SetShader()
+		void PixelShader::SetShaderResource()
 		{
-			DX11Graphics::GetImmediateContext()->PSSetShader(m_Source,NULL,0);
+			DX11Graphics::GetImmediateContext()->PSSetShader(m_Source, NULL, 0);
 		}
 
 
 
-}// namespace Platform::Grpahics
+	}// namespace Platform::Grpahics
 }// namespace Platform

@@ -37,9 +37,7 @@ namespace Core
 			GraphicsModule(const char* moduleName);
 			virtual ~GraphicsModule();
 
-			// Renderer
-			void CreateRenderer(HWND hWnd, ::Platform::Graphics::detail::IRenderer** renderer);
-			void ReleaseRenderer(::Platform::Graphics::detail::IRenderer** renderer);
+			::Platform::Graphics::detail::IGraphics* GetGraphics() { return m_Graphics; }
 
 		};// class GraphicsModule
 

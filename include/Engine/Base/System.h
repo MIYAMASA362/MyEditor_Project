@@ -13,7 +13,7 @@ namespace Engine
 	private:
 		
 	public:
-		//
+		// 
 		::Platform::Graphics::detail::IRenderer* m_Renderer;
 
 	public:

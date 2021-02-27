@@ -165,6 +165,7 @@
     <ClInclude Include="..\..\include\Core\Allocator\PoolAllocator.h" />
     <ClInclude Include="..\..\include\Core\Allocator\StackAllocator.h" />
     <ClInclude Include="..\..\include\Core\Graphics\GraphicsModule.h" />
+    <ClInclude Include="..\..\include\Core\Graphics\GameObject.h" />
     <ClInclude Include="..\..\include\Core\Graphics\Renderer.h" />
     <ClInclude Include="..\..\include\Core\Json\Json.h" />
     <ClInclude Include="..\..\include\Core\Math\Math.h" />
@@ -178,6 +179,7 @@
     <ClInclude Include="..\..\include\Core\Task\Task.h" />
     <ClInclude Include="..\..\include\Core\Thread\Thread.h" />
     <ClInclude Include="..\..\include\Core\Time\Time.h" />
+    <ClInclude Include="..\..\include\Core\Transform.h" />
     <ClInclude Include="Config.h" />
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +193,7 @@
     <ClCompile Include="..\..\src\Core\System\System.cpp" />
     <ClCompile Include="..\..\src\Core\Task\Task.cpp" />
     <ClCompile Include="..\..\src\Core\Thread\Thread.cpp" />
+    <ClCompile Include="..\..\src\Core\Transform.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

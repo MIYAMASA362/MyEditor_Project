@@ -12,27 +12,26 @@ namespace Platform
 		* @brief    頂点シェーダ
 		* 
 		*/
-		class ENGINE_API VertexShader : public detail::IVertexShader
+		class ENGINE_API VertexShader : public detail::IShader
 		{
-		public:
-			enum class VERTEX_INPUT_LAYOUT
-			{
-				VSIL_POSITION,
-				VSIL_NORMAL,
-				VSIL_COLOR,
-				VSIL_TEXCOORD
-			};
-
 		protected:
 			ID3D11VertexShader* m_Source;
 			ID3D11InputLayout* m_Layout;
 
+		protected:
+			virtual void internal_release() override;
+
 		public:
-			VertexShader();
+			VertexShader(
+				ID3D11Device* pDevice,
+				const void* buffer,
+				const unsigned long size,
+				VERTEX_INPUT_LAYOUT* inputLayout,
+				unsigned int layoutSize
+			);
 			virtual ~VertexShader();
 
-			virtual void CreateShader(const void* buffer, const unsigned long size, VERTEX_INPUT_LAYOUT* inputLayout, unsigned int layoutSize);
-			virtual void SetShader() override;
+			virtual void SetShaderResource() override;
 			virtual void SetInputLayout();
 
 
@@ -45,17 +44,23 @@ namespace Platform
 		* @brief    ピクセルシェーダ
 		* 
 		*/
-		class ENGINE_API PixelShader : public detail::IPixelShader
+		class ENGINE_API PixelShader : public detail::IShader
 		{
 		protected:
 			ID3D11PixelShader* m_Source;
 
+		protected:
+			virtual void internal_release() override;
+
 		public:
-			PixelShader();
+			PixelShader(
+				ID3D11Device* pDevice,
+				const void* buffer,
+				const unsigned long size
+			);
 			virtual ~PixelShader();
 
-			virtual void CreateShader(const void* buffer, const unsigned long size);
-			virtual void SetShader() override;
+			virtual void SetShaderResource() override;
 
 
 		};// class PixelShader

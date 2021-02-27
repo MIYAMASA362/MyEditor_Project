@@ -49,6 +49,15 @@ namespace Platform
 			*/
 			static bool create(std::string filePath, FileMode mode, FileStream** output);
 
+			/**
+			*	@brief	ファイル情報・取得
+			*	
+			*	@in[string]	: ファイルパス
+			* 
+			*	@return[bool] : 情報読み取りに成功/失敗(ファイル無し)
+			*/
+			static bool readFileInfo(std::string filePath, unsigned long* fsize, unsigned char** buffer);
+
 		protected:
 			void open(const char* const fmode);
 

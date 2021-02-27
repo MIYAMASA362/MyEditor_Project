@@ -95,6 +95,7 @@ namespace Platform
 				hr = DX11Graphics::GetDevice()->CreateDepthStencilView(pDepthStencilTexture, &dsvd, &m_pDepthStencilView);
 				ASSERT(SUCCEEDED(hr), "DirectX11 StencilTextureの作成に失敗しました。");
 
+				pDepthStencilTexture->Release();
 
 				//コンテキストに設定
 				DX11Graphics::GetImmediateContext()->OMSetRenderTargets(1, &m_pRenderTargetView, m_pDepthStencilView);

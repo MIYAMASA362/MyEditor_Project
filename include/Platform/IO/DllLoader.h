@@ -27,6 +27,7 @@ namespace Platform
 			FARPROC getProcess(const char* funcName);
 
 		};//class DllLoader
+
 	}// namespace Platform::IO
 }//namespace Platform
 
