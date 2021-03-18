@@ -8,47 +8,77 @@ namespace Platform
 	{
 		namespace detail
 		{
-			class ENGINE_API IBuffer : public IResource
+
+			/**
+			* @class    IBuffer
+			* @brief    バッファ
+			*/
+			class IBuffer : public IResource
 			{
 			protected:
-				IBuffer() = default;
-				virtual ~IBuffer() = default;
+				IBuffer() ENGINE_DEFAULT;
+				virtual ~IBuffer() ENGINE_DEFAULT;
 
 			};// class IBuffer
 
-			class ENGINE_API IConstantBuffer : public IBuffer
-			{
-			protected:
-				IConstantBuffer() = default;
-				virtual ~IConstantBuffer() = default;
+		}// namespace Platform::Graphics::detail
 
-			public:
-				virtual void UpdateBufferResource(const void* data) = 0;
-			};
+		/**
+		* @class    IConstantBufffer
+		* @brief    ConstantBuffer Interface
+		*/
+		class IConstantBuffer : public detail::IBuffer
+		{
+		protected:
+			IConstantBuffer() ENGINE_DEFAULT;
+			virtual ~IConstantBuffer() ENGINE_DEFAULT;
 
-			class ENGINE_API IVertexBuffer : public IBuffer
-			{
-			protected:
-				IVertexBuffer() = default;
-				virtual ~IVertexBuffer() = default;
+		public:
+			virtual void UpdateBufferResource(
+				IN const void* data
+			) ENGINE_PURE;
 
-			public:
-				virtual void SetBufferResource(unsigned int slot, unsigned int numBuffers, const unsigned int* stride, const unsigned int* offse) = 0;
+		};// class IConstantBuffer
 
-			};
 
-			class ENGINE_API IIndexBuffer : public IBuffer
-			{
-			protected:
-				IIndexBuffer() = default;
-				virtual ~IIndexBuffer() = default;
+		/**
+		* @class    IVertexBuffer
+		* @brief    VertexBuffer Interface
+		*/
+		class IVertexBuffer : public detail::IBuffer
+		{
+		protected:
+			IVertexBuffer() ENGINE_DEFAULT;
+			virtual ~IVertexBuffer() ENGINE_DEFAULT;
 
-			public:
-				virtual void SetBufferResource(unsigned int offset) = 0;
+		public:
+			virtual void SetBufferResource(
+				IN unsigned int slot,
+				IN unsigned int numBuffers,
+				IN const unsigned int* stride,
+				IN const unsigned int* offse
+			) ENGINE_PURE;
 
-			};
+		};// class IVertexBuffer
 
-		}// namespace Platfom::Graphics::detail
+
+		/**
+		* @class    IIndexBuffer
+		* @brief    IndexBuffer Interface
+		*/
+		class IIndexBuffer : public detail::IBuffer
+		{
+		protected:
+			IIndexBuffer() ENGINE_DEFAULT;
+			virtual ~IIndexBuffer() ENGINE_DEFAULT;
+
+		public:
+			virtual void SetBufferResource(
+				IN unsigned int offset
+			) ENGINE_PURE;
+
+		};// class IIndexBuffer
+
 	}// namespace Platform::Graphics
 }// namespace Platform
 

@@ -8,23 +8,14 @@ namespace Platform
 	* @class    IResource
 	* @brief    Resource Interface
 	*/
-	class ENGINE_API IResource
+	class IResource
 	{
-	private:
-		bool m_isSecure;
-
 	protected:
-		IResource() : m_isSecure(true) {};
-		virtual ~IResource() { if (m_isSecure) LOG_ERROR("This resource has not been released"); };
-
-		virtual void internal_release() = 0;
+		IResource() ENGINE_DEFAULT;
+		virtual ~IResource() ENGINE_DEFAULT;
 
 	public:
-		void Release()
-		{
-			this->internal_release();
-			m_isSecure = false;
-		}
+		virtual void Release() ENGINE_PURE;
 
 	};// class IResource
 

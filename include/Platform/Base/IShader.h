@@ -22,18 +22,44 @@ namespace Platform
 			* 
 			* 
 			*/
-			class ENGINE_API IShader : public IResource
+			class IShader : public IResource
 			{
 			protected:
-				IShader() = default;
+				IShader() ENGINE_DEFAULT;
+				virtual ~IShader() ENGINE_DEFAULT;
 
 			public:
-				virtual ~IShader() = default;
-				virtual void SetShaderResource() = 0;
+				virtual void SetShaderResource() ENGINE_PURE;
 
 			};// class IShader
 
 		}// namespace Platform::Graphics::detail
+
+
+		/**
+		* @class    class
+		* @brief    Enum Description
+		*/
+		class IVertexShader : public detail::IShader
+		{
+		protected:
+			IVertexShader() ENGINE_DEFAULT;
+			virtual ~IVertexShader() ENGINE_DEFAULT;
+
+		};// class IVertexShader
+
+		/**
+		* @class    class
+		* @brief    Enum Description
+		*/
+		class IPixelShader : public detail::IShader
+		{
+		protected:
+			IPixelShader() ENGINE_DEFAULT;
+			virtual ~IPixelShader() ENGINE_DEFAULT;
+
+		};// class IPixelShader
+
 	}// namespace Platform::Graphics
 }// namespace Platform
 

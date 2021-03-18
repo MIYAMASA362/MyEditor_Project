@@ -8,6 +8,8 @@
 
 // Loggerの機能を無効フラグ Log名前空間の使用禁止
 //#define DISABLE_LOGGING
+// Loggerからログファイルの出力を禁止
+//#define DISABLE_LOGGER_STREAM
 
 /****************************************************************
 *	Debug Macro
@@ -43,9 +45,20 @@
 *	Support Macro
 *****************************************************************/
 
+#define IN
+#define OUT
+
 //Variable name to String
 #define TO_STRING(variable) #variable
 #define NAMEOF(variable) TO_STRING(variable)
+
+#define EXPLICIT explicit
+
+#define ENGINE_DEFAULT = default
+#define ENGINE_DELETE = delete
+#define ENGINE_VIRTUAL virtual
+#define ENGINE_OVERRIDE override
+#define ENGINE_PURE =0
 
 /****************************************************************
 *	Platform Target Macro
@@ -105,7 +118,7 @@
 //	other
 //===============================================================
 
-typedef signed char int8_t:
+typedef signed char int8_t :
 typedef short int16_t;
 typedef int int32_t;
 #if defined(ENGINE_64BIT)
@@ -165,13 +178,13 @@ typedef unsigned long long uintptr_t;
 *****************************************************************/
 
 // signed int type
-using i8	= int8_t;
-using i16	= int16_t;
-using i32	= int32_t;
+using i8 = int8_t;
+using i16 = int16_t;
+using i32 = int32_t;
 #if defined(ENGINE_64BIT)
-using i64	= int64_t;
+using i64 = int64_t;
 #else
-using i64	= int32_t;
+using i64 = int32_t;
 #endif 
 
 // unsigned int type
@@ -191,13 +204,5 @@ using f64 = double_t;
 // pointer
 using iptr = intptr_t;
 using uptr = uintptr_t;
-
-/****************************************************************
-*	EXPLICIT
-*****************************************************************/
-#define EXPLICIT explicit
-
-
-
 
 #endif	// ifndef PLATFORM_CONFIG_H

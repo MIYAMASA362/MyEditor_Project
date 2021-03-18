@@ -22,18 +22,16 @@
 #else
 #define FUNCTION __func__
 #define LOGGER_VSPRINTF(buffer,length,format,arg) _vsnprintf_s(buffer,length,format,arg)
-
 #endif
 
 namespace Platform
 {
 	namespace detail
 	{
-
 		/**
 		*	@brief èoóÕÉçÉOÇ…ëŒÇ∑ÇÈï\é¶
 		*/
-		static inline int OutputPrint(const char* fmt, ...)
+		static int OutputPrint(const char* fmt, ...)
 		{
 			char buffer[512] = { '\0' };
 			va_list args;
@@ -61,8 +59,9 @@ namespace Platform
 				Assert
 			};
 
-			static inline std::string ToString(LogLevel::Severity severity)
-			{
+			static inline std::string ToString(
+				IN LogLevel::Severity severity
+			) {
 				switch (severity)
 				{
 				case LogLevel::Debug:		return "Debug";
@@ -84,23 +83,29 @@ namespace Platform
 {
 	/**
 	* @class    Logger
-	* @brief    
+	* @brief
 	*/
 	class Logger final
 	{
 	private:
-		Logger(const Logger&) = delete;
-		Logger& operator=(Logger&) = delete;
+		Logger(const Logger&) ENGINE_DELETE;
+		Logger& operator=(Logger&) ENGINE_DELETE;
 
 		detail::LogLevel::Severity m_Severity;
 
 	public:
-		EXPLICIT Logger(detail::LogLevel::Severity severity);
+		EXPLICIT Logger(IN detail::LogLevel::Severity severity);
 		~Logger();
-	
+
 		// Output
-		static inline void Write(const detail::LogLevel::Severity& severity, const char* funcName, const char* fileName, const int lineNum, const char* fmt, ...)
-		{
+		static void Write(
+			IN const detail::LogLevel::Severity& severity,
+			IN const char* funcName,
+			IN const char* fileName,
+			IN const int lineNum,
+			IN const char* fmt,
+			...
+		) {
 			char buffer[512] = { '\0' };
 			va_list args;
 			va_start(args, fmt);
@@ -112,52 +117,82 @@ namespace Platform
 				"Message : %s)\n"
 				"Func : %s"
 				"(file :%s, line :%d)\n",
-					detail::LogLevel::ToString(severity).c_str(),
-					buffer,
-					funcName,
-					fileName,lineNum
-				);
+				detail::LogLevel::ToString(severity).c_str(),
+				buffer,
+				funcName,
+				fileName, lineNum
+			);
 		}
 
 		// debug
 		template<typename... Args>
-		static inline void LogDebug(const char* fmt,const char* funcName,const char* fileName,const int lineNum, Args... args)
-		{
-			Write(detail::LogLevel::Debug,funcName,fileName,lineNum,fmt,std::forward<Args>(args)...);
+		static inline void LogDebug(
+			IN const char* fmt,
+			IN const char* funcName,
+			IN const char* fileName,
+			IN const int lineNum,
+			IN Args... args
+		) {
+			Write(detail::LogLevel::Debug, funcName, fileName, lineNum, fmt, std::forward<Args>(args)...);
 		}
 
 		// info
 		template<typename... Args>
-		static inline void LogInfo(const char* fmt,const char* funcName,const char* fileName,const int lineNum, Args... args)
-		{
-			Write(detail::LogLevel::Info,funcName,fileName,lineNum,fmt,std::forward<Args>(args)...);
+		static inline void LogInfo(
+			IN const char* fmt,
+			IN const char* funcName,
+			IN const char* fileName,
+			IN const int lineNum,
+			IN Args... args
+		) {
+			Write(detail::LogLevel::Info, funcName, fileName, lineNum, fmt, std::forward<Args>(args)...);
 		}
 
 		// warning
 		template<typename... Args>
-		static inline void LogWarning(const char* fmt,const char* funcName,const char* fileName,const int lineNum, Args... args)
-		{
-			Write(detail::LogLevel::Warning,funcName,fileName,lineNum,fmt,std::forward<Args>(args)...);
+		static inline void LogWarning(
+			IN const char* fmt,
+			IN const char* funcName,
+			IN const char* fileName,
+			IN const int lineNum,
+			IN Args... args
+		) {
+			Write(detail::LogLevel::Warning, funcName, fileName, lineNum, fmt, std::forward<Args>(args)...);
 		}
 
 		// error
 		template<typename... Args>
-		static inline void LogError(const char* fmt,const char* funcName,const char* fileName,const int lineNum, Args... args)
-		{
-			Write(detail::LogLevel::Error,funcName,fileName,lineNum,fmt,std::forward<Args>(args)...);
+		static inline void LogError(
+			IN const char* fmt,
+			IN const char* funcName,
+			IN const char* fileName,
+			IN const int lineNum,
+			IN Args... args
+		) {
+			Write(detail::LogLevel::Error, funcName, fileName, lineNum, fmt, std::forward<Args>(args)...);
 		}
 
 		// fatal
 		template<typename... Args>
-		static inline void LogFatal(const char* fmt,const char* funcName,const char* fileName,const int lineNum, Args... args)
-		{
-			Write(detail::LogLevel::Fatal,funcName,fileName,lineNum,fmt,std::forward<Args>(args)...);
+		static inline void LogFatal(
+			IN const char* fmt,
+			IN const char* funcName,
+			IN const char* fileName,
+			IN const int lineNum,
+			IN Args... args
+		) {
+			Write(detail::LogLevel::Fatal, funcName, fileName, lineNum, fmt, std::forward<Args>(args)...);
 		}
 
 		// assert
 		template<typename... Args>
-		static inline void LogAssert(const char* fmt, const char* funcName, const char* fileName, const int lineNum, Args... args)
-		{
+		static inline void LogAssert(
+			IN const char* fmt,
+			IN const char* funcName,
+			IN const char* fileName,
+			IN const int lineNum,
+			IN Args... args
+		) {
 			Write(detail::LogLevel::Assert, funcName, fileName, lineNum, fmt, std::forward<Args>(args)...);
 		}
 

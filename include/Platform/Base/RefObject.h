@@ -4,23 +4,66 @@
 
 namespace Platform
 {
-	namespace detail
+	/**
+	* @class    RefObject
+	* @brief    参照オブジェクト
+	*
+	*	参照カウンタ方式
+	*
+	*
+	*/
+	class RefObject
 	{
+	protected:
+		RefObject();
+		virtual ~RefObject();
 
-		/**
-		* @class    RefObject
-		* @brief    参照オブジェクト
-		* 
-		*	参照
-		* 
-		* 
-		*/
-		class RefObject
-		{
+	private:
+		RefObject(const RefObject&) = delete;
 
-		};// class RefObject
+		mutable u32 m_RefCount;
+		u32 m_Flags;
 
-	}// namespace Platform::detail
+		u32 retain();
+		void release();
+
+		friend class RefHelper;
+
+	public:
+		RefObject& operator=(RefObject&);
+
+	};// class RefObject
+
+	class RefHelper
+	{
+	public:
+		static void retain(RefObject* obj) {
+			obj->retain();
+		}
+
+		static void release(RefObject* obj) {
+			obj->release();
+		}
+
+	};// class RefHelper
+
+	/**
+	* @class    Ref
+	* @brief
+	*/
+	template<class Type>
+	class Ref
+	{
+	private:
+		Type* m_Ptr;
+
+	public:
+		Ref() : m_Ptr(new Type()) {};
+
+		Type* ptr() noexcept { return m_Ptr; }
+
+	};// class Ref
+
 }// namespace Platform
 
 #endif // ifndef PLATFORM_REFOBJECT_H

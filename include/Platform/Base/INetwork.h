@@ -54,8 +54,8 @@ namespace Platform
 
 		struct SocketInfo
 		{
-			Family		m_family		 = Family::IPv4;
-			Protocol		m_protocol	 = Protocol::TCP;
+			Family		m_family	 = Family::IPv4;
+			Protocol	m_protocol	 = Protocol::TCP;
 			SocketType	m_socketType = SocketType::STREAM;
 			PCSTR		m_address	 = NULL;
 			PCSTR		m_port		 = NULL;
@@ -65,48 +65,85 @@ namespace Platform
 		namespace detail
 		{
 			// ISocket
-			class ENGINE_API ISocket
+			class ISocket
 			{
-			private:
-
 			public:
-				
+				ISocket() ENGINE_DEFAULT;
+				virtual ~ISocket() ENGINE_DEFAULT;
 
-			};// class IScoket
+			};// class ISocket
 
 			// Network
 			/*
 				Socketの情報を使う
 			*/
-			class ENGINE_API INetwork
+			class INetwork
 			{
+			protected:
+				INetwork() ENGINE_DEFAULT;
+				virtual ~INetwork() ENGINE_DEFAULT;
+
 			public:
-				INetwork() = default;
-				virtual ~INetwork() = default;
 
 				// 初期化
-				virtual int Startup() = 0;
+				virtual int Startup(
+				) ENGINE_PURE;
+
 				// 終了処理
-				virtual void Cleanup() = 0;
+				virtual void Cleanup(
+				) ENGINE_PURE;
 
 				// ソケット 作成
-				virtual int Create(ISocket** output, SocketInfo& info) = 0;
+				virtual int Create(
+					OUT ISocket** output,
+					IN SocketInfo& info
+				) ENGINE_PURE;
+
 				// ソケット 紐づけ
-				virtual int Bind(ISocket* iSocket) = 0;
+				virtual int Bind(
+					IN ISocket* iSocket
+				) ENGINE_PURE;
+				
 				// ソケット 開放
-				virtual int Listen(ISocket* iSocket) = 0;
+				virtual int Listen(
+					IN ISocket* iSocket
+				) ENGINE_PURE;
+				
 				// ソケット 受け入れ
-				virtual int Accept(ISocket* iSocket, ISocket** client) = 0;
+				virtual int Accept(
+					IN ISocket* iSocket,
+					OUT ISocket** client
+				) ENGINE_PURE;
+				
 				// ソケット 接続
-				virtual int Connect(ISocket* iSocket) = 0;
+				virtual int Connect(
+					IN ISocket* iSocket
+				) ENGINE_PURE;
+				
 				// ソケット 受信
-				virtual int Recv(ISocket* iSocket, char* buf, int buflen) = 0;
+				virtual int Recv(
+					IN ISocket* iSocket,
+					IN char* buf, 
+					IN int buflen
+				) ENGINE_PURE;
+				
 				// ソケット 送信
-				virtual int Send(ISocket* iSocket, const char* buf, int sendlen) = 0;
+				virtual int Send(
+					IN ISocket* iSocket,
+					IN const char* buf,
+					IN int sendlen
+				) ENGINE_PURE;
+				
 				// ソケット 閉鎖
-				virtual int Close(ISocket* iSocket,CloseType type) = 0;
+				virtual int Close(
+					IN ISocket* iSocket,
+					IN CloseType type
+				) ENGINE_PURE;
+				
 				// ソケット 破棄
-				virtual void Release(ISocket** iSocket) = 0;
+				virtual void Release(
+					IN ISocket** iSocket
+				) ENGINE_PURE;
 
 			};// class INetwork
 

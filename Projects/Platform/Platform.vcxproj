@@ -188,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Platform\Base\Logger.cpp" />
+    <ClCompile Include="..\..\src\Platform\Base\RefObject.cpp" />
     <ClCompile Include="..\..\src\Platform\Base\String.cpp" />
     <ClCompile Include="..\..\src\Platform\IO\DllLoader.cpp" />
     <ClCompile Include="..\..\src\Platform\IO\FileStream.cpp" />

@@ -16,8 +16,8 @@ namespace Platform
 			
 
 		public:
-			IWindow() = default;
-			virtual ~IWindow() = default;
+			IWindow() ENGINE_DEFAULT;
+			virtual ~IWindow() ENGINE_DEFAULT;
 
 		};//class IWindow
 

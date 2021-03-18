@@ -10,16 +10,13 @@ namespace Platform
 		* @class    ISystem
 		* @brief    エンジンの基幹システムのIntarface
 		*/
-		class ENGINE_API ISystem
+		class ISystem
 		{
-		private:
-			
-
 		public:
-			ISystem() = default;
-			virtual ~ISystem() = default;
+			ISystem() ENGINE_DEFAULT;
+			virtual ~ISystem() ENGINE_DEFAULT;
 
-			virtual int mainLoop() = 0;
+			virtual int mainLoop() ENGINE_PURE;
 
 		};//class ISystem
 
