@@ -9,13 +9,6 @@ namespace Platform
 {
 	namespace Graphics
 	{
-		void ConstantBuffer::internal_release()
-		{
-			if (m_Buffer == nullptr) return;
-			m_Buffer->Release();
-			delete m_Buffer;
-		}
-
 		ConstantBuffer::ConstantBuffer(unsigned int byteWidth, unsigned int byteStride)
 			:
 			m_Buffer(nullptr)
@@ -35,7 +28,7 @@ namespace Platform
 
 		ConstantBuffer::~ConstantBuffer()
 		{
-			
+			ASSERT(m_Buffer != nullptr,"リソースの解放がされていません。");
 		}
 
 		void ConstantBuffer::UpdateBufferResource(const void* data)
@@ -51,6 +44,11 @@ namespace Platform
 		void ConstantBuffer::SetPSConstantBuffer(unsigned int slot, unsigned int numBuffer)
 		{
 			DX11Graphics::GetImmediateContext()->PSSetConstantBuffers(slot,numBuffer,&m_Buffer);
+		}
+
+		void ConstantBuffer::Release()
+		{
+			if (m_Buffer) m_Buffer->Release();
 		}
 
 	}// namespace Platform::Graphics

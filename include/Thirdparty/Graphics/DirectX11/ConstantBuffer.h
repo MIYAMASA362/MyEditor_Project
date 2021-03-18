@@ -12,13 +12,10 @@ namespace Platform
 		*
 		*
 		*/
-		class ENGINE_API ConstantBuffer final : public detail::IConstantBuffer
+		class ConstantBuffer final : public IConstantBuffer
 		{
 		protected:
 			ID3D11Buffer* m_Buffer;
-
-		protected:
-			virtual void internal_release() override;
 
 		public:
 			ConstantBuffer(unsigned int byteWidth,unsigned int byteStride);
@@ -28,6 +25,8 @@ namespace Platform
 
 			void SetVSConstantBuffer(unsigned int slot, unsigned int numBuffer = 1);
 			void SetPSConstantBuffer(unsigned int slot, unsigned int numBuffer = 1);
+
+			virtual void Release() override;
 
 		};// class ConstantBuffer
 

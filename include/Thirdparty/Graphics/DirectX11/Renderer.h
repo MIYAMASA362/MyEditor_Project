@@ -25,7 +25,7 @@ namespace Platform
 		*	•`‰æ”ÍˆÍ‚Ìî•ñ‚ğ‚Â
 		* 
 		*/
-		class ENGINE_API DX11Renderer : public ::Platform::Graphics::detail::IRenderer
+		class DX11Renderer : public ::Platform::Graphics::detail::IRenderer
 		{
 		protected:
 			HWND m_hWnd;

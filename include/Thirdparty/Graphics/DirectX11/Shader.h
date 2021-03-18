@@ -12,14 +12,11 @@ namespace Platform
 		* @brief    頂点シェーダ
 		* 
 		*/
-		class ENGINE_API VertexShader : public detail::IShader
+		class VertexShader : public IVertexShader
 		{
 		protected:
 			ID3D11VertexShader* m_Source;
 			ID3D11InputLayout* m_Layout;
-
-		protected:
-			virtual void internal_release() override;
 
 		public:
 			VertexShader(
@@ -34,6 +31,7 @@ namespace Platform
 			virtual void SetShaderResource() override;
 			virtual void SetInputLayout();
 
+			virtual void Release() override;
 
 		};// class VertexShader
 
@@ -44,13 +42,10 @@ namespace Platform
 		* @brief    ピクセルシェーダ
 		* 
 		*/
-		class ENGINE_API PixelShader : public detail::IShader
+		class PixelShader : public IPixelShader
 		{
 		protected:
 			ID3D11PixelShader* m_Source;
-
-		protected:
-			virtual void internal_release() override;
 
 		public:
 			PixelShader(
@@ -62,6 +57,7 @@ namespace Platform
 
 			virtual void SetShaderResource() override;
 
+			virtual void Release() override;
 
 		};// class PixelShader
 		

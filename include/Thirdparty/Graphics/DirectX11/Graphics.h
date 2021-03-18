@@ -18,13 +18,11 @@ namespace Platform
 {
 	namespace Graphics
 	{
-		class ConstantBuffer;
-
 		/**
 		* @class    DX11Graphics
 		* @brief	DirectX11 共通グラフィックス設定
 		*/
-		class ENGINE_API DX11Graphics final : public ::Platform::Graphics::detail::IGraphics
+		class DX11Graphics final : public ::Platform::Graphics::detail::IGraphics
 		{
 		private:
 			IDXGIDevice1* m_pDXGI;
@@ -43,24 +41,90 @@ namespace Platform
 			static ID3D11Device* GetDevice();
 			static ID3D11DeviceContext* GetImmediateContext();
 
-			static HRESULT CreateSwapChain(DXGI_SWAP_CHAIN_DESC* pDesc,IDXGISwapChain** pSwapChain);
-			static HRESULT CreateRenderTargetView(ID3D11Resource* pResource,D3D11_RENDER_TARGET_VIEW_DESC* pDesc,ID3D11RenderTargetView** ppRTView);
+			static HRESULT CreateSwapChain(
+				OUT DXGI_SWAP_CHAIN_DESC* pDesc,
+				OUT IDXGISwapChain** pSwapChain
+			);
+
+			static HRESULT CreateRenderTargetView(
+				IN ID3D11Resource* pResource,
+				IN D3D11_RENDER_TARGET_VIEW_DESC* pDesc,
+				OUT ID3D11RenderTargetView** ppRTView
+			);
 
 		public:
-			virtual void CreateRenderer(::Platform::detail::IWindow* iWindow, Value_Type** output) override;
-			virtual void ReleaseRenderer(Value_Type** instance) override;
+			virtual void CreateRenderer(
+				IN ::Platform::detail::IWindow* iWindow,
+				OUT Value_Type**
+			) ENGINE_OVERRIDE;
 
-			virtual void CreateVertexShader(const void* buffer, const unsigned long size, VERTEX_INPUT_LAYOUT* inputlayout, const unsigned int layoutSize, detail::IShader** output) override;
-			virtual void ReleaseVertexShader(detail::IShader** instance) override;
+			virtual void ReleaseRenderer(
+				IN Value_Type**
+			) ENGINE_OVERRIDE;
 
-			virtual void CreatePixelShader(const void* buffer, const unsigned long size, detail::IShader** output) override;
-			virtual void ReleasePixelShader(detail::IShader** instance) override;
+			virtual void CreateVertexShader(
+				IN const void* buffer,
+				IN const unsigned long size,
+				IN VERTEX_INPUT_LAYOUT* inputlayout,
+				IN const unsigned int layoutSize, 
+				OUT IVertexShader**
+			) ENGINE_OVERRIDE;
 
-			virtual void CreateConstantBuffer(unsigned int byteWidth, unsigned int byteStride, detail::IConstantBuffer** output) override;
+			virtual void ReleaseVertexShader(
+				IN IVertexShader**
+			) ENGINE_OVERRIDE;
 
-			virtual void CreateIndexBuffer(const void* index, unsigned int size, unsigned int indexNum, detail::IIndexBuffer** output) override;
+			virtual void CreatePixelShader(
+				IN const void* buffer,
+				IN const unsigned long size,
+				OUT IPixelShader**
+			) ENGINE_OVERRIDE;
 
-			virtual void CreateVertexBuffer(const void* vertex, unsigned int size, unsigned int vertexNum,detail::IVertexBuffer** output) override;
+			virtual void ReleasePixelShader(
+				IN IPixelShader**
+			) ENGINE_OVERRIDE;
+
+			virtual void CreateConstantBuffer(
+				IN unsigned int byteWidth,
+				IN unsigned int byteStride,
+				OUT IConstantBuffer**
+			) ENGINE_OVERRIDE;
+
+			virtual void ReleaseConstantBuffer(
+				IN IConstantBuffer**
+			) ENGINE_OVERRIDE;
+
+			virtual void CreateIndexBuffer(
+				IN const void* index,
+				IN unsigned int size,
+				IN unsigned int indexNum,
+				OUT IIndexBuffer**
+			) ENGINE_OVERRIDE;
+
+			virtual void ReleaseIndexBuffer(
+				IN IIndexBuffer**
+			) ENGINE_OVERRIDE;
+
+			virtual void CreateVertexBuffer(
+				IN const void* vertex,
+				IN unsigned int size,
+				IN unsigned int vertexNum, 
+				OUT IVertexBuffer**
+			) ENGINE_OVERRIDE;
+
+			virtual void ReleaseVertexBuffer(
+				IN IVertexBuffer**
+			) ENGINE_OVERRIDE;
+
+			virtual void SetPrimitiveTopology(
+				IN PRIMITIVE_TYPES type
+			) ENGINE_OVERRIDE;
+
+			virtual void DrawIndexed(
+				IN unsigned int IndexCount,
+				IN unsigned int StartIndexLocation,
+				IN unsigned int BaseVertexLocation
+			) ENGINE_OVERRIDE;
 
 		};//class DX11Graphics
 

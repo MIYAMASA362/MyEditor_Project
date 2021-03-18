@@ -12,7 +12,7 @@ namespace Platform
 			* @class    Texture class
 			* @brief    テクスチャ
 			*/
-			class ENGINE_API Texture
+			class Texture
 			{
 			protected:
 				ID3D11Texture2D* m_Source;

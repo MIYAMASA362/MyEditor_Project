@@ -8,10 +8,6 @@ namespace Platform
 {
 	namespace Graphics
 	{
-		void IndexBuffer::internal_release()
-		{
-			if (m_Buffer) m_Buffer->Release();
-		}
 
 		IndexBuffer::IndexBuffer(const void* index, unsigned int size, unsigned int indexNum)
 			:
@@ -37,12 +33,17 @@ namespace Platform
 		
 		IndexBuffer::~IndexBuffer()
 		{
-			if (m_Buffer) m_Buffer->Release();
+			ASSERT(m_Buffer != nullptr,"リソースの解放がされていません。");
 		}
 
 		void IndexBuffer::SetBufferResource(unsigned int offset)
 		{
 			DX11Graphics::GetImmediateContext()->IASetIndexBuffer(m_Buffer, DXGI_FORMAT_R32_UINT, offset);
+		}
+
+		void IndexBuffer::Release()
+		{
+			if (m_Buffer) m_Buffer->Release();
 		}
 
 	}// namespace Platform::Graphics

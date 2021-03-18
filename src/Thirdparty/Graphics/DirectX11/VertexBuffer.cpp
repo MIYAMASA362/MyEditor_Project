@@ -8,10 +8,7 @@ namespace Platform
 {
 	namespace Graphics
 	{
-		void VertexBuffer::internal_release()
-		{
-			if (m_Buffer) m_Buffer->Release();
-		}
+
 		VertexBuffer::VertexBuffer(const void* vertex, unsigned int size, unsigned int vertexNum)
 			:
 			m_Buffer(nullptr)
@@ -35,12 +32,17 @@ namespace Platform
 		}
 		VertexBuffer::~VertexBuffer()
 		{
-
+			ASSERT(m_Buffer != nullptr,"リソースの解放がされていません。");
 		}
 
 		void VertexBuffer::SetBufferResource(unsigned int slot, unsigned int numBuffers, const unsigned int* stride, const unsigned int* offset)
 		{
 			DX11Graphics::GetImmediateContext()->IASetVertexBuffers(slot,numBuffers,&m_Buffer,stride,offset);
+		}
+
+		void VertexBuffer::Release()
+		{
+			if (m_Buffer) m_Buffer->Release();
 		}
 
 	}// namespace Platform::Graphics
