@@ -40,6 +40,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	std::string str(100, '\0');
 	stream->read(str);
 
+	stream->close();
 	delete stream;
 
 	Platform::IO::DllLoader GraphicLoder;
@@ -77,15 +78,15 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	Engine::System* mainSystem = new Engine::System();
 
 	// Platform
-	Platform::detail::IWindow* iWindow = 
-		new Platform::Windows::Window(
-			hInstance,
-			(LPSTR)"MainWindow",
-			(LPSTR)"MainWindow",
-			CW_USEDEFAULT, CW_USEDEFAULT,
-			1024, 576,
-			WS_OVERLAPPEDWINDOW
-		);
+	Platform::detail::IWindow* iWindow;
+	iWindow = new Platform::Windows::Window(
+		hInstance,
+		(LPSTR)"MainWindow",
+		(LPSTR)"MainWindow",
+		CW_USEDEFAULT, CW_USEDEFAULT,
+		1024, 576,
+		WS_OVERLAPPEDWINDOW
+	);
 
 	// Graphics Module
 	Core::Graphics::GraphicsModule* graphicsModule = new Core::Graphics::GraphicsModule("DirectX11.dll");
@@ -98,14 +99,14 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	*	Shader
 	*
 	*/
-#if 1
+#if 0
 
 	unsigned long fsize;
 	unsigned char* buffer;
 
 	// 頂点シェーダ設定
-	Platform::Graphics::detail::IShader* vertexShader;
-	if (Platform::IO::FileStream::readFileInfo("Default_VertexShaer.cso", &fsize, &buffer))
+	Platform::Graphics::IVertexShader* vertexShader = nullptr;
+	if (Platform::IO::FileStream::readFileInfo("Default_VertexShader.cso", &fsize, &buffer))
 	{
 		LOG_DEBUG("頂点シェーダ読み込み...");
 		Platform::Graphics::VERTEX_INPUT_LAYOUT layouts[1];
@@ -119,7 +120,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	}
 
 	// ピクセルシェーダ設定
-	Platform::Graphics::detail::IShader * pixelShader;
+	Platform::Graphics::IPixelShader* pixelShader = nullptr;
 	if (Platform::IO::FileStream::readFileInfo("Default_PixelShader.cso", &fsize, &buffer))
 	{
 		LOG_DEBUG("ピクセルシェーダ読み込み...");
@@ -129,6 +130,8 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 		delete[] buffer;
 	}
+
+
 
 #endif
 

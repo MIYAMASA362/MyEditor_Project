@@ -14,7 +14,7 @@ namespace ThirdParty
 		* @class    Socket
 		* @brief    Socket設定
 		*/
-		class ENGINE_API Socket :public ISocket
+		class Socket :public ISocket
 		{
 		public:
 			SOCKET m_MainSocket  = INVALID_SOCKET;
@@ -28,7 +28,7 @@ namespace ThirdParty
 		* @class    WinsockNetwork
 		* @brief    Winsock用のネットワーク
 		*/
-		class ENGINE_API WinsockNetwork : public INetwork
+		class WinsockNetwork : public INetwork
 		{
 		public:
 			WinsockNetwork();
