@@ -1,6 +1,6 @@
 #pragma once
-#ifndef CORE_VECTOR3_H
-#define CORE_VECTOR3_H
+#ifndef CORE_VECTOR4_H
+#define CORE_VECTOR4_H
 
 namespace Core
 {
@@ -17,6 +17,7 @@ namespace Core
 
 		inline operator const float* () const { return f; }
 		Vector4& operator= (const Vector4& vec) { x = vec.x; y = vec.y; z = vec.z; w = vec.w; return *this; }
+
 	};// struct Vector4
 
 }// namespace Core
