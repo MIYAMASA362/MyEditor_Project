@@ -18,8 +18,8 @@
 #include"Platform/Base/INetwork.h"
 #include"Platform/Base/Logger.h"
 #include"Platform/Base/Assert.h"
+#include"Platform/Base/IModule.h"
 #include"Platform/IO/DllLoader.h"
-#include"Platform/Module/Module.h"
 
 #include"Core/Network/NetworkModule.h"
 

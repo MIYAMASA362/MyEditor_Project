@@ -14,7 +14,6 @@ namespace Platform
 		{
 		protected:
 			
-
 		public:
 			IWindow() ENGINE_DEFAULT;
 			virtual ~IWindow() ENGINE_DEFAULT;

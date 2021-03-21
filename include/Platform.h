@@ -27,6 +27,7 @@
 #include"Platform/Base/IRenderer.h"
 #include"Platform/Base/IGraphics.h"
 #include"Platform/Base/INetwork.h"
+#include"Platform/Base/IModule.h"
 
 // Platform IO
 #include"Platform/IO/DllLoader.h"
@@ -35,13 +36,8 @@
 #include"Platform/IO/Path.h"
 #include"Platform/IO/PathHelper.h"
 
-// Platform Module
-#include"Platform/Module/Module.h"
-
 // Platform 
 #if defined(ENGINE_WIN32)
-#include"Platform/Windows/Window.h"
-#pragma comment(lib,"Windows.lib")
 
 #endif //if defined(ENGINE_WIN32)
 

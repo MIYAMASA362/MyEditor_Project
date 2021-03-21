@@ -1,9 +1,26 @@
+/****************************************************************************************
+*
+*	< 課題 >
+*	1.並列プログラミング
+*	
+*	2.描画システム
+* 
+*	3.リソース制御
+*		リソースマネージャ
+*		シェーダ？
+* 
+*	< 指針 >
+*	
+* 
+* 
+****************************************************************************************/
+
 #define ENGINE_DIRECTX11
 #define ENGINE_WINSOCK
 
 // 有効フラグ
 #define NETWORK_ENABLE 0
-
+#define SHADER_ENABLE 1
 
 #include<vector>
 #include<map>
@@ -11,6 +28,14 @@
 #include"Platform.h"
 #include"Core.h"
 #include"Engine.h"
+
+struct MESH_VERTEX
+{
+	Core::Vector3 position;
+	Core::Vector3 normal;
+	Core::Vector4 diffuse;
+	Core::Vector2 texCoord;
+};
 
 /**
 *
@@ -20,6 +45,35 @@
 */
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+	/** 
+	*	< ゲームエンジンのパラメータ設定 >
+	*	・画面のキャプション設定
+	*	・画面のスケール設定
+	*	・
+	*/
+
+	Result result(false);
+	Engine::EngineDevice* pEngine;
+
+	result = Engine::CreateEngine(
+		hInstance,
+		(LPSTR)"MainWindow",
+		(LPSTR)"MainWindow",
+		CW_USEDEFAULT, CW_USEDEFAULT,
+		1024, 576,
+		WS_OVERLAPPEDWINDOW,
+		&pEngine
+	);
+
+	// エンジンの生成に失敗
+	if(!result) return 1;
+
+	// エンジンの処理を実行
+	pEngine->ProcessLoop();
+
+	pEngine->Release();
+
+	return 0;
 
 	//###################################################################################
 	/**
@@ -79,14 +133,14 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 	// Platform
 	Platform::detail::IWindow* iWindow;
-	iWindow = new Platform::Windows::Window(
-		hInstance,
-		(LPSTR)"MainWindow",
-		(LPSTR)"MainWindow",
-		CW_USEDEFAULT, CW_USEDEFAULT,
-		1024, 576,
-		WS_OVERLAPPEDWINDOW
-	);
+	//iWindow = new Platform::Windows::Window(
+	//	hInstance,
+	//	(LPSTR)"MainWindow",
+	//	(LPSTR)"MainWindow",
+	//	CW_USEDEFAULT, CW_USEDEFAULT,
+	//	1024, 576,
+	//	WS_OVERLAPPEDWINDOW
+	//);
 
 	// Graphics Module
 	Core::Graphics::GraphicsModule* graphicsModule = new Core::Graphics::GraphicsModule("DirectX11.dll");
@@ -99,7 +153,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	*	Shader
 	*
 	*/
-#if 0
+#if SHADER_ENABLE
 
 	unsigned long fsize;
 	unsigned char* buffer;
@@ -109,12 +163,12 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	if (Platform::IO::FileStream::readFileInfo("Default_VertexShader.cso", &fsize, &buffer))
 	{
 		LOG_DEBUG("頂点シェーダ読み込み...");
-		Platform::Graphics::VERTEX_INPUT_LAYOUT layouts[1];
+		Platform::Graphics::VERTEX_INPUT_LAYOUT layouts[] = {
+			Platform::Graphics::VERTEX_INPUT_LAYOUT::VSIL_POSITION
+		};
+		graphicsModule->GetGraphics()->CreateVertexShader(buffer, fsize, layouts, ARRAYSIZE(layouts), &vertexShader);
 
-		layouts[0] = Platform::Graphics::VERTEX_INPUT_LAYOUT::VSIL_POSITION;
-
-		graphicsModule->GetGraphics()->CreateVertexShader(buffer, fsize, layouts, 1, &vertexShader);
-		graphicsModule->GetGraphics()->ReleaseVertexShader(&vertexShader);
+		vertexShader->SetShaderResource();
 
 		delete[] buffer;
 	}
@@ -126,7 +180,6 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		LOG_DEBUG("ピクセルシェーダ読み込み...");
 
 		graphicsModule->GetGraphics()->CreatePixelShader(buffer, fsize, &pixelShader);
-		graphicsModule->GetGraphics()->ReleasePixelShader(&pixelShader);
 
 		delete[] buffer;
 	}
@@ -134,6 +187,85 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 
 #endif
+
+	//###################################################################################
+	/**
+	*
+	*	Constant
+	*
+	*/
+#if SHADER_ENABLE
+
+	Platform::Graphics::IConstantBuffer* constantBuf = nullptr;
+
+	graphicsModule->GetGraphics()->CreateConstantBuffer(sizeof(Core::Matrix4x4), sizeof(float), &constantBuf);
+	if (constantBuf != nullptr)
+	{
+		Core::Matrix4x4 matrix;
+		matrix.m[0][0] = 10.0f;
+		matrix.m[0][1] = 5.0f;
+		matrix.m[0][2] = 10.0f;
+		constantBuf->UpdateBufferResource(&matrix);
+
+	}
+
+#endif
+
+	//###################################################################################
+	/**
+	*
+	*	VertexBuffer
+	*
+	*/
+#if 1
+
+	Platform::Graphics::IVertexBuffer* vertexBuffer;
+
+	MESH_VERTEX vertex[] = {
+		{{-1.0f,0.0f, 1.0f},{0.0f,1.0f,0.0f},{1.0f,1.0f,1.0f,1.0f},{0.0f,0.0f}},
+		{{ 1.0f,0.0f, 1.0f},{0.0f,1.0f,0.0f},{1.0f,1.0f,1.0f,1.0f},{1.0f,0.0f}},
+		{{-1.0f,0.0f,-1.0f},{0.0f,1.0f,0.0f},{1.0f,1.0f,1.0f,1.0f},{0.0f,1.0f}},
+		{{ 1.0f,0.0f,-1.0f},{0.0f,1.0f,0.0f},{1.0f,1.0f,1.0f,1.0f},{1.0f,1.0f}},
+	};
+
+	graphicsModule->GetGraphics()->CreateVertexBuffer(vertex, sizeof(MESH_VERTEX), ARRAYSIZE(vertex), &vertexBuffer);
+	graphicsModule->GetGraphics()->ReleaseVertexBuffer(&vertexBuffer);
+#endif
+
+	//###################################################################################
+	/**
+	*
+	*	IndexBuffer
+	*
+	*
+	*/
+#if 1
+
+	Platform::Graphics::IIndexBuffer* indexBuffer;
+
+	unsigned int indexes[] = { 0,1,2, 1,3,2 };
+
+	graphicsModule->GetGraphics()->CreateIndexBuffer(indexes,sizeof(unsigned int),ARRAYSIZE(indexes),&indexBuffer);
+	graphicsModule->GetGraphics()->ReleaseIndexBuffer(&indexBuffer);
+
+#endif
+
+	/**
+	* 
+	*	Meshの描画
+	*	・VertexShader
+	*	・IndexShader
+	*	・ConstantBuffer
+	*	・VertexBuffer
+	*	・IndexBuffer
+	*	各登録
+	* 
+	*	RendererにMesh描画をする仕組みが必要
+	*	
+	*/
+
+
+
 
 	//###################################################################################
 	/**
@@ -246,12 +378,12 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		{
 			LOG_DEBUG("Client Idle");
 			iResult = network->Recv(iSocket, buf, 256);
-		} while (iResult > 0);
+} while (iResult > 0);
 
-		network->Close(iSocket, ::Platform::Network::CloseType::SEND);
-		network->Release(&iSocket);
+network->Close(iSocket, ::Platform::Network::CloseType::SEND);
+network->Release(&iSocket);
 
-		LOG_DEBUG("Client Thread End");
+LOG_DEBUG("Client Thread End");
 		});
 
 #endif
@@ -271,7 +403,17 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 #endif
 
+#if SHADER_ENABLE
+
+	graphicsModule->GetGraphics()->ReleaseVertexShader(&vertexShader);
+	graphicsModule->GetGraphics()->ReleasePixelShader(&pixelShader);
+
+	graphicsModule->GetGraphics()->ReleaseConstantBuffer(&constantBuf);
+
+#endif
+
 	graphicsModule->GetGraphics()->ReleaseRenderer(&mainSystem->m_Renderer);
+
 
 	delete mainSystem;
 	delete graphicsModule;

@@ -10,7 +10,7 @@ namespace Platform
 		* @class    Window Windows32
 		* @brief	Windows Platform version
 		*/
-		class ENGINE_API Window final : public detail::IWindow
+		class ENGINE_API Window final
 		{
 		protected:
 			HWND m_hWnd;

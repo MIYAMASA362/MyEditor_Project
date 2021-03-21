@@ -15,10 +15,6 @@ namespace Core
 		Canceled,
 	};
 
-}// namespace Core
-
-namespace Core
-{
 	namespace detail
 	{
 		/**

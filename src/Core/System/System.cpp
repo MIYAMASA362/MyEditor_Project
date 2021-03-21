@@ -4,8 +4,9 @@
 #include <map>
 
 #include"Platform/Base/ISystem.h"
-#include"Platform/Module/Module.h"
+#include"Platform/Base/IModule.h"
 
+#include"Core/System/ISystemModule.h"
 #include"Core/System/System.h"
 
 namespace Core
@@ -76,20 +77,4 @@ namespace Core
 		// class ISystem
 	}// namespace Core:: System
 
-	namespace System
-	{
-		ISystemModule::ISystemModule(ModuleType type)
-			:
-			m_ModuleType(type)
-		{
-
-		}
-
-		ISystemModule::~ISystemModule()
-		{
-
-		}
-
-		// class ISystemModule
-	}// namespace Core::System
 }// namespace Core

@@ -37,6 +37,9 @@
     <Filter Include="ソース ファイル\Component\Renderer">
       <UniqueIdentifier>{2d187fb4-508d-4964-a681-90e0d16635d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Resource">
+      <UniqueIdentifier>{f4aab4cd-6b43-4676-9820-2d600bf4caed}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Engine\Base\System.h">
@@ -65,6 +68,9 @@
     </ClInclude>
     <ClInclude Include="Config.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Engine\Resource\ResourceManager.h">
+      <Filter>ヘッダー ファイル\Resource</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

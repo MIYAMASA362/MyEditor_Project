@@ -18,6 +18,7 @@ namespace Platform
 				desc.Usage = D3D11_USAGE_DEFAULT;
 				desc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 				desc.CPUAccessFlags = 0;
+				desc.MiscFlags = 0;
 				desc.ByteWidth = size * vertexNum;
 			}
 
@@ -32,17 +33,20 @@ namespace Platform
 		}
 		VertexBuffer::~VertexBuffer()
 		{
-			ASSERT(m_Buffer != nullptr,"リソースの解放がされていません。");
+			ASSERT(m_Buffer == nullptr, "リソースの解放がされていません。");
 		}
 
 		void VertexBuffer::SetBufferResource(unsigned int slot, unsigned int numBuffers, const unsigned int* stride, const unsigned int* offset)
 		{
-			DX11Graphics::GetImmediateContext()->IASetVertexBuffers(slot,numBuffers,&m_Buffer,stride,offset);
+			DX11Graphics::GetImmediateContext()->IASetVertexBuffers(slot, numBuffers, &m_Buffer, stride, offset);
 		}
 
 		void VertexBuffer::Release()
 		{
-			if (m_Buffer) m_Buffer->Release();
+			if (m_Buffer) {
+				m_Buffer->Release();
+				m_Buffer = nullptr;
+			}
 		}
 
 	}// namespace Platform::Graphics

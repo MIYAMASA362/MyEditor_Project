@@ -165,19 +165,21 @@
     <ClInclude Include="..\..\include\Core\Allocator\PoolAllocator.h" />
     <ClInclude Include="..\..\include\Core\Allocator\StackAllocator.h" />
     <ClInclude Include="..\..\include\Core\Graphics\GraphicsModule.h" />
-    <ClInclude Include="..\..\include\Core\Graphics\Renderer.h" />
     <ClInclude Include="..\..\include\Core\Json\Json.h" />
-    <ClInclude Include="..\..\include\Core\Math\Math.h" />
-    <ClInclude Include="..\..\include\Core\Math\Matrix.h" />
-    <ClInclude Include="..\..\include\Core\Math\Quaternion.h" />
-    <ClInclude Include="..\..\include\Core\Math\Vector2.h" />
-    <ClInclude Include="..\..\include\Core\Math\Vector4.h" />
-    <ClInclude Include="..\..\include\Core\Math\Vector3.h" />
     <ClInclude Include="..\..\include\Core\Network\NetworkModule.h" />
+    <ClInclude Include="..\..\include\Core\System\ISystemModule.h" />
     <ClInclude Include="..\..\include\Core\System\System.h" />
+    <ClInclude Include="..\..\include\Core\System\Window.h" />
     <ClInclude Include="..\..\include\Core\Task\Task.h" />
     <ClInclude Include="..\..\include\Core\Thread\Thread.h" />
     <ClInclude Include="..\..\include\Core\Time\Time.h" />
+    <ClInclude Include="..\..\include\Core\Types\Math.h" />
+    <ClInclude Include="..\..\include\Core\Types\Matrix.h" />
+    <ClInclude Include="..\..\include\Core\Types\Quaternion.h" />
+    <ClInclude Include="..\..\include\Core\Types\Vector2.h" />
+    <ClInclude Include="..\..\include\Core\Types\Vector3.h" />
+    <ClInclude Include="..\..\include\Core\Types\Vector4.h" />
+    <ClInclude Include="..\..\include\Core\Type\Color.h" />
     <ClInclude Include="Config.h" />
   </ItemGroup>
   <ItemGroup>
@@ -186,9 +188,10 @@
     <ClCompile Include="..\..\src\Core\Allocator\PoolAllocator.cpp" />
     <ClCompile Include="..\..\src\Core\Allocator\StackAllocator.cpp" />
     <ClCompile Include="..\..\src\Core\Graphics\GraphicsModule.cpp" />
-    <ClCompile Include="..\..\src\Core\Graphics\Renderer.cpp" />
     <ClCompile Include="..\..\src\Core\Network\NetworkModule.cpp" />
+    <ClCompile Include="..\..\src\Core\System\ISystemModule.cpp" />
     <ClCompile Include="..\..\src\Core\System\System.cpp" />
+    <ClCompile Include="..\..\src\Core\System\Window.cpp" />
     <ClCompile Include="..\..\src\Core\Task\Task.cpp" />
     <ClCompile Include="..\..\src\Core\Thread\Thread.cpp" />
   </ItemGroup>

@@ -16,7 +16,7 @@ namespace Platform
 			ISystem() ENGINE_DEFAULT;
 			virtual ~ISystem() ENGINE_DEFAULT;
 
-			virtual int mainLoop() ENGINE_PURE;
+			virtual int mainLoop() {};
 
 		};//class ISystem
 

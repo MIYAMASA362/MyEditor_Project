@@ -31,9 +31,6 @@
     <Filter Include="ソース ファイル\IO">
       <UniqueIdentifier>{9771febf-faa7-4a8c-ba8a-ae96b69cd88e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Module">
-      <UniqueIdentifier>{2eff81ed-1d3e-4cf6-abf4-2b76c53a2446}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Base\Interface\Resource">
       <UniqueIdentifier>{b9054717-8b5b-4ec1-aab2-3d3470b4545d}</UniqueIdentifier>
     </Filter>
@@ -57,12 +54,6 @@
     <ClInclude Include="..\..\include\Platform.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\IWindow.h">
-      <Filter>ヘッダー ファイル\Base\Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\ISystem.h">
-      <Filter>ヘッダー ファイル\Base\Interface</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Platform\IO\DllLoader.h">
       <Filter>ヘッダー ファイル\IO</Filter>
     </ClInclude>
@@ -77,9 +68,6 @@
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\IO\Stream.h">
       <Filter>ヘッダー ファイル\IO</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Module\Module.h">
-      <Filter>ヘッダー ファイル\Module</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\IShader.h">
       <Filter>ヘッダー ファイル\Base\Interface\Resource</Filter>
@@ -119,6 +107,12 @@
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\INetwork.h">
       <Filter>ヘッダー ファイル\Base\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\IModule.h">
+      <Filter>ヘッダー ファイル\Base\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Detection.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

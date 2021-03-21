@@ -25,9 +25,6 @@
     <Filter Include="ソース ファイル\Allocator">
       <UniqueIdentifier>{9fd8810c-5a50-4889-9780-a63936ef68d5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Math">
-      <UniqueIdentifier>{f76d70ff-421d-4f57-b110-e14325cfdad2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Thread">
       <UniqueIdentifier>{3a58be0c-8cd3-4d8c-9dcf-ccc02bd9cb10}</UniqueIdentifier>
     </Filter>
@@ -43,23 +40,17 @@
     <Filter Include="ヘッダー ファイル\System">
       <UniqueIdentifier>{5d16dee3-afa7-410b-8659-de5a5a3ff450}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Graphics">
-      <UniqueIdentifier>{7f17e327-53f2-4a80-b31f-206fd1090f6d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Graphics">
-      <UniqueIdentifier>{93cd0a79-4ce2-41fa-bb55-452255be1632}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Module">
       <UniqueIdentifier>{79c28b2d-4c2f-47f4-beca-31bae8ee4f20}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\Thread">
       <UniqueIdentifier>{f05ec238-c380-42d8-87cb-c24830196c81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Object">
-      <UniqueIdentifier>{2053cdf3-bb2c-4bcd-aeed-265edc4e8c47}</UniqueIdentifier>
+    <Filter Include="ヘッダー ファイル\Types">
+      <UniqueIdentifier>{ea39f2bb-cd68-4d2d-b4dc-7cf65b845f9c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Object">
-      <UniqueIdentifier>{ca7181e9-894a-40c0-930a-34ef960ef5b8}</UniqueIdentifier>
+    <Filter Include="ヘッダー ファイル\Types\Math">
+      <UniqueIdentifier>{f76d70ff-421d-4f57-b110-e14325cfdad2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -81,24 +72,6 @@
     <ClInclude Include="..\..\include\Core\Json\Json.h">
       <Filter>ヘッダー ファイル\Json</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Core\Math\Math.h">
-      <Filter>ヘッダー ファイル\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Math\Matrix.h">
-      <Filter>ヘッダー ファイル\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Math\Quaternion.h">
-      <Filter>ヘッダー ファイル\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Math\Vector2.h">
-      <Filter>ヘッダー ファイル\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Math\Vector4.h">
-      <Filter>ヘッダー ファイル\Math</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Math\Vector3.h">
-      <Filter>ヘッダー ファイル\Math</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Core\Thread\Thread.h">
       <Filter>ヘッダー ファイル\Thread</Filter>
     </ClInclude>
@@ -107,9 +80,6 @@
     </ClInclude>
     <ClInclude Include="..\..\include\Core\System\System.h">
       <Filter>ヘッダー ファイル\System</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Core\Graphics\Renderer.h">
-      <Filter>ヘッダー ファイル\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Core.h">
       <Filter>ヘッダー ファイル</Filter>
@@ -125,6 +95,33 @@
     </ClInclude>
     <ClInclude Include="Config.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\System\ISystemModule.h">
+      <Filter>ヘッダー ファイル\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\Type\Color.h">
+      <Filter>ヘッダー ファイル\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\Types\Math.h">
+      <Filter>ヘッダー ファイル\Types\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\Types\Matrix.h">
+      <Filter>ヘッダー ファイル\Types\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\Types\Quaternion.h">
+      <Filter>ヘッダー ファイル\Types\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\Types\Vector2.h">
+      <Filter>ヘッダー ファイル\Types\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\Types\Vector3.h">
+      <Filter>ヘッダー ファイル\Types\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\Types\Vector4.h">
+      <Filter>ヘッダー ファイル\Types\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\System\Window.h">
+      <Filter>ヘッダー ファイル\System</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -143,9 +140,6 @@
     <ClCompile Include="..\..\src\Core\System\System.cpp">
       <Filter>ソース ファイル\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Core\Graphics\Renderer.cpp">
-      <Filter>ソース ファイル\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\Core\Graphics\GraphicsModule.cpp">
       <Filter>ソース ファイル\Module</Filter>
     </ClCompile>
@@ -157,6 +151,12 @@
     </ClCompile>
     <ClCompile Include="..\..\src\Core\Task\Task.cpp">
       <Filter>ソース ファイル\Thread</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\System\ISystemModule.cpp">
+      <Filter>ソース ファイル\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\System\Window.cpp">
+      <Filter>ソース ファイル\System</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -18,13 +18,13 @@ namespace Platform
 			ID3D11Buffer* m_Buffer;
 
 		public:
-			ConstantBuffer(unsigned int byteWidth,unsigned int byteStride);
+			ConstantBuffer(unsigned int byteWidth, unsigned int byteStride);
 			virtual ~ConstantBuffer();
 
 			virtual void UpdateBufferResource(const void* data) override;
 
-			void SetVSConstantBuffer(unsigned int slot, unsigned int numBuffer = 1);
-			void SetPSConstantBuffer(unsigned int slot, unsigned int numBuffer = 1);
+			virtual void SetVSConstantBuffer(unsigned int slot, unsigned int numBuffer = 1) override;
+			virtual void SetPSConstantBuffer(unsigned int slot, unsigned int numBuffer = 1) override;
 
 			virtual void Release() override;
 

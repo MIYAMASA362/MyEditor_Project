@@ -38,6 +38,16 @@ namespace Platform
 				IN const void* data
 			) ENGINE_PURE;
 
+			virtual void SetVSConstantBuffer(
+				IN unsigned int slot,
+				IN unsigned int numBuffer = 1
+			) ENGINE_PURE;
+
+			virtual void SetPSConstantBuffer(
+				IN unsigned int slot, 
+				IN unsigned int numBuffer = 1
+			) ENGINE_PURE;
+
 		};// class IConstantBuffer
 
 

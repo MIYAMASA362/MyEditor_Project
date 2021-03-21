@@ -166,6 +166,7 @@
     <ClInclude Include="..\..\include\Engine\Entity\Entity.h" />
     <ClInclude Include="..\..\include\Engine\Object\Object.h" />
     <ClInclude Include="..\..\include\Engine\Renderer\Renderer.h" />
+    <ClInclude Include="..\..\include\Engine\Resource\ResourceManager.h" />
     <ClInclude Include="Config.h" />
   </ItemGroup>
   <ItemGroup>

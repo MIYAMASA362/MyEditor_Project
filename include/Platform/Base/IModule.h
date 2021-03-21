@@ -1,6 +1,6 @@
 #pragma once
-#ifndef PLATFORM_MODULE_H
-#define PLATFORM_MODULE_H
+#ifndef PLATFORM_IMODULE_H
+#define PLATFORM_IMODULE_H
 
 namespace Platform
 {
@@ -23,4 +23,4 @@ namespace Platform
 	}// namespace Platform::detail
 }// namespace Platform
 
-#endif// ifndef PLATFORM_MODULE_H
+#endif// ifndef PLATFORM_IMODULE_H

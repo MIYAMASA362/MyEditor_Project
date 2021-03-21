@@ -30,6 +30,7 @@ namespace Platform
 
 			public:
 				virtual void SetShaderResource() ENGINE_PURE;
+				
 
 			};// class IShader
 
@@ -46,6 +47,7 @@ namespace Platform
 			IVertexShader() ENGINE_DEFAULT;
 			virtual ~IVertexShader() ENGINE_DEFAULT;
 
+			virtual void SetInputLayout() ENGINE_PURE;
 		};// class IVertexShader
 
 		/**

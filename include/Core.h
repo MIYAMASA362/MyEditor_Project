@@ -11,27 +11,29 @@
 #include"Core/Allocator/PoolAllocator.h"
 #include"Core/Allocator/DoubleBufferAllocator.h"
 
-// Math
-#include"Core/Math/Math.h"
-#include"Core/Math/Matrix.h"
-#include"Core/Math/Quaternion.h"
-#include"Core/Math/Vector2.h"
-#include"Core/Math/Vector3.h"
-#include"Core/Math/Vector4.h"
+// Types
+#include"Core/Types/Color.h"
 
-#include "Core/Thread/Thread.h"
-#include "Core/Time/Time.h"
+// Math
+#include"Core/Types/Math.h"
+#include"Core/Types/Matrix.h"
+#include"Core/Types/Quaternion.h"
+#include"Core/Types/Vector2.h"
+#include"Core/Types/Vector3.h"
+#include"Core/Types/Vector4.h"
+
+#include"Core/System/Window.h"
+#include"Core/Thread/Thread.h"
+#include"Core/Time/Time.h"
 
 // IO
 
 // Factory
 
 // Module
+#include"Core/System/ISystemModule.h"
 #include"Core/Graphics/GraphicsModule.h"
 #include"Core/Network/NetworkModule.h"
-
-// Graphics
-#include"Core/Graphics/Renderer.h"
 
 // System
 #include"Core/System/System.h"

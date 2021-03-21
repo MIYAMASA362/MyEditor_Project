@@ -29,7 +29,7 @@ namespace Platform
 			virtual ~VertexShader();
 
 			virtual void SetShaderResource() override;
-			virtual void SetInputLayout();
+			virtual void SetInputLayout() override;
 
 			virtual void Release() override;
 

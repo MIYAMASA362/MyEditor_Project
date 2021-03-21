@@ -1,8 +1,8 @@
 #include "Config.h"
 
 #include "Platform/Base/INetwork.h"
+#include "Platform/Base/IModule.h"
 #include "Platform/IO/DllLoader.h"
-#include "Platform/Module/Module.h"
 
 #include "Core/Network/NetworkModule.h"
 

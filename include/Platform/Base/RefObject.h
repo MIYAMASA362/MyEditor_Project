@@ -58,7 +58,8 @@ namespace Platform
 		Type* m_Ptr;
 
 	public:
-		Ref() : m_Ptr(new Type()) {};
+		template<typename... Args>
+		Ref(Args... args) : m_Ptr(new Type(std::forward<Args>(args)...)) {};
 
 		Type* ptr() noexcept { return m_Ptr; }
 

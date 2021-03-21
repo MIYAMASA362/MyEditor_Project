@@ -18,6 +18,7 @@ namespace Platform
 				desc.BindFlags = D3D11_BIND_INDEX_BUFFER;
 				desc.Usage = D3D11_USAGE_DEFAULT;
 				desc.CPUAccessFlags = 0;
+				desc.MiscFlags = 0;
 				desc.ByteWidth = size * indexNum;
 			}
 
@@ -33,7 +34,7 @@ namespace Platform
 		
 		IndexBuffer::~IndexBuffer()
 		{
-			ASSERT(m_Buffer != nullptr,"リソースの解放がされていません。");
+			ASSERT(m_Buffer == nullptr,"リソースの解放がされていません。");
 		}
 
 		void IndexBuffer::SetBufferResource(unsigned int offset)
@@ -43,7 +44,10 @@ namespace Platform
 
 		void IndexBuffer::Release()
 		{
-			if (m_Buffer) m_Buffer->Release();
+			if (m_Buffer) {
+				m_Buffer->Release();
+				m_Buffer = nullptr;
+			}
 		}
 
 	}// namespace Platform::Graphics

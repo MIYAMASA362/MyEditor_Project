@@ -3,6 +3,10 @@
 #ifndef ASSERT_H
 #define ASSERT_H
 
+#ifndef PLATFORM_LOGGER_H
+#include"Platform/Base/Logger.h"
+#endif
+
 //ƒvƒƒOƒ‰ƒ€’†’f
 #if defined(ENGINE_DEBUG)
 #define ABORT() DebugBreak()

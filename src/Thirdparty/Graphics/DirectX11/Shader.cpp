@@ -93,8 +93,8 @@ namespace Platform
 
 		VertexShader::~VertexShader()
 		{
-			ASSERT(m_Source != nullptr, "リソースの解放がされていません。");
-			ASSERT(m_Layout != nullptr, "リソースの解放がされていません。");
+			ASSERT(m_Source == nullptr, "リソースの解放がされていません。");
+			ASSERT(m_Layout == nullptr, "リソースの解放がされていません。");
 		}
 
 		void VertexShader::SetShaderResource()
@@ -109,8 +109,14 @@ namespace Platform
 
 		void VertexShader::Release()
 		{
-			if (m_Layout) m_Layout->Release();
-			if (m_Source) m_Source->Release();
+			if (m_Layout) {
+				m_Layout->Release();
+				m_Layout = nullptr;
+			}
+			if (m_Source) {
+				m_Source->Release();
+				m_Source = nullptr;
+			}
 		}
 
 
@@ -130,7 +136,7 @@ namespace Platform
 
 		PixelShader::~PixelShader()
 		{
-			ASSERT(m_Source != nullptr, "リソースの解放がされていません。");
+			ASSERT(m_Source == nullptr, "リソースの解放がされていません。");
 		}
 
 		void PixelShader::SetShaderResource()
@@ -140,7 +146,11 @@ namespace Platform
 
 		void PixelShader::Release()
 		{
-			if (m_Source) m_Source->Release();
+			if (m_Source)
+			{
+				m_Source->Release();
+				m_Source = nullptr;
+			}
 		}
 
 
