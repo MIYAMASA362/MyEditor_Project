@@ -163,13 +163,8 @@
     <ClInclude Include="..\..\include\Platform.h" />
     <ClInclude Include="..\..\include\Platform\Base\Assert.h" />
     <ClInclude Include="..\..\include\Platform\Base\BitFlags.h" />
-    <ClInclude Include="..\..\include\Platform\Base\IBuffer.h" />
-    <ClInclude Include="..\..\include\Platform\Base\IGraphics.h" />
-    <ClInclude Include="..\..\include\Platform\Base\IModule.h" />
     <ClInclude Include="..\..\include\Platform\Base\INetwork.h" />
     <ClInclude Include="..\..\include\Platform\Base\IRenderer.h" />
-    <ClInclude Include="..\..\include\Platform\Base\IResource.h" />
-    <ClInclude Include="..\..\include\Platform\Base\IShader.h" />
     <ClInclude Include="..\..\include\Platform\Base\Logger.h" />
     <ClInclude Include="..\..\include\Platform\Base\RefObject.h" />
     <ClInclude Include="..\..\include\Platform\Base\Result.h" />
@@ -178,7 +173,6 @@
     <ClInclude Include="..\..\include\Platform\Config.h" />
     <ClInclude Include="..\..\include\Platform\DesignPattern\Factory.h" />
     <ClInclude Include="..\..\include\Platform\DesignPattern\Singleton.h" />
-    <ClInclude Include="..\..\include\Platform\Detection.h" />
     <ClInclude Include="..\..\include\Platform\IO\DllLoader.h" />
     <ClInclude Include="..\..\include\Platform\IO\FileStream.h" />
     <ClInclude Include="..\..\include\Platform\IO\Path.h" />
@@ -186,6 +180,7 @@
     <ClInclude Include="..\..\include\Platform\IO\Stream.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Platform\Base\IRenderer.cpp" />
     <ClCompile Include="..\..\src\Platform\Base\Logger.cpp" />
     <ClCompile Include="..\..\src\Platform\Base\RefObject.cpp" />
     <ClCompile Include="..\..\src\Platform\Base\String.cpp" />

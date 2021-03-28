@@ -16,9 +16,6 @@
     <Filter Include="ヘッダー ファイル\Base">
       <UniqueIdentifier>{9b81bd04-7000-441b-a296-0023d7b09e8a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Base">
-      <UniqueIdentifier>{fd443678-049e-45bf-a665-d2bdd91a1c1d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\Component">
       <UniqueIdentifier>{69df7268-5400-4722-a318-3353dee54969}</UniqueIdentifier>
     </Filter>
@@ -42,9 +39,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\Engine\Base\System.h">
-      <Filter>ヘッダー ファイル\Base</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Engine.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -74,9 +68,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Engine\System.cpp">
-      <Filter>ソース ファイル\Base</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\Engine\Component\Component.cpp">
       <Filter>ソース ファイル\Component</Filter>
     </ClCompile>

@@ -6,6 +6,7 @@ namespace Core
 {
 	class Window
 	{
+		friend LRESULT WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 	public:
 		Window(
 			IN HINSTANCE hInstance,
@@ -19,22 +20,19 @@ namespace Core
 		);
 		virtual ~Window();
 
+		HWND GetHWnd();
+
+	private:
 		LRESULT localWndProc(
 			IN HWND hWnd, 
 			IN UINT uMsg,
 			IN WPARAM wParam,
 			IN LPARAM lParam
 		);
-
-		void SetProcParam(
-			IN HWND hWnd
-		);
 		
-	protected:
 		HWND m_hWnd;
 
 	};// class Window
-
 }// namespace Core
 
 #endif // ifndef CORE_WINDOW_H

@@ -13,15 +13,12 @@
 #define ENGINE_EXPORT
 
 #include"Platform/Config.h"
-#include"Platform/IO/Stream.h"
-#include"Platform/IO/FileStream.h"
 #include"Platform/Base/INetwork.h"
 #include"Platform/Base/Logger.h"
 #include"Platform/Base/Assert.h"
-#include"Platform/Base/IModule.h"
+#include"Platform/IO/Stream.h"
+#include"Platform/IO/FileStream.h"
 #include"Platform/IO/DllLoader.h"
-
-#include"Core/Network/NetworkModule.h"
 
 #include"Thirdparty/Network/Winsock/Winsock.h"
 #include"Thirdparty/Network/Winsock/Network.h"

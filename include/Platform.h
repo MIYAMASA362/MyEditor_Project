@@ -16,18 +16,11 @@
 #include"Platform/Base/Logger.h"
 #include"Platform/Base/Assert.h"
 #include"Platform/Base/Result.h"
+#include"Platform/Base/RefObject.h"
 
 // Platform Interface
-#include"Platform/Base/IResource.h"
-#include"Platform/Base/IShader.h"
-#include"Platform/Base/IBuffer.h"
-
-#include"Platform/Base/ISystem.h"
-#include"Platform/Base/IWindow.h"
 #include"Platform/Base/IRenderer.h"
-#include"Platform/Base/IGraphics.h"
 #include"Platform/Base/INetwork.h"
-#include"Platform/Base/IModule.h"
 
 // Platform IO
 #include"Platform/IO/DllLoader.h"

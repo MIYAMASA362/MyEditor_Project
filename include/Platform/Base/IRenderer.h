@@ -4,32 +4,58 @@
 
 namespace Platform
 {
-	namespace Graphics
+	struct RENDERER_DESC
 	{
-		namespace detail
-		{
-			/**
-			* @class    IRenderer
-			* @brief    Renderer Intarface
-			* 
-			*	éwíËóÃàÊì‡Ç≈ÇÃï`âÊèàóù
-			* 
-			* 
-			*/
-			class IRenderer
-			{
-			public:
-				IRenderer() = default;
-				virtual ~IRenderer() = default;
+		char* moduleName;
+		HWND hWnd;
+	};
 
-				virtual void clear() = 0;
-				virtual void begin() = 0;
-				virtual void end() = 0;
+	class IRenderer;
 
-			};//class IRenderer
+	class IRendererDevice
+	{
+	public:
+		IRendererDevice();
+		virtual ~IRendererDevice();
 
-		}//namespace Platform::Graphics::detail
-	}// namespace Platform::Graphics
-}//namespace Platform
+		virtual Result CreateRenderer(IRenderer**);
 
-#endif //ifndef PLATFORM_IRENDERER_H
+		virtual void Release() ENGINE_PURE;
+	};
+
+	class IRenderer
+	{
+	public:
+		IRenderer();
+		virtual ~IRenderer();
+
+		virtual void Clear() ENGINE_PURE;
+		virtual void Begin() ENGINE_PURE;
+		virtual void End() ENGINE_PURE;
+
+		virtual void Release() ENGINE_PURE;
+
+	private:
+
+
+	};// class IRenderer
+
+	Result CreateRendererDevice(
+		IN const char*,
+		OUT IRendererDevice**
+	);
+
+	Result CreateRenderer(
+		IN RENDERER_DESC* desc,
+		OUT IRenderer** output
+	);
+
+	namespace detail
+	{
+		typedef IRenderer* (*GetIRenderer)(RENDERER_DESC* desc);
+		EXTERN_C ENGINE_API IRenderer* getIRenderer();
+	}
+
+}// namespace Platform
+
+#endif // ifndef PLATFORM_IRENDERER_H

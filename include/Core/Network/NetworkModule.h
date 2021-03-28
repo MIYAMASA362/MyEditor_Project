@@ -10,11 +10,11 @@ namespace Core
 	{
 		namespace detail
 		{
-			typedef ::Platform::Network::detail::INetwork* (*GetNetworkInterface)();
-			EXTERN_C ENGINE_API ::Platform::Network::detail::INetwork* base_GetNetworkInterface();
+			typedef ::Platform::Network::INetwork* (*GetNetworkInterface)();
+			EXTERN_C ENGINE_API ::Platform::Network::INetwork* base_GetNetworkInterface();
 
-			typedef void(*ReleaseNetworkInterface)(::Platform::Network::detail::INetwork** instance);
-			EXTERN_C ENGINE_API void base_ReleaseNetworkInterface(::Platform::Network::detail::INetwork** instance);
+			typedef void(*ReleaseNetworkInterface)(::Platform::Network::INetwork** instance);
+			EXTERN_C ENGINE_API void base_ReleaseNetworkInterface(::Platform::Network::INetwork** instance);
 
 		}// namespace Core::Network::detail
 
@@ -22,7 +22,7 @@ namespace Core
 		* @class    NetworkModule
 		* @brief    ネットワークモジュール
 		*/
-		class NetworkModule : public ::Platform::detail::IModule
+		class NetworkModule
 		{
 		private:
 			::Platform::IO::DllLoader* m_dllLoader;
@@ -34,8 +34,8 @@ namespace Core
 			NetworkModule(const char* moduleName);
 			virtual ~NetworkModule();
 
-			void CreateNetwork(::Platform::Network::detail::INetwork** network);
-			void ReleaseNetwork(::Platform::Network::detail::INetwork** network);
+			void CreateNetwork(::Platform::Network::INetwork** network);
+			void ReleaseNetwork(::Platform::Network::INetwork** network);
 
 		};// class NetworkModule
 

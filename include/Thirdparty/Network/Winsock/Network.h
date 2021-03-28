@@ -7,8 +7,8 @@ namespace ThirdParty
 	namespace Core
 	{
 		using SocketInfo = ::Platform::Network::SocketInfo;
-		using ISocket = ::Platform::Network::detail::ISocket;
-		using INetwork = ::Platform::Network::detail::INetwork;
+		using ISocket = ::Platform::Network::ISocket;
+		using INetwork = ::Platform::Network::INetwork;
 
 		/**
 		* @class    Socket

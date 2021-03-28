@@ -1,24 +1,24 @@
 #include"pch.h"
 
-namespace Core
-{
-	namespace Network
-	{
-		namespace detail
-		{
-			EXTERN_C ENGINE_API ::Platform::Network::detail::INetwork* base_GetNetworkInterface()
-			{
-				return new ThirdParty::Core::WinsockNetwork();
-			}
-
-			EXTERN_C ENGINE_API void base_ReleaseNetworkInterface(::Platform::Network::detail::INetwork** instance)
-			{
-				delete dynamic_cast<ThirdParty::Core::WinsockNetwork*>(*instance);
-			}
-
-		}// namespace Core::Network::detail
-	}// namespace Core::Network
-}// namespace Core
+//namespace Core
+//{
+//	namespace Network
+//	{
+//		namespace detail
+//		{
+//			EXTERN_C ENGINE_API ::Platform::Network::detail::INetwork* base_GetNetworkInterface()
+//			{
+//				return new ThirdParty::Core::WinsockNetwork();
+//			}
+//
+//			EXTERN_C ENGINE_API void base_ReleaseNetworkInterface(::Platform::Network::detail::INetwork** instance)
+//			{
+//				delete dynamic_cast<ThirdParty::Core::WinsockNetwork*>(*instance);
+//			}
+//
+//		}// namespace Core::Network::detail
+//	}// namespace Core::Network
+//}// namespace Core
 
 namespace ThirdParty
 {

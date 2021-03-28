@@ -26,19 +26,6 @@
 #include"Core/Thread/Thread.h"
 #include"Core/Time/Time.h"
 
-// IO
-
-// Factory
-
-// Module
-#include"Core/System/ISystemModule.h"
-#include"Core/Graphics/GraphicsModule.h"
-#include"Core/Network/NetworkModule.h"
-
-// System
-#include"Core/System/System.h"
-
-
 // Lib
 #pragma comment(lib,"Core.lib")
 

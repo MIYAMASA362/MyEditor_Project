@@ -164,11 +164,8 @@
     <ClInclude Include="..\..\include\Core\Allocator\LinerAllocator.h" />
     <ClInclude Include="..\..\include\Core\Allocator\PoolAllocator.h" />
     <ClInclude Include="..\..\include\Core\Allocator\StackAllocator.h" />
-    <ClInclude Include="..\..\include\Core\Graphics\GraphicsModule.h" />
     <ClInclude Include="..\..\include\Core\Json\Json.h" />
-    <ClInclude Include="..\..\include\Core\Network\NetworkModule.h" />
-    <ClInclude Include="..\..\include\Core\System\ISystemModule.h" />
-    <ClInclude Include="..\..\include\Core\System\System.h" />
+    <ClInclude Include="..\..\include\Core\System\ICoreDevice.h" />
     <ClInclude Include="..\..\include\Core\System\Window.h" />
     <ClInclude Include="..\..\include\Core\Task\Task.h" />
     <ClInclude Include="..\..\include\Core\Thread\Thread.h" />
@@ -188,9 +185,6 @@
     <ClCompile Include="..\..\src\Core\Allocator\PoolAllocator.cpp" />
     <ClCompile Include="..\..\src\Core\Allocator\StackAllocator.cpp" />
     <ClCompile Include="..\..\src\Core\Graphics\GraphicsModule.cpp" />
-    <ClCompile Include="..\..\src\Core\Network\NetworkModule.cpp" />
-    <ClCompile Include="..\..\src\Core\System\ISystemModule.cpp" />
-    <ClCompile Include="..\..\src\Core\System\System.cpp" />
     <ClCompile Include="..\..\src\Core\System\Window.cpp" />
     <ClCompile Include="..\..\src\Core\Task\Task.cpp" />
     <ClCompile Include="..\..\src\Core\Thread\Thread.cpp" />

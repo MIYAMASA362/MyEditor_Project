@@ -25,8 +25,6 @@ namespace Platform
 			*/
 			class IStream
 			{
-			private:
-
 			protected:
 				IStream() = default;
 				virtual ~IStream() = default;

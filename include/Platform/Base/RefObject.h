@@ -4,66 +4,86 @@
 
 namespace Platform
 {
-	/**
-	* @class    RefObject
-	* @brief    参照オブジェクト
-	*
-	*	参照カウンタ方式
-	*
-	*
-	*/
 	class RefObject
 	{
+	public:
+
 	protected:
-		RefObject();
-		virtual ~RefObject();
+		RefObject() = default;
+		virtual ~RefObject() = default;
 
 	private:
-		RefObject(const RefObject&) = delete;
-
 		mutable u32 m_RefCount;
-		u32 m_Flags;
-
-		u32 retain();
-		void release();
-
-		friend class RefHelper;
-
-	public:
-		RefObject& operator=(RefObject&);
 
 	};// class RefObject
 
-	class RefHelper
-	{
-	public:
-		static void retain(RefObject* obj) {
-			obj->retain();
-		}
-
-		static void release(RefObject* obj) {
-			obj->release();
-		}
-
-	};// class RefHelper
-
 	/**
-	* @class    Ref
-	* @brief
+	* @class	Ref
+	* @brief	参照ポインタ
 	*/
-	template<class Type>
+	template<class T>
 	class Ref
 	{
-	private:
-		Type* m_Ptr;
-
+		template<class T,class... Args>
+	 	friend static void CreateRef(Ref<T>& target, Args... args);
 	public:
-		template<typename... Args>
-		Ref(Args... args) : m_Ptr(new Type(std::forward<Args>(args)...)) {};
+		Ref();
+		virtual ~Ref();
 
-		Type* ptr() noexcept { return m_Ptr; }
+		void Release();
+		void Swap(Ref<T>& obj);
+
+		T* operator->() const noexcept;
+
+
+	private:
+		T* m_Source;
 
 	};// class Ref
+
+	template<class T>
+	Ref<T>::Ref()
+		:
+		m_Source(nullptr)
+	{
+		
+	}
+
+	template<class T>
+	Ref<T>::~Ref()
+	{
+		if (m_Source != nullptr) {
+			delete m_Source;
+			m_Source = nullptr;
+		}
+	}
+
+	template<class T>
+	T* Ref<T>::operator->() const noexcept
+	{
+		return m_Source;
+	}
+
+	template<class T>
+	void Ref<T>::Release()
+	{
+		delete m_Source;
+		m_Source = nullptr;
+	}
+
+	template<class T>
+	void Ref<T>::Swap(Ref<T>& obj)
+	{
+		delete m_Source;
+		m_Source = obj.m_Source;
+	}
+
+	template<class T,class... Args>
+	static void CreateRef(Ref<T>& target, Args... args) 
+	{
+		target.m_Source = new T(std::forward<Args>(args)...);
+	}
+
 
 }// namespace Platform
 

@@ -1,7 +1,6 @@
 #include "Config.h"
 
 #include "Platform/Base/INetwork.h"
-#include "Platform/Base/IModule.h"
 #include "Platform/IO/DllLoader.h"
 
 #include "Core/Network/NetworkModule.h"
@@ -23,12 +22,12 @@ namespace Core
 			delete m_dllLoader;
 		}
 
-		void NetworkModule::CreateNetwork(::Platform::Network::detail::INetwork ** network)
+		void NetworkModule::CreateNetwork(::Platform::Network::INetwork ** network)
 		{
 			*network = get();
 		}
 
-		void NetworkModule::ReleaseNetwork(::Platform::Network::detail::INetwork ** instance)
+		void NetworkModule::ReleaseNetwork(::Platform::Network::INetwork ** instance)
 		{
 			release(instance);
 		}

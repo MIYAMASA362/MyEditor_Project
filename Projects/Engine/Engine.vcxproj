@@ -160,7 +160,6 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\Engine.h" />
     <ClInclude Include="..\..\include\Engine\Base\MemoryManager.h" />
-    <ClInclude Include="..\..\include\Engine\Base\System.h" />
     <ClInclude Include="..\..\include\Engine\Component\Component.h" />
     <ClInclude Include="..\..\include\Engine\Component\ComponentManager.h" />
     <ClInclude Include="..\..\include\Engine\Entity\Entity.h" />
@@ -173,7 +172,6 @@
     <ClCompile Include="..\..\src\Engine\Component\Component.cpp" />
     <ClCompile Include="..\..\src\Engine\Component\ComponentManager.cpp" />
     <ClCompile Include="..\..\src\Engine\Renderer\Renderer.cpp" />
-    <ClCompile Include="..\..\src\Engine\System.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

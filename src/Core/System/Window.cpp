@@ -10,9 +10,6 @@
 
 namespace Core
 {
-
-#ifdef ENGINE_WIN
-
 	LRESULT WndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 		Window* window = (Window*)GetWindowLongPtr(hWnd, GWLP_USERDATA);
@@ -21,7 +18,11 @@ namespace Core
 		{
 			window = (Window*)((LPCREATESTRUCT)lParam)->lpCreateParams;
 
-			if (window != nullptr) window->SetProcParam(hWnd);
+			if (window != nullptr)
+			{
+				SetWindowLongPtr(hWnd, GWLP_USERDATA, (LONG_PTR)window);
+				window->m_hWnd = hWnd;
+			}
 		}
 
 		if (window != nullptr) return window->localWndProc(hWnd, uMsg, wParam, lParam);
@@ -82,6 +83,10 @@ namespace Core
 
 	}
 
+	HWND Window::GetHWnd()
+	{
+		return m_hWnd;
+	}
 
 	LRESULT Window::localWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
@@ -112,13 +117,5 @@ namespace Core
 
 		return 0;
 	}
-
-	void Window::SetProcParam(HWND hWnd)
-	{
-		SetWindowLongPtr(hWnd, GWLP_USERDATA, (LONG_PTR)this);
-		this->m_hWnd = hWnd;
-	}
-
-#endif // ifdef ENGINE_WIN
 
 }// namespace Core

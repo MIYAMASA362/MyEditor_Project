@@ -19,9 +19,6 @@
     <Filter Include="ヘッダー ファイル\DesignPattern">
       <UniqueIdentifier>{2d576d4d-eaa8-4fce-beef-dcb407622a8b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\Base\Interface">
-      <UniqueIdentifier>{960dbf2f-dd39-437a-a581-b75aacc72623}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Base">
       <UniqueIdentifier>{da83a593-a0a7-463e-a95f-3840724ad9e8}</UniqueIdentifier>
     </Filter>
@@ -30,15 +27,6 @@
     </Filter>
     <Filter Include="ソース ファイル\IO">
       <UniqueIdentifier>{9771febf-faa7-4a8c-ba8a-ae96b69cd88e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Base\Interface\Resource">
-      <UniqueIdentifier>{b9054717-8b5b-4ec1-aab2-3d3470b4545d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Base\Types">
-      <UniqueIdentifier>{4c8eeede-0545-4f05-8ccb-5c51929a81a7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ヘッダー ファイル\Base\Interface\Graphics">
-      <UniqueIdentifier>{66efd3a1-e8f3-44e5-9686-8e1f4f626efb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -69,50 +57,32 @@
     <ClInclude Include="..\..\include\Platform\IO\Stream.h">
       <Filter>ヘッダー ファイル\IO</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\IShader.h">
-      <Filter>ヘッダー ファイル\Base\Interface\Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\IResource.h">
-      <Filter>ヘッダー ファイル\Base\Interface\Resource</Filter>
+    <ClInclude Include="..\..\include\Platform\Base\INetwork.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\StringHelper.h">
-      <Filter>ヘッダー ファイル\Base\Types</Filter>
+      <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\Assert.h">
-      <Filter>ヘッダー ファイル\Base\Types</Filter>
+      <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\BitFlags.h">
-      <Filter>ヘッダー ファイル\Base\Types</Filter>
+      <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\Logger.h">
-      <Filter>ヘッダー ファイル\Base\Types</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\Result.h">
-      <Filter>ヘッダー ファイル\Base\Types</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\String.h">
-      <Filter>ヘッダー ファイル\Base\Types</Filter>
+      <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\RefObject.h">
-      <Filter>ヘッダー ファイル\Base\Types</Filter>
+      <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\IBuffer.h">
-      <Filter>ヘッダー ファイル\Base\Interface\Resource</Filter>
+    <ClInclude Include="..\..\include\Platform\Base\Result.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\IGraphics.h">
-      <Filter>ヘッダー ファイル\Base\Interface\Graphics</Filter>
+    <ClInclude Include="..\..\include\Platform\Base\String.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Platform\Base\IRenderer.h">
-      <Filter>ヘッダー ファイル\Base\Interface\Graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\INetwork.h">
-      <Filter>ヘッダー ファイル\Base\Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Base\IModule.h">
-      <Filter>ヘッダー ファイル\Base\Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Platform\Detection.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +105,9 @@
       <Filter>ソース ファイル\IO</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\Platform\Base\RefObject.cpp">
+      <Filter>ソース ファイル\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Platform\Base\IRenderer.cpp">
       <Filter>ソース ファイル\Base</Filter>
     </ClCompile>
   </ItemGroup>

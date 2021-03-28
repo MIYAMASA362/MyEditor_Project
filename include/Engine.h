@@ -2,8 +2,6 @@
 #ifndef ENGINE_H
 #define ENGINE_H
 
-#include"Engine/Base/System.h"
-
 #include"Engine/Component/Component.h"
 #include"Engine/Component/ComponentManager.h"
 
