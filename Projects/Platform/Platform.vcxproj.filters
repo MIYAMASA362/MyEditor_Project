@@ -84,6 +84,9 @@
     <ClInclude Include="..\..\include\Platform\Base\IRenderer.h">
       <Filter>ヘッダー ファイル\Base</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\Platform\Base\IResource.h">
+      <Filter>ヘッダー ファイル\Base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Platform\Base\Logger.cpp">
@@ -108,6 +111,9 @@
       <Filter>ソース ファイル\Base</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\Platform\Base\IRenderer.cpp">
+      <Filter>ソース ファイル\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Platform\Base\IResource.cpp">
       <Filter>ソース ファイル\Base</Filter>
     </ClCompile>
   </ItemGroup>

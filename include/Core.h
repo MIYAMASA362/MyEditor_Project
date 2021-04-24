@@ -13,6 +13,9 @@
 
 // Types
 #include"Core/Types/Color.h"
+#include"Core/System/Window.h"
+#include"Core/System/IModule.h"
+#include"Core/System/RendererModule.h"
 
 // Math
 #include"Core/Types/Math.h"

@@ -167,11 +167,14 @@ xcopy /y /d "$(OutDir)$(TargetName).lib" "..\..\lib\$(IntDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\DeviceContext.h" />
     <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\DirectX11.h" />
+    <ClInclude Include="..\..\include\Thirdparty\Graphics\DirectX11\Renderer.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\DirectX11.cpp" />
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\DeviceContext.cpp" />
+    <ClCompile Include="..\..\src\Thirdparty\Graphics\DirectX11\Renderer.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>

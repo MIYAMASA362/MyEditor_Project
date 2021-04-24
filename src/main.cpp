@@ -31,7 +31,7 @@
 *
 *
 */
-int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
+int APIENTRY WinMain(_In_ HINSTANCE hInstance,_In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow)
 {
 	Result result(false);
 
@@ -44,12 +44,22 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		WS_OVERLAPPEDWINDOW
 	);
 
-	Platform::RENDERER_DESC desc;
-	desc.moduleName = (LPSTR)"DirectX11.dll";
-	desc.hWnd = window.GetHWnd();
+	// RendererModule
+	Core::RendererModule rendererModule("DirectX11.dll");
 
+	// RendererDevice
+	Platform::IRendererDevice* device;
+	result = rendererModule.CreateRendererDevice(&device);
+	if (!result) return 0;
+
+	// Renderer
 	Platform::IRenderer* renderer;
-	Platform::CreateRenderer(&desc,&renderer);
+	result = device->CreateRenderer(window.GetHWnd(),&renderer);
+	if(!result)
+	{
+		device->Release();
+		return 0;
+	}
 
 	MSG msg;
 
@@ -69,7 +79,6 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 			// ゲームオブジェクトの更新
 
 			// 描画
-
 			renderer->Clear();
 			renderer->Begin();
 
@@ -79,6 +88,8 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	}
 
 	renderer->Release();
+
+	device->Release();
 
 	return (int)msg.wParam;
 }

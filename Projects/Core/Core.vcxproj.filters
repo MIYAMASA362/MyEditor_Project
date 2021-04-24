@@ -43,6 +43,15 @@
     <Filter Include="ヘッダー ファイル\Types">
       <UniqueIdentifier>{ea39f2bb-cd68-4d2d-b4dc-7cf65b845f9c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Module">
+      <UniqueIdentifier>{cae4a59e-02a1-4a22-b099-9754f521e13f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\IModule">
+      <UniqueIdentifier>{1da0709d-2835-44b4-bb6d-4621c4d88a6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Resource">
+      <UniqueIdentifier>{3ebeeb95-d9dd-4614-85b6-ab652a9045b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Core\Allocator\DoubleBufferAllocator.h">
@@ -105,6 +114,15 @@
     <ClInclude Include="..\..\include\Core\System\ICoreDevice.h">
       <Filter>ヘッダー ファイル\System</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\Core\System\IModule.h">
+      <Filter>ヘッダー ファイル\IModule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\System\RendererModule.h">
+      <Filter>ヘッダー ファイル\IModule</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Core\Resource\ResourceManager.h">
+      <Filter>ヘッダー ファイル\Resource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\Core\Allocator\DoubleBufferAllocator.cpp">
@@ -128,8 +146,11 @@
     <ClCompile Include="..\..\src\Core\System\Window.cpp">
       <Filter>ソース ファイル\System</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\Core\Graphics\GraphicsModule.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="..\..\src\Core\System\IModule.cpp">
+      <Filter>ソース ファイル\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Core\System\RendererModule.cpp">
+      <Filter>ソース ファイル\Module</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

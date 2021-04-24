@@ -4,56 +4,59 @@
 
 namespace Platform
 {
+	namespace IO
+	{
+		class DllLoader;
+	}
+}
+
+namespace Platform
+{
 	struct RENDERER_DESC
 	{
 		char* moduleName;
 		HWND hWnd;
 	};
 
-	class IRenderer;
-
-	class IRendererDevice
-	{
-	public:
-		IRendererDevice();
-		virtual ~IRendererDevice();
-
-		virtual Result CreateRenderer(IRenderer**);
-
-		virtual void Release() ENGINE_PURE;
-	};
-
+	/**
+	* @class    IRenderer
+	* @brief
+	*/
 	class IRenderer
 	{
 	public:
-		IRenderer();
-		virtual ~IRenderer();
-
 		virtual void Clear() ENGINE_PURE;
 		virtual void Begin() ENGINE_PURE;
 		virtual void End() ENGINE_PURE;
-
 		virtual void Release() ENGINE_PURE;
 
-	private:
-
+	protected:
+		IRenderer();
+		virtual ~IRenderer();
 
 	};// class IRenderer
 
-	Result CreateRendererDevice(
-		IN const char*,
-		OUT IRendererDevice**
-	);
+	/**
+	* @class    IRendererDevice
+	* @brief    ï`âÊã§í ê›íË
+	*/
+	class IRendererDevice
+	{
+	public:
+		virtual Result CreateRenderer(HWND, IRenderer**) ENGINE_PURE;
+		virtual void Release() ENGINE_PURE;
 
-	Result CreateRenderer(
-		IN RENDERER_DESC* desc,
-		OUT IRenderer** output
-	);
+	protected:
+		IRendererDevice();
+		virtual ~IRendererDevice();
 
+	};// class IRendererDevice
+
+	// Dll
 	namespace detail
 	{
-		typedef IRenderer* (*GetIRenderer)(RENDERER_DESC* desc);
-		EXTERN_C ENGINE_API IRenderer* getIRenderer();
+		typedef IRendererDevice* (*GetIRendererDevice)();
+		EXTERN_C ENGINE_API IRendererDevice* getIRendererDevice();
 	}
 
 }// namespace Platform

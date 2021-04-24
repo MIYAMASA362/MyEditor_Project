@@ -7,6 +7,18 @@
 
 namespace Platform
 {
+	using namespace detail;
+
+	IRendererDevice::IRendererDevice()
+	{
+
+	}
+
+	IRendererDevice::~IRendererDevice()
+	{
+
+	}
+
 	IRenderer::IRenderer()
 	{
 
@@ -14,23 +26,7 @@ namespace Platform
 
 	IRenderer::~IRenderer()
 	{
-	}
 
-	Result CreateRenderer(IN RENDERER_DESC* desc, OUT IRenderer** output)
-	{
-		IO::DllLoader dllLoader(desc->moduleName);
-
-		detail::GetIRenderer get = (detail::GetIRenderer)dllLoader.getProcess(TO_STRING(detail::getIRenderer));
-
-		IRenderer* result = nullptr;
-
-		result = get(desc);
-
-		if (result == nullptr) return Result(false);
-
-		(*output) = result;
-
-		return Result(true);
 	}
 
 }// namespace Platform
